@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view.
 
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    swipe.direction = UISwipeGestureRecognizerDirectionUp;
     [swipe setDelegate:self];
     [self.view addGestureRecognizer:swipe];
 
@@ -40,48 +40,41 @@
     // hack: difficult to position the buttons and views exactly so do it programmatically for each screen size
 
     // iphone 6+
-    if (_appDelegate.window.bounds.size.width == 736) {
-        constraintFlashOffsetTop.constant = 105;
-        constraintFlashOffsetRight.constant = 220;
-        constraintAdvanceOffsetTop.constant = 32;
-        constraintAdvanceOffsetRight.constant = -15;
+    if (_appDelegate.window.bounds.size.height == 736) {
+        constraintFlashOffsetTop.constant = 234;
+        constraintFlashOffsetRight.constant = 228;
+        constraintAdvanceOffsetTop.constant = 3;
+        constraintAdvanceOffsetRight.constant = -296;
     }
 
     // iphone 6
-    else if (_appDelegate.window.bounds.size.width == 667) {
-        constraintFlashOffsetTop.constant = 98;
-        constraintFlashOffsetRight.constant = 205;
-        constraintAdvanceOffsetTop.constant = 19;
-        constraintAdvanceOffsetRight.constant = -8;
+    if (_appDelegate.window.bounds.size.height == 667) {
+        constraintFlashOffsetTop.constant = 200;
+        constraintFlashOffsetRight.constant = 203;
+        constraintAdvanceOffsetTop.constant = -10;
+        constraintAdvanceOffsetRight.constant = -270;
     }
 
     // iphone 5/5s
-    else if (_appDelegate.window.bounds.size.width == 568) {
-        constraintFlashOffsetTop.constant = 76;
-        constraintFlashOffsetRight.constant = 178;
-        constraintAdvanceOffsetTop.constant = 20;
-        constraintAdvanceOffsetRight.constant = 0;
+    if (_appDelegate.window.bounds.size.height == 568) {
+        constraintFlashOffsetTop.constant = 170;
+        constraintFlashOffsetRight.constant = 170;
+        constraintAdvanceOffsetTop.constant = -10;
+        constraintAdvanceOffsetRight.constant = -220;
     }
 
     // iphone 4/4s
-    else if (_appDelegate.window.bounds.size.width == 480) {
-        constraintFlashOffsetTop.constant = 85;
-        constraintFlashOffsetRight.constant = 142;
-        constraintAdvanceOffsetTop.constant = 28;
-        constraintAdvanceOffsetRight.constant = 0;
+    else if (_appDelegate.window.bounds.size.height == 480) {
+        constraintFlashOffsetTop.constant = 139;
+        constraintFlashOffsetRight.constant = 158;
+        constraintAdvanceOffsetTop.constant = -24;
+        constraintAdvanceOffsetRight.constant = -211;
     }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSUInteger) supportedInterfaceOrientations
-{
-    //Because your app is only landscape, your view controller for the view in your
-    // popover needs to support only landscape
-    return UIInterfaceOrientationMaskLandscapeLeft;
 }
 
 #pragma mark buttons
@@ -166,6 +159,31 @@
     if (advancedCount > 0) {
         [self playAdvance];
         advancedCount--;
+
+        [self doScrollAnimation];
+    }
+}
+
+-(void)doScrollAnimation {
+    [scrollImage2 setHidden:NO];
+    [self performSelector:@selector(doScroll3) withObject:nil afterDelay:.1];
+}
+
+-(void)doScroll3 {
+    [scrollImage3 setHidden:NO];
+    [self performSelector:@selector(endScroll) withObject:nil afterDelay:.1];
+}
+
+-(void)endScroll {
+    static BOOL repeat = YES;
+    [scrollImage2 setHidden:YES];
+    [scrollImage3 setHidden:YES];
+    if (repeat) {
+        repeat = NO;
+        [self performSelector:@selector(doScrollAnimation) withObject:nil afterDelay:.1];
+    }
+    else {
+        repeat = YES;
     }
 }
 

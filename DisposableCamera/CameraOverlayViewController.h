@@ -21,6 +21,9 @@
     IBOutlet NSLayoutConstraint *constraintFlashOffsetRight;
     IBOutlet NSLayoutConstraint *constraintAdvanceOffsetTop;
     IBOutlet NSLayoutConstraint *constraintAdvanceOffsetRight;
+
+    IBOutlet UIImageView *scrollImage2;
+    IBOutlet UIImageView *scrollImage3;
 }
 
 -(IBAction)didClickButtonFlash:(id)sender;

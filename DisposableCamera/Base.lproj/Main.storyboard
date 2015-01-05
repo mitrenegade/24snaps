@@ -35,44 +35,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camBack" translatesAutoresizingMaskIntoConstraints="NO" id="lAd-VB-51p">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camBackLeft" translatesAutoresizingMaskIntoConstraints="NO" id="lAd-VB-51p">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHq-Ce-BqI">
-                                <rect key="frame" x="375" y="105" width="67" height="61"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camFlashLeft" translatesAutoresizingMaskIntoConstraints="NO" id="Tnz-Zm-zJf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="67" id="Cw4-Bi-nuf"/>
-                                    <constraint firstAttribute="height" constant="61" id="OWX-8j-G6n"/>
-                                </constraints>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didClickButtonFlash:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ocH-ef-7Oy"/>
-                                </connections>
-                            </button>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camScroll2Left" translatesAutoresizingMaskIntoConstraints="NO" id="MPs-sY-HNs">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camScroll3Left" translatesAutoresizingMaskIntoConstraints="NO" id="1Zl-5N-bMP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xv3-cn-EbN">
-                                <rect key="frame" x="450" y="58" width="134" height="54"/>
+                                <rect key="frame" x="313" y="6" width="60" height="140"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="SJ2-3q-R1T"/>
-                                    <constraint firstAttribute="width" constant="134" id="YHz-XC-06h"/>
+                                    <constraint firstAttribute="height" constant="140" id="SJ2-3q-R1T"/>
+                                    <constraint firstAttribute="width" constant="60" id="YHz-XC-06h"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camFlash" translatesAutoresizingMaskIntoConstraints="NO" id="Tnz-Zm-zJf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camScroll2" translatesAutoresizingMaskIntoConstraints="NO" id="MPs-sY-HNs">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camScroll3" translatesAutoresizingMaskIntoConstraints="NO" id="1Zl-5N-bMP" userLabel="camScroll3">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-lP-dEw">
                                 <rect key="frame" x="538" y="0.0" width="46" height="30"/>
                                 <constraints>
@@ -86,23 +72,37 @@
                                     <action selector="didClickCapture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IHM-T6-zeF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHq-Ce-BqI">
+                                <rect key="frame" x="359" y="159" width="67" height="61"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="67" id="Cw4-Bi-nuf"/>
+                                    <constraint firstAttribute="height" constant="61" id="OWX-8j-G6n"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickButtonFlash:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ocH-ef-7Oy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lAd-VB-51p" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="7LM-kg-RyT"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Tnz-Zm-zJf" secondAttribute="bottom" id="BZw-t3-F9Q"/>
-                            <constraint firstItem="Xv3-cn-EbN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="EB4-5s-crx"/>
+                            <constraint firstItem="Xv3-cn-EbN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" constant="-211" id="EB4-5s-crx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Zl-5N-bMP" secondAttribute="trailing" constant="-16" id="FNE-it-LNG"/>
-                            <constraint firstItem="Xv3-cn-EbN" firstAttribute="top" secondItem="l5b-lP-dEw" secondAttribute="bottom" constant="28" id="He7-nd-MjB"/>
+                            <constraint firstItem="Xv3-cn-EbN" firstAttribute="top" secondItem="l5b-lP-dEw" secondAttribute="bottom" constant="-24" id="He7-nd-MjB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MPs-sY-HNs" secondAttribute="trailing" constant="-16" id="N1o-Ch-Ewa"/>
                             <constraint firstItem="Tnz-Zm-zJf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="OVx-FL-bEW"/>
                             <constraint firstItem="MPs-sY-HNs" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="RHf-oQ-UF5"/>
                             <constraint firstItem="lAd-VB-51p" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Vmm-Pe-dHW"/>
                             <constraint firstItem="1Zl-5N-bMP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ZPG-J7-1E7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xHq-Ce-BqI" secondAttribute="trailing" constant="142" id="ZrR-TH-7qt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xHq-Ce-BqI" secondAttribute="trailing" constant="158" id="ZrR-TH-7qt"/>
                             <constraint firstItem="l5b-lP-dEw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="522" id="bL1-k9-qY2"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lAd-VB-51p" secondAttribute="bottom" id="dsG-e6-Kr7"/>
-                            <constraint firstItem="xHq-Ce-BqI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="85" id="ez9-gm-NJw"/>
+                            <constraint firstItem="xHq-Ce-BqI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="139" id="ez9-gm-NJw"/>
                             <constraint firstItem="Tnz-Zm-zJf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="f7j-BG-x0c"/>
                             <constraint firstItem="1Zl-5N-bMP" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="hAc-RB-eTa"/>
                             <constraint firstAttribute="trailing" secondItem="lAd-VB-51p" secondAttribute="trailing" id="hv9-ub-IiA"/>
@@ -119,18 +119,20 @@
                         <outlet property="constraintAdvanceOffsetTop" destination="He7-nd-MjB" id="rJE-9p-diY"/>
                         <outlet property="constraintFlashOffsetRight" destination="ZrR-TH-7qt" id="qJn-R1-wJr"/>
                         <outlet property="constraintFlashOffsetTop" destination="ez9-gm-NJw" id="VwA-F0-Gta"/>
+                        <outlet property="scrollImage2" destination="MPs-sY-HNs" id="CZC-QQ-KVZ"/>
+                        <outlet property="scrollImage3" destination="1Zl-5N-bMP" id="MeV-38-qfz"/>
                         <outlet property="viewFilmAdvance" destination="Xv3-cn-EbN" id="Ec0-80-RV9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="431" y="419"/>
+            <point key="canvasLocation" x="431" y="333"/>
         </scene>
     </scenes>
     <resources>
-        <image name="camBack" width="666" height="327"/>
-        <image name="camFlash" width="666" height="327"/>
-        <image name="camScroll2" width="666" height="327"/>
-        <image name="camScroll3" width="666" height="327"/>
+        <image name="camBackLeft" width="327" height="666"/>
+        <image name="camFlashLeft" width="327" height="666"/>
+        <image name="camScroll2Left" width="327" height="666"/>
+        <image name="camScroll3Left" width="327" height="666"/>
     </resources>
 </document>

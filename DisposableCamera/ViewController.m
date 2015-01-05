@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "CameraOverlayViewController.h"
-#import "UIImagePickerController+Landscape.h"
 
 @interface ViewController ()
 @end
@@ -30,13 +29,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSUInteger) supportedInterfaceOrientations
-{
-    //Because your app is only landscape, your view controller for the view in your
-    // popover needs to support only landscape
-    return UIInterfaceOrientationMaskLandscapeLeft;
 }
 
 #pragma mark Camera
@@ -66,10 +58,15 @@
 //    _picker.cameraViewTransform = CGAffineTransformRotate(_picker.cameraViewTransform, M_PI_2);
 
 //    [controller.view addSubview:_picker.view];
-    [controller presentViewController:_picker animated:NO completion:nil];
-
     overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlayViewController"];
-    [_picker setCameraOverlayView:overlayController.view];
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [controller presentViewController:_picker animated:NO completion:nil];
+        [_picker setCameraOverlayView:overlayController.view];
+    }
+    else {
+        [controller presentViewController:overlayController animated:NO completion:nil];
+    }
 }
 
 @end
