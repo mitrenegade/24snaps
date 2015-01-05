@@ -412,6 +412,7 @@
 				9EE1AA981A51F64D006A54AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9EE1AA991A51F64D006A54AC /* Build configuration list for PBXNativeTarget "DisposableCameraTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +421,7 @@
 				9EE1AA9B1A51F64D006A54AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

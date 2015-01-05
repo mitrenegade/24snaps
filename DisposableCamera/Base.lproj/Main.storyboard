@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,52 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camBack" translatesAutoresizingMaskIntoConstraints="NO" id="lAd-VB-51p">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camFlash" translatesAutoresizingMaskIntoConstraints="NO" id="Tnz-Zm-zJf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camScroll2" translatesAutoresizingMaskIntoConstraints="NO" id="MPs-sY-HNs">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camScroll3" translatesAutoresizingMaskIntoConstraints="NO" id="1Zl-5N-bMP" userLabel="camScroll3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lAd-VB-51p" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="7LM-kg-RyT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Tnz-Zm-zJf" secondAttribute="bottom" id="BZw-t3-F9Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Zl-5N-bMP" secondAttribute="trailing" constant="-16" id="FNE-it-LNG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MPs-sY-HNs" secondAttribute="trailing" constant="-16" id="N1o-Ch-Ewa"/>
+                            <constraint firstItem="Tnz-Zm-zJf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="OVx-FL-bEW"/>
+                            <constraint firstItem="MPs-sY-HNs" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="RHf-oQ-UF5"/>
+                            <constraint firstItem="lAd-VB-51p" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Vmm-Pe-dHW"/>
+                            <constraint firstItem="1Zl-5N-bMP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ZPG-J7-1E7"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lAd-VB-51p" secondAttribute="bottom" id="dsG-e6-Kr7"/>
+                            <constraint firstItem="Tnz-Zm-zJf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="f7j-BG-x0c"/>
+                            <constraint firstItem="1Zl-5N-bMP" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="hAc-RB-eTa"/>
+                            <constraint firstAttribute="trailing" secondItem="lAd-VB-51p" secondAttribute="trailing" id="hv9-ub-IiA"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="1Zl-5N-bMP" secondAttribute="bottom" id="ia8-5D-jkb"/>
+                            <constraint firstItem="MPs-sY-HNs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="lb9-ZQ-gdA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tnz-Zm-zJf" secondAttribute="trailing" constant="-16" id="o5c-oS-BGv"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MPs-sY-HNs" secondAttribute="bottom" id="wfP-Ow-1s0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="431" y="419"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camBack" width="666" height="327"/>
+        <image name="camFlash" width="666" height="327"/>
+        <image name="camScroll2" width="666" height="327"/>
+        <image name="camScroll3" width="666" height="327"/>
+    </resources>
 </document>
