@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E3A7BE21A5A3BD90024D640 /* cameraClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */; };
+		9E3A7BE31A5A3BD90024D640 /* cameraFilmAdvance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */; };
+		9E3A7BE61A5A3D430024D640 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */; };
+		9E3A7BE81A5A3F8A0024D640 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3A7BE71A5A3F8A0024D640 /* AudioToolbox.framework */; };
+		9E3A7BEB1A5A406A0024D640 /* cameraClickFlash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BE91A5A406A0024D640 /* cameraClickFlash.mp3 */; };
+		9E3A7BEC1A5A406A0024D640 /* cameraFlash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BEA1A5A406A0024D640 /* cameraFlash.mp3 */; };
 		9EE1AA791A51F64D006A54AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA781A51F64D006A54AC /* main.m */; };
 		9EE1AA7C1A51F64D006A54AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA7B1A51F64D006A54AC /* AppDelegate.m */; };
 		9EE1AA7F1A51F64D006A54AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA7E1A51F64D006A54AC /* ViewController.m */; };
@@ -27,6 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClick.mp3; sourceTree = "<group>"; };
+		9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFilmAdvance.mp3; sourceTree = "<group>"; };
+		9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9E3A7BE71A5A3F8A0024D640 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9E3A7BE91A5A406A0024D640 /* cameraClickFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClickFlash.mp3; sourceTree = SOURCE_ROOT; };
+		9E3A7BEA1A5A406A0024D640 /* cameraFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFlash.mp3; sourceTree = SOURCE_ROOT; };
 		9EE1AA731A51F64D006A54AC /* DisposableCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisposableCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1AA771A51F64D006A54AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EE1AA781A51F64D006A54AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3A7BE81A5A3F8A0024D640 /* AudioToolbox.framework in Frameworks */,
+				9E3A7BE61A5A3D430024D640 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +74,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E3A7BDC1A5A3B770024D640 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */,
+				9E3A7BE91A5A406A0024D640 /* cameraClickFlash.mp3 */,
+				9E3A7BEA1A5A406A0024D640 /* cameraFlash.mp3 */,
+				9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		9EE1AA6A1A51F64D006A54AC = {
 			isa = PBXGroup;
 			children = (
+				9E3A7BE71A5A3F8A0024D640 /* AudioToolbox.framework */,
+				9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */,
 				9EE1AA751A51F64D006A54AC /* DisposableCamera */,
 				9EE1AA8F1A51F64D006A54AC /* DisposableCameraTests */,
 				9EE1AA741A51F64D006A54AC /* Products */,
@@ -96,6 +123,7 @@
 		9EE1AA761A51F64D006A54AC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E3A7BDC1A5A3B770024D640 /* Sounds */,
 				9EE1AA771A51F64D006A54AC /* Info.plist */,
 				9EE1AA781A51F64D006A54AC /* main.m */,
 			);
@@ -199,7 +227,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3A7BE21A5A3BD90024D640 /* cameraClick.mp3 in Resources */,
+				9E3A7BEB1A5A406A0024D640 /* cameraClickFlash.mp3 in Resources */,
 				9EE1AA821A51F64D006A54AC /* Main.storyboard in Resources */,
+				9E3A7BE31A5A3BD90024D640 /* cameraFilmAdvance.mp3 in Resources */,
+				9E3A7BEC1A5A406A0024D640 /* cameraFlash.mp3 in Resources */,
 				9EE1AA871A51F64D006A54AC /* LaunchScreen.xib in Resources */,
 				9EE1AA841A51F64D006A54AC /* Images.xcassets in Resources */,
 			);

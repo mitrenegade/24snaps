@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    IBOutlet UIButton *buttonFlash;
+    IBOutlet UIView *viewFilmAdvance;
+    BOOL flash;
+}
 
-
+-(IBAction)didClickButtonFlash:(id)sender;
+-(IBAction)didClickCapture:(id)sender;
 @end
 
