@@ -30,8 +30,6 @@
     [swipe setDelegate:self];
     [self.view addGestureRecognizer:swipe];
 
-    advancedCount = 6;
-
     NSLog(@"Window bounds: %f %f", _appDelegate.window.bounds.size.width, _appDelegate.window.bounds.size.height);
     NSLog(@"Flash: %f %f", constraintFlashOffsetTop.constant, constraintFlashOffsetRight.constant);
     NSLog(@"Advance: %f %f", constraintAdvanceOffsetTop.constant, constraintAdvanceOffsetRight.constant);
@@ -45,7 +43,7 @@
         constraintFlashOffsetRight.constant = 228;
         constraintAdvanceOffsetTop.constant = 3;
         constraintAdvanceOffsetRight.constant = -296;
-        constraintCaptureOffsetTop.constant = 50;
+        constraintCaptureOffsetTop.constant = 70;
         constraintCaptureOffsetRight.constant = 40;
     }
 
@@ -55,7 +53,7 @@
         constraintFlashOffsetRight.constant = 203;
         constraintAdvanceOffsetTop.constant = -10;
         constraintAdvanceOffsetRight.constant = -270;
-        constraintCaptureOffsetTop.constant = 40;
+        constraintCaptureOffsetTop.constant = 60;
         constraintCaptureOffsetRight.constant = 28;
     }
 
@@ -65,7 +63,7 @@
         constraintFlashOffsetRight.constant = 170;
         constraintAdvanceOffsetTop.constant = -10;
         constraintAdvanceOffsetRight.constant = -220;
-        constraintCaptureOffsetTop.constant = 28;
+        constraintCaptureOffsetTop.constant = 48;
         constraintCaptureOffsetRight.constant = 26;
     }
 
@@ -75,11 +73,13 @@
         constraintFlashOffsetRight.constant = 158;
         constraintAdvanceOffsetTop.constant = -24;
         constraintAdvanceOffsetRight.constant = -211;
-        constraintCaptureOffsetTop.constant = 16;
+        constraintCaptureOffsetTop.constant = 36;
         constraintCaptureOffsetRight.constant = 36;
     }
 
     [self toggleFlash:NO];
+    [self toggleCapture:NO];
+    advancedCount = 6;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -168,6 +168,15 @@
     NSLog(@"Done");
 }
 
+-(void)toggleCapture:(BOOL)canCapture {
+    if (!canCapture) {
+        [buttonCapture setEnabled:NO];
+    }
+    else {
+        [buttonCapture setEnabled:YES];
+    }
+}
+
 #pragma mark flash
 -(void)toggleFlash:(BOOL)isReady {
     if (!isReady) {
@@ -193,6 +202,10 @@
         advancedCount--;
 
         [self doScrollAnimation];
+
+        if (advancedCount == 0) {
+            [self toggleCapture:YES];
+        }
     }
 }
 

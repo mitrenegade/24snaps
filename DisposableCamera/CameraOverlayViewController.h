@@ -16,6 +16,7 @@
 {
     IBOutlet UIButton *buttonFlash;
     IBOutlet UIView *viewFilmAdvance;
+    IBOutlet UIButton *buttonCapture;
     BOOL flash;
     int advancedCount;
 

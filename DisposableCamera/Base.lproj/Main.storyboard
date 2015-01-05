@@ -65,7 +65,7 @@
                                     <action selector="didClickButtonFlash:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ocH-ef-7Oy"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xv3-cn-EbN">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xv3-cn-EbN">
                                 <rect key="frame" x="313" y="75" width="60" height="140"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -110,12 +110,15 @@
                             <constraint firstItem="MPs-sY-HNs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="lb9-ZQ-gdA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tnz-Zm-zJf" secondAttribute="trailing" constant="-16" id="o5c-oS-BGv"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MPs-sY-HNs" secondAttribute="bottom" id="wfP-Ow-1s0"/>
+                            <constraint firstItem="Xv3-cn-EbN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="55" id="yLp-Al-PkG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="l5b-lP-dEw" secondAttribute="trailing" constant="36" id="zXZ-Mp-OO0"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonCapture" destination="l5b-lP-dEw" id="tcw-Of-qIG"/>
                         <outlet property="buttonFlash" destination="xHq-Ce-BqI" id="Ddy-MP-8rC"/>
                         <outlet property="constraintAdvanceOffsetRight" destination="EB4-5s-crx" id="XRx-a6-0cI"/>
+                        <outlet property="constraintAdvanceOffsetTop" destination="yLp-Al-PkG" id="BJ1-qF-Ngb"/>
                         <outlet property="constraintCaptureOffsetRight" destination="zXZ-Mp-OO0" id="IBr-11-7d9"/>
                         <outlet property="constraintCaptureOffsetTop" destination="JXb-Cs-muA" id="7n3-eC-P8L"/>
                         <outlet property="constraintFlashOffsetRight" destination="ZrR-TH-7qt" id="qJn-R1-wJr"/>
