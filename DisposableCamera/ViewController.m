@@ -23,6 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+    swipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [swipe setDelegate:self];
+    [self.view addGestureRecognizer:swipe];
+
+    advancedCount = 6;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,12 +45,16 @@
 }
 
 -(IBAction)didClickCapture:(id)sender {
+    if (advancedCount > 0)
+        return;
+
     if (!flash) {
         [self playClick];
     }
     else {
         [self playClickFlash];
     }
+    advancedCount = MAX_ADVANCE_COUNT;
 }
 
 #pragma mark Sounds
@@ -93,5 +104,19 @@
                                       error:nil];
     }
     [playerAdvance play];
+}
+
+#pragma mark film advance 
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if (CGRectContainsPoint(viewFilmAdvance.frame, [touch locationInView:self.view])) {
+        return YES;
+    }
+    return NO;
+}
+-(void)handleGesture:(UIGestureRecognizer *)gesture {
+    if (advancedCount > 0) {
+        [self playAdvance];
+        advancedCount--;
+    }
 }
 @end

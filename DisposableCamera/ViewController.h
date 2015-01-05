@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#define MAX_ADVANCE_COUNT 4
+
+@interface ViewController : UIViewController <UIGestureRecognizerDelegate>
 {
     IBOutlet UIButton *buttonFlash;
     IBOutlet UIView *viewFilmAdvance;
     BOOL flash;
+    int advancedCount;
 }
 
 -(IBAction)didClickButtonFlash:(id)sender;
