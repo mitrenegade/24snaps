@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "AppDelegate.h"
 
 @interface ViewController ()
 {
@@ -30,6 +31,45 @@
     [self.view addGestureRecognizer:swipe];
 
     advancedCount = 6;
+
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    NSLog(@"Window bounds: %f %f", appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height);
+    NSLog(@"Flash: %f %f", constraintFlashOffsetTop.constant, constraintFlashOffsetRight.constant);
+    NSLog(@"Advance: %f %f", constraintAdvanceOffsetTop.constant, constraintAdvanceOffsetRight.constant);
+
+    // hack: difficult to position the buttons and views exactly so do it programmatically for each screen size
+    
+    // iphone 6+
+    if (appDelegate.window.bounds.size.width == 736) {
+        constraintFlashOffsetTop.constant = 105;
+        constraintFlashOffsetRight.constant = 220;
+        constraintAdvanceOffsetTop.constant = 32;
+        constraintAdvanceOffsetRight.constant = -15;
+    }
+
+    // iphone 6
+    else if (appDelegate.window.bounds.size.width == 667) {
+        constraintFlashOffsetTop.constant = 98;
+        constraintFlashOffsetRight.constant = 205;
+        constraintAdvanceOffsetTop.constant = 19;
+        constraintAdvanceOffsetRight.constant = -8;
+    }
+
+    // iphone 5/5s
+    else if (appDelegate.window.bounds.size.width == 568) {
+        constraintFlashOffsetTop.constant = 76;
+        constraintFlashOffsetRight.constant = 178;
+        constraintAdvanceOffsetTop.constant = 20;
+        constraintAdvanceOffsetRight.constant = 0;
+    }
+
+    // iphone 4/4s
+    else if (appDelegate.window.bounds.size.width == 480) {
+        constraintFlashOffsetTop.constant = 85;
+        constraintFlashOffsetRight.constant = 142;
+        constraintAdvanceOffsetTop.constant = 28;
+        constraintAdvanceOffsetRight.constant = 0;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

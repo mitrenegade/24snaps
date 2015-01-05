@@ -16,6 +16,11 @@
     IBOutlet UIView *viewFilmAdvance;
     BOOL flash;
     int advancedCount;
+
+    IBOutlet NSLayoutConstraint *constraintFlashOffsetTop;
+    IBOutlet NSLayoutConstraint *constraintFlashOffsetRight;
+    IBOutlet NSLayoutConstraint *constraintAdvanceOffsetTop;
+    IBOutlet NSLayoutConstraint *constraintAdvanceOffsetRight;
 }
 
 -(IBAction)didClickButtonFlash:(id)sender;
