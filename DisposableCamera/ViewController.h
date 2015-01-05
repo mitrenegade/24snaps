@@ -8,22 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#define MAX_ADVANCE_COUNT 4
-
-@interface ViewController : UIViewController <UIGestureRecognizerDelegate>
+@class CameraOverlayViewController;
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
-    IBOutlet UIButton *buttonFlash;
-    IBOutlet UIView *viewFilmAdvance;
-    BOOL flash;
-    int advancedCount;
-
-    IBOutlet NSLayoutConstraint *constraintFlashOffsetTop;
-    IBOutlet NSLayoutConstraint *constraintFlashOffsetRight;
-    IBOutlet NSLayoutConstraint *constraintAdvanceOffsetTop;
-    IBOutlet NSLayoutConstraint *constraintAdvanceOffsetRight;
+    UIImagePickerController *_picker;
+    CameraOverlayViewController *overlayController;
 }
-
--(IBAction)didClickButtonFlash:(id)sender;
--(IBAction)didClickCapture:(id)sender;
 @end
 

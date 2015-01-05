@@ -7,16 +7,11 @@
 //
 
 #import "ViewController.h"
-#import <AVFoundation/AVFoundation.h>
 #import "AppDelegate.h"
+#import "CameraOverlayViewController.h"
+#import "UIImagePickerController+Landscape.h"
 
 @interface ViewController ()
-{
-    AVAudioPlayer *playerFlash;
-    AVAudioPlayer *playerClickFlash;
-    AVAudioPlayer *playerClick;
-    AVAudioPlayer *playerAdvance;
-}
 @end
 
 @implementation ViewController
@@ -25,51 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-    swipe.direction = UISwipeGestureRecognizerDirectionRight;
-    [swipe setDelegate:self];
-    [self.view addGestureRecognizer:swipe];
+}
 
-    advancedCount = 6;
-
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    NSLog(@"Window bounds: %f %f", appDelegate.window.bounds.size.width, appDelegate.window.bounds.size.height);
-    NSLog(@"Flash: %f %f", constraintFlashOffsetTop.constant, constraintFlashOffsetRight.constant);
-    NSLog(@"Advance: %f %f", constraintAdvanceOffsetTop.constant, constraintAdvanceOffsetRight.constant);
-
-    // hack: difficult to position the buttons and views exactly so do it programmatically for each screen size
-    
-    // iphone 6+
-    if (appDelegate.window.bounds.size.width == 736) {
-        constraintFlashOffsetTop.constant = 105;
-        constraintFlashOffsetRight.constant = 220;
-        constraintAdvanceOffsetTop.constant = 32;
-        constraintAdvanceOffsetRight.constant = -15;
-    }
-
-    // iphone 6
-    else if (appDelegate.window.bounds.size.width == 667) {
-        constraintFlashOffsetTop.constant = 98;
-        constraintFlashOffsetRight.constant = 205;
-        constraintAdvanceOffsetTop.constant = 19;
-        constraintAdvanceOffsetRight.constant = -8;
-    }
-
-    // iphone 5/5s
-    else if (appDelegate.window.bounds.size.width == 568) {
-        constraintFlashOffsetTop.constant = 76;
-        constraintFlashOffsetRight.constant = 178;
-        constraintAdvanceOffsetTop.constant = 20;
-        constraintAdvanceOffsetRight.constant = 0;
-    }
-
-    // iphone 4/4s
-    else if (appDelegate.window.bounds.size.width == 480) {
-        constraintFlashOffsetTop.constant = 85;
-        constraintFlashOffsetRight.constant = 142;
-        constraintAdvanceOffsetTop.constant = 28;
-        constraintAdvanceOffsetRight.constant = 0;
-    }
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self showCameraFromController:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,86 +32,44 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)didClickButtonFlash:(id)sender {
-    if (!flash) {
-        flash = YES;
-        [self playFlash];
-    }
+- (NSUInteger) supportedInterfaceOrientations
+{
+    //Because your app is only landscape, your view controller for the view in your
+    // popover needs to support only landscape
+    return UIInterfaceOrientationMaskLandscapeLeft;
 }
 
--(IBAction)didClickCapture:(id)sender {
-    if (advancedCount > 0)
-        return;
+#pragma mark Camera
+-(void)showCameraFromController:(UIViewController *)controller {
+    _picker = [[UIImagePickerController alloc] init];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        _picker.showsCameraControls = NO;
+    }
+    else
+        _picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 
-    if (!flash) {
-        [self playClick];
-    }
-    else {
-        [self playClickFlash];
-    }
-    advancedCount = MAX_ADVANCE_COUNT;
-}
+    _picker.toolbarHidden = YES; // hide toolbar of app, if there is one.
+    _picker.allowsEditing = NO;
+    _picker.delegate = self;
 
-#pragma mark Sounds
--(void)playFlash {
-    if (!playerFlash) {
-        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                             pathForResource:@"cameraFlash"
-                                             ofType:@"mp3"]];
-        playerFlash = [[AVAudioPlayer alloc]
-                       initWithContentsOfURL:url
-                       error:nil];
-    }
-    [playerFlash play];
-}
+    CGRect frame = _appDelegate.window.bounds;
+    frame.origin.y = 0;
+    _picker.view.frame = frame;
+    _picker.view.center = self.view.center;
+    _picker.view.backgroundColor = [UIColor clearColor];
+    _picker.view.layer.borderColor = [[UIColor redColor] CGColor];
+    _picker.view.layer.borderWidth = 5;
+//    _picker.view.transform = CGAffineTransformMakeScale(.5, .5);
+//    _picker.cameraViewTransform = CGAffineTransformTranslate(_picker.cameraViewTransform, 0, 0);
+//    _picker.cameraViewTransform = CGAffineTransformScale(_picker.cameraViewTransform, .25, .25);
+//    _picker.cameraViewTransform = CGAffineTransformRotate(_picker.cameraViewTransform, M_PI_2);
 
--(void)playClickFlash {
-    if (!playerClickFlash) {
-        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                             pathForResource:@"cameraClickFlash"
-                                             ofType:@"mp3"]];
-        playerClickFlash = [[AVAudioPlayer alloc]
-                                      initWithContentsOfURL:url
-                                      error:nil];
-    }
-    [playerClickFlash play];
+//    [controller.view addSubview:_picker.view];
+    [controller presentViewController:_picker animated:NO completion:nil];
+
+    overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlayViewController"];
+    [_picker setCameraOverlayView:overlayController.view];
 }
 
--(void)playClick {
-    if (!playerClick) {
-        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                             pathForResource:@"cameraClick"
-                                             ofType:@"mp3"]];
-        playerClick = [[AVAudioPlayer alloc]
-                                      initWithContentsOfURL:url
-                                      error:nil];
-    }
-    [playerClick play];
-}
-
--(void)playAdvance {
-    if (!playerAdvance) {
-        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
-                                             pathForResource:@"cameraFilmAdvance"
-                                             ofType:@"mp3"]];
-        playerAdvance = [[AVAudioPlayer alloc]
-                                      initWithContentsOfURL:url
-                                      error:nil];
-    }
-    [playerAdvance play];
-}
-
-#pragma mark film advance 
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if (CGRectContainsPoint(viewFilmAdvance.frame, [touch locationInView:self.view])) {
-        return YES;
-    }
-    return NO;
-}
--(void)handleGesture:(UIGestureRecognizer *)gesture {
-    if (advancedCount > 0) {
-        [self playAdvance];
-        advancedCount--;
-    }
-}
 @end

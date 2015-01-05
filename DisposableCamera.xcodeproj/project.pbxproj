@@ -20,6 +20,8 @@
 		9EE1AA841A51F64D006A54AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1AA831A51F64D006A54AC /* Images.xcassets */; };
 		9EE1AA871A51F64D006A54AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1AA851A51F64D006A54AC /* LaunchScreen.xib */; };
 		9EE1AA931A51F64D006A54AC /* DisposableCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA921A51F64D006A54AC /* DisposableCameraTests.m */; };
+		9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */; };
+		9EECB3BD1A5B38E300EAD911 /* UIImagePickerController+Landscape.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECB3BC1A5B38E300EAD911 /* UIImagePickerController+Landscape.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,10 @@
 		9EE1AA8C1A51F64D006A54AC /* DisposableCameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DisposableCameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1AA911A51F64D006A54AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EE1AA921A51F64D006A54AC /* DisposableCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisposableCameraTests.m; sourceTree = "<group>"; };
+		9EECB3B81A5B31B400EAD911 /* CameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayViewController.h; sourceTree = "<group>"; };
+		9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayViewController.m; sourceTree = "<group>"; };
+		9EECB3BB1A5B38E300EAD911 /* UIImagePickerController+Landscape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Landscape.h"; sourceTree = "<group>"; };
+		9EECB3BC1A5B38E300EAD911 /* UIImagePickerController+Landscape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Landscape.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,10 @@
 				9EE1AA7B1A51F64D006A54AC /* AppDelegate.m */,
 				9EE1AA7D1A51F64D006A54AC /* ViewController.h */,
 				9EE1AA7E1A51F64D006A54AC /* ViewController.m */,
+				9EECB3B81A5B31B400EAD911 /* CameraOverlayViewController.h */,
+				9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */,
+				9EECB3BB1A5B38E300EAD911 /* UIImagePickerController+Landscape.h */,
+				9EECB3BC1A5B38E300EAD911 /* UIImagePickerController+Landscape.m */,
 				9EE1AA801A51F64D006A54AC /* Main.storyboard */,
 				9EE1AA831A51F64D006A54AC /* Images.xcassets */,
 				9EE1AA851A51F64D006A54AC /* LaunchScreen.xib */,
@@ -251,8 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EECB3BD1A5B38E300EAD911 /* UIImagePickerController+Landscape.m in Sources */,
 				9EE1AA7F1A51F64D006A54AC /* ViewController.m in Sources */,
 				9EE1AA7C1A51F64D006A54AC /* AppDelegate.m in Sources */,
+				9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */,
 				9EE1AA791A51F64D006A54AC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
