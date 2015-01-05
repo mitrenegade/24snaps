@@ -7,7 +7,6 @@
 //
 
 #import "CameraOverlayViewController.h"
-#import <AVFoundation/AVFoundation.h>
 #import "AppDelegate.h"
 
 @interface CameraOverlayViewController ()
@@ -36,6 +35,7 @@
     NSLog(@"Window bounds: %f %f", _appDelegate.window.bounds.size.width, _appDelegate.window.bounds.size.height);
     NSLog(@"Flash: %f %f", constraintFlashOffsetTop.constant, constraintFlashOffsetRight.constant);
     NSLog(@"Advance: %f %f", constraintAdvanceOffsetTop.constant, constraintAdvanceOffsetRight.constant);
+    NSLog(@"Capture: %f %f", constraintCaptureOffsetTop.constant, constraintCaptureOffsetRight.constant);
 
     // hack: difficult to position the buttons and views exactly so do it programmatically for each screen size
 
@@ -45,6 +45,8 @@
         constraintFlashOffsetRight.constant = 228;
         constraintAdvanceOffsetTop.constant = 3;
         constraintAdvanceOffsetRight.constant = -296;
+        constraintCaptureOffsetTop.constant = 50;
+        constraintCaptureOffsetRight.constant = 40;
     }
 
     // iphone 6
@@ -53,6 +55,8 @@
         constraintFlashOffsetRight.constant = 203;
         constraintAdvanceOffsetTop.constant = -10;
         constraintAdvanceOffsetRight.constant = -270;
+        constraintCaptureOffsetTop.constant = 40;
+        constraintCaptureOffsetRight.constant = 28;
     }
 
     // iphone 5/5s
@@ -61,15 +65,21 @@
         constraintFlashOffsetRight.constant = 170;
         constraintAdvanceOffsetTop.constant = -10;
         constraintAdvanceOffsetRight.constant = -220;
+        constraintCaptureOffsetTop.constant = 28;
+        constraintCaptureOffsetRight.constant = 26;
     }
 
     // iphone 4/4s
-    else if (_appDelegate.window.bounds.size.height == 480) {
+    if (_appDelegate.window.bounds.size.height == 480) {
         constraintFlashOffsetTop.constant = 139;
         constraintFlashOffsetRight.constant = 158;
         constraintAdvanceOffsetTop.constant = -24;
         constraintAdvanceOffsetRight.constant = -211;
+        constraintCaptureOffsetTop.constant = 16;
+        constraintCaptureOffsetRight.constant = 36;
     }
+
+    [self toggleFlash:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,7 +93,9 @@
     if (!flash) {
         flash = YES;
         [self playFlash];
+        [self toggleFlash:NO];
     }
+    [self toggleFlash:YES];
 }
 
 -(IBAction)didClickCapture:(id)sender {
@@ -95,6 +107,8 @@
     }
     else {
         [self playClickFlash];
+        [self toggleFlash:NO];
+        [self toggleFlash:YES];
     }
     advancedCount = MAX_ADVANCE_COUNT;
 }
@@ -108,6 +122,7 @@
         playerFlash = [[AVAudioPlayer alloc]
                        initWithContentsOfURL:url
                        error:nil];
+        [playerClickFlash setDelegate:self];
     }
     [playerFlash play];
 }
@@ -120,6 +135,7 @@
         playerClickFlash = [[AVAudioPlayer alloc]
                             initWithContentsOfURL:url
                             error:nil];
+        [playerClickFlash setDelegate:self];
     }
     [playerClickFlash play];
 }
@@ -146,6 +162,22 @@
                          error:nil];
     }
     [playerAdvance play];
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+    NSLog(@"Done");
+}
+
+#pragma mark flash
+-(void)toggleFlash:(BOOL)isReady {
+    if (!isReady) {
+        [flashImage setAlpha:0];
+    }
+    else {
+        [UIView animateWithDuration:1 animations:^{
+            flashImage.alpha = 1;
+        }];
+    }
 }
 
 #pragma mark film advance

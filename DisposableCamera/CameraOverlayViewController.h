@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 #define MAX_ADVANCE_COUNT 4
 
-@interface CameraOverlayViewController : UIViewController <UIGestureRecognizerDelegate>
+@interface CameraOverlayViewController : UIViewController <UIGestureRecognizerDelegate, AVAudioPlayerDelegate>
 {
     IBOutlet UIButton *buttonFlash;
     IBOutlet UIView *viewFilmAdvance;
@@ -21,7 +23,10 @@
     IBOutlet NSLayoutConstraint *constraintFlashOffsetRight;
     IBOutlet NSLayoutConstraint *constraintAdvanceOffsetTop;
     IBOutlet NSLayoutConstraint *constraintAdvanceOffsetRight;
+    IBOutlet NSLayoutConstraint *constraintCaptureOffsetTop;
+    IBOutlet NSLayoutConstraint *constraintCaptureOffsetRight;
 
+    IBOutlet UIImageView *flashImage;
     IBOutlet UIImageView *scrollImage2;
     IBOutlet UIImageView *scrollImage3;
 }
