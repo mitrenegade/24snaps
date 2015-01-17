@@ -70,12 +70,12 @@
 }
 
 -(float)offsetx {
-    float offsetx = - 60/self.scale;
+    float offsetx = + 100/self.scale;
     return offsetx;
 }
 
 -(float)offsety {
-    float offsety = 50/self.scale;
+    float offsety = 70/self.scale;
     return offsety;
 }
 

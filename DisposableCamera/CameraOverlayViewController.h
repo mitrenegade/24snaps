@@ -35,7 +35,7 @@
     IBOutlet NSLayoutConstraint *constraintCaptureOffsetTop;
     IBOutlet NSLayoutConstraint *constraintCaptureOffsetRight;
     IBOutlet NSLayoutConstraint *constraintViewFinderOffsetTop;
-    IBOutlet NSLayoutConstraint *constraintViewFinderOffsetLeft;
+    IBOutlet NSLayoutConstraint *constraintViewFinderOffsetRight;
 
     IBOutlet UIImageView *viewBG;
     IBOutlet UIImageView *flashImage;
