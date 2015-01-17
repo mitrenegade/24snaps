@@ -69,11 +69,28 @@
     }
 }
 
--(void)expandCamera {
+-(void)zoomIn {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [UIView animateWithDuration:1 animations:^{
             _picker.cameraViewTransform = CGAffineTransformMakeScale(1.14, 1.14);
         }];
+    }
+}
+
+-(void)zoomOut:(BOOL)animated {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        float scale = .25;
+        float offsetx = -self.view.frame.size.width / 2 - 50/scale;
+        float offsety = -self.view.frame.size.height / 2 + 150/scale;
+
+        float duration = animated?1:0;
+
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            [UIView animateWithDuration:duration animations:^{
+                _picker.cameraViewTransform = CGAffineTransformMakeScale(scale, scale);
+                _picker.cameraViewTransform = CGAffineTransformTranslate(_picker.cameraViewTransform, offsetx, offsety);
+            }];
+        }
     }
 }
 

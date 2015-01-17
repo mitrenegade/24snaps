@@ -14,7 +14,8 @@
 
 @protocol CameraOverlayDelegate <NSObject>
 
--(void)expandCamera;
+-(void)zoomIn;
+-(void)zoomOut:(BOOL)animated;
 
 @end
 @interface CameraOverlayViewController : UIViewController <UIGestureRecognizerDelegate, AVAudioPlayerDelegate>
@@ -40,6 +41,8 @@
     IBOutlet UIImageView *flashImage;
     IBOutlet UIImageView *scrollImage2;
     IBOutlet UIImageView *scrollImage3;
+
+    BOOL isZooming;
 }
 
 @property (weak, nonatomic) id delegate;

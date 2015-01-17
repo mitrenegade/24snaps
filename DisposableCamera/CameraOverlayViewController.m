@@ -249,23 +249,32 @@
 
 #pragma mark Viewfinder
 -(IBAction)didClickViewFinder:(id)sender {
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    float tx = (self.view.frame.size.width/2 - buttonViewFinder.center.x);
-    float ty = (self.view.frame.size.height/2 - buttonViewFinder.center.y);
-    float scale = 8;
+    if (!isZooming) {
+        float tx = (self.view.frame.size.width/2 - buttonViewFinder.center.x);
+        float ty = (self.view.frame.size.height/2 - buttonViewFinder.center.y);
+        float scale = 8;
 
-    // scale and translate so that the center of the viewFinder is enlarged and centered
-    // transform for viewFinder and background/view must be composed differently; this is due to autolayout
-    [self.delegate expandCamera];
-    CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformTranslate(viewBG.transform, tx*scale, ty*scale), scale, scale);
-    CGAffineTransform transform2 = CGAffineTransformScale(CGAffineTransformTranslate(buttonViewFinder.transform, tx, 0), scale, scale);
-    [UIView animateWithDuration:1 animations:^{
-        viewBG.transform = transform;
-        buttonViewFinder.transform = transform2;
-        buttonViewFinder.alpha = 0;
-    } completion:^(BOOL finished) {
-    }];
-    UIGraphicsEndImageContext();
+        // scale and translate so that the center of the viewFinder is enlarged and centered
+        // transform for viewFinder and background/view must be composed differently; this is due to autolayout
+        [self.delegate zoomIn];
+        CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformTranslate(viewBG.transform, tx*scale, ty*scale), scale, scale);
+        CGAffineTransform transform2 = CGAffineTransformScale(CGAffineTransformTranslate(buttonViewFinder.transform, tx, 0), scale, scale);
+        [UIView animateWithDuration:1 animations:^{
+            viewBG.transform = transform;
+            buttonViewFinder.transform = transform2;
+        } completion:^(BOOL finished) {
+            isZooming = !isZooming;
+        }];
+    }
+    else {
+        [self.delegate zoomOut:YES];
+        [UIView animateWithDuration:1 animations:^{
+            viewBG.transform = CGAffineTransformIdentity;
+            buttonViewFinder.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            isZooming = !isZooming;
+        }];
+    }
 }
 
 /*
