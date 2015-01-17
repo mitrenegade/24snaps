@@ -12,11 +12,18 @@
 
 #define MAX_ADVANCE_COUNT 4
 
+@protocol CameraOverlayDelegate <NSObject>
+
+-(void)expandCamera;
+
+@end
 @interface CameraOverlayViewController : UIViewController <UIGestureRecognizerDelegate, AVAudioPlayerDelegate>
 {
     IBOutlet UIButton *buttonFlash;
     IBOutlet UIView *viewFilmAdvance;
     IBOutlet UIButton *buttonCapture;
+    IBOutlet UIButton *buttonViewFinder;
+    
     BOOL flash;
     int advancedCount;
 
@@ -26,13 +33,18 @@
     IBOutlet NSLayoutConstraint *constraintAdvanceOffsetRight;
     IBOutlet NSLayoutConstraint *constraintCaptureOffsetTop;
     IBOutlet NSLayoutConstraint *constraintCaptureOffsetRight;
+    IBOutlet NSLayoutConstraint *constraintViewFinderOffsetTop;
+    IBOutlet NSLayoutConstraint *constraintViewFinderOffsetLeft;
 
+    IBOutlet UIImageView *viewBG;
     IBOutlet UIImageView *flashImage;
     IBOutlet UIImageView *scrollImage2;
     IBOutlet UIImageView *scrollImage3;
 }
 
+@property (weak, nonatomic) id delegate;
+
 -(IBAction)didClickButtonFlash:(id)sender;
 -(IBAction)didClickCapture:(id)sender;
-
+-(IBAction)didClickViewFinder:(id)sender;
 @end

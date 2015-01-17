@@ -232,6 +232,26 @@
     }
 }
 
+#pragma mark Viewfinder
+-(IBAction)didClickViewFinder:(id)sender {
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    float tx = (self.view.frame.size.width/2 - buttonViewFinder.center.x);
+    float scale = 8;
+
+    // scale and translate so that the center of the viewFinder is enlarged and centered
+    // transform for viewFinder and background/view must be composed differently; this is due to autolayout
+    [self.delegate expandCamera];
+    CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformTranslate(viewBG.transform, tx*scale, 0), scale, scale);
+    CGAffineTransform transform2 = CGAffineTransformScale(CGAffineTransformTranslate(buttonViewFinder.transform, tx, 0), scale, scale);
+    [UIView animateWithDuration:1 animations:^{
+        viewBG.transform = transform;
+        buttonViewFinder.transform = transform2;
+        buttonViewFinder.alpha = 0;
+    } completion:^(BOOL finished) {
+    }];
+    UIGraphicsEndImageContext();
+}
+
 /*
 #pragma mark - Navigation
 

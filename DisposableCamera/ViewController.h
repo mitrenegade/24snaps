@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CameraOverlayViewController.h"
 
-@class CameraOverlayViewController;
-@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CameraOverlayDelegate>
 {
     UIImagePickerController *_picker;
     CameraOverlayViewController *overlayController;

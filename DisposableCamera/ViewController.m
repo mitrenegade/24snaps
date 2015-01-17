@@ -45,27 +45,35 @@
     _picker.allowsEditing = NO;
     _picker.delegate = self;
 
-    CGRect frame = _appDelegate.window.bounds;
-    frame.origin.y = 0;
-    _picker.view.frame = frame;
-    _picker.view.center = self.view.center;
-    _picker.view.backgroundColor = [UIColor clearColor];
-    _picker.view.layer.borderColor = [[UIColor redColor] CGColor];
-    _picker.view.layer.borderWidth = 5;
-//    _picker.view.transform = CGAffineTransformMakeScale(.5, .5);
-//    _picker.cameraViewTransform = CGAffineTransformTranslate(_picker.cameraViewTransform, 0, 0);
-//    _picker.cameraViewTransform = CGAffineTransformScale(_picker.cameraViewTransform, .25, .25);
-//    _picker.cameraViewTransform = CGAffineTransformRotate(_picker.cameraViewTransform, M_PI_2);
+    float scale = .25;
+    float offsetx = -self.view.frame.size.width / 2 - 50/scale;
+    float offsety = -self.view.frame.size.height / 2 + 150/scale;
 
-//    [controller.view addSubview:_picker.view];
+    // todo:
+    // calculate offsets for each device
+
     overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlayViewController"];
+    overlayController.delegate = self;
+    //overlayController.view.alpha = .3;
 
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        _picker.cameraViewTransform = CGAffineTransformScale(_picker.cameraViewTransform, scale, scale);
+        _picker.cameraViewTransform = CGAffineTransformTranslate(_picker.cameraViewTransform, offsetx, offsety);
+
         [controller presentViewController:_picker animated:NO completion:nil];
         [_picker setCameraOverlayView:overlayController.view];
     }
     else {
+        // testing on devices
         [controller presentViewController:overlayController animated:NO completion:nil];
+    }
+}
+
+-(void)expandCamera {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [UIView animateWithDuration:1 animations:^{
+            _picker.cameraViewTransform = CGAffineTransformMakeScale(1.14, 1.14);
+        }];
     }
 }
 
