@@ -34,6 +34,7 @@
     NSLog(@"Flash: %f %f", constraintFlashOffsetTop.constant, constraintFlashOffsetRight.constant);
     NSLog(@"Advance: %f %f", constraintAdvanceOffsetTop.constant, constraintAdvanceOffsetRight.constant);
     NSLog(@"Capture: %f %f", constraintCaptureOffsetTop.constant, constraintCaptureOffsetRight.constant);
+    NSLog(@"ViewFinder: %f %f", constraintViewFinderOffsetTop.constant, constraintViewFinderOffsetLeft.constant);
 
     // hack: difficult to position the buttons and views exactly so do it programmatically for each screen size
 
@@ -45,6 +46,8 @@
         constraintAdvanceOffsetRight.constant = -296;
         constraintCaptureOffsetTop.constant = 70;
         constraintCaptureOffsetRight.constant = 40;
+        constraintViewFinderOffsetTop.constant = 290;
+        constraintViewFinderOffsetLeft.constant = 12;
     }
 
     // iphone 6
@@ -55,6 +58,8 @@
         constraintAdvanceOffsetRight.constant = -270;
         constraintCaptureOffsetTop.constant = 60;
         constraintCaptureOffsetRight.constant = 28;
+        constraintViewFinderOffsetTop.constant = 260;
+        constraintViewFinderOffsetLeft.constant = 12;
     }
 
     // iphone 5/5s
@@ -65,6 +70,8 @@
         constraintAdvanceOffsetRight.constant = -220;
         constraintCaptureOffsetTop.constant = 48;
         constraintCaptureOffsetRight.constant = 26;
+        constraintViewFinderOffsetTop.constant = 210;
+        constraintViewFinderOffsetLeft.constant = 2;
     }
 
     // iphone 4/4s
@@ -75,7 +82,15 @@
         constraintAdvanceOffsetRight.constant = -211;
         constraintCaptureOffsetTop.constant = 36;
         constraintCaptureOffsetRight.constant = 36;
+        constraintViewFinderOffsetTop.constant = 167;
+        constraintViewFinderOffsetLeft.constant = 20;
     }
+
+    // on a device, top is offset by 20 px from simulator, which is where the numbers above come from
+    constraintFlashOffsetTop.constant += 20;
+    constraintAdvanceOffsetTop.constant += 20;
+    constraintCaptureOffsetTop.constant += 20;
+    constraintViewFinderOffsetTop.constant += 20;
 
     [self toggleFlash:NO];
     [self toggleCapture:NO];
@@ -236,12 +251,13 @@
 -(IBAction)didClickViewFinder:(id)sender {
     UIGraphicsBeginImageContext(self.view.frame.size);
     float tx = (self.view.frame.size.width/2 - buttonViewFinder.center.x);
+    float ty = (self.view.frame.size.height/2 - buttonViewFinder.center.y);
     float scale = 8;
 
     // scale and translate so that the center of the viewFinder is enlarged and centered
     // transform for viewFinder and background/view must be composed differently; this is due to autolayout
     [self.delegate expandCamera];
-    CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformTranslate(viewBG.transform, tx*scale, 0), scale, scale);
+    CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformTranslate(viewBG.transform, tx*scale, ty*scale), scale, scale);
     CGAffineTransform transform2 = CGAffineTransformScale(CGAffineTransformTranslate(buttonViewFinder.transform, tx, 0), scale, scale);
     [UIView animateWithDuration:1 animations:^{
         viewBG.transform = transform;
