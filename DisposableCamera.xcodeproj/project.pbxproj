@@ -40,6 +40,7 @@
 		9E3A7BE71A5A3F8A0024D640 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9E3A7BE91A5A406A0024D640 /* cameraClickFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClickFlash.mp3; sourceTree = SOURCE_ROOT; };
 		9E3A7BEA1A5A406A0024D640 /* cameraFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFlash.mp3; sourceTree = SOURCE_ROOT; };
+		9E9CFF621A6B0FD000658E7E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		9EE1AA731A51F64D006A54AC /* DisposableCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisposableCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1AA771A51F64D006A54AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EE1AA781A51F64D006A54AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 		9EE1AA6A1A51F64D006A54AC = {
 			isa = PBXGroup;
 			children = (
+				9E9CFF621A6B0FD000658E7E /* AssetsLibrary.framework */,
 				9E3A7BE71A5A3F8A0024D640 /* AudioToolbox.framework */,
 				9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */,
 				9EE1AA751A51F64D006A54AC /* DisposableCamera */,

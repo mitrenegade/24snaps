@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view.
 
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-    swipe.direction = UISwipeGestureRecognizerDirectionUp;
+    swipe.direction = UISwipeGestureRecognizerDirectionDown;
     [swipe setDelegate:self];
     [self.view addGestureRecognizer:swipe];
 
@@ -134,6 +134,18 @@
         [self toggleFlash:YES];
     }
     advancedCount = MAX_ADVANCE_COUNT;
+
+    // doesn't matter if the camera outcome fails, always toggle the button and "advance" the count
+    [self toggleCapture:NO];
+
+    // zoom out
+    if (isZooming) {
+        [self performSelector:@selector(stopLookingInViewFinder) withObject:nil afterDelay:.5];
+    }
+
+    // tell camera to actually try to capture
+    [self.delegate capture];
+
 }
 
 #pragma mark Sounds
@@ -258,48 +270,55 @@
 #pragma mark Viewfinder
 -(IBAction)didClickViewFinder:(id)sender {
     if (!isZooming) {
+        [self lookInViewFinder];
+    }
+    else {
+        [self stopLookingInViewFinder];
+    }
+}
+
+-(void)lookInViewFinder {
+    [buttonFlash setUserInteractionEnabled:isZooming];
+    [viewFilmAdvance setUserInteractionEnabled:isZooming];
+    [flashImage setHidden:!isZooming];
+    [scrollImage2 setHidden:!isZooming];
+    [scrollImage3 setHidden:!isZooming];
+
+    float tx = (self.view.frame.size.width/2 - buttonViewFinder.center.x);
+    float ty = (self.view.frame.size.height/2 - buttonViewFinder.center.y);
+    float scale = 7;
+
+    // scale and translate so that the center of the viewFinder is enlarged and centered
+    // transform for viewFinder and background/view must be composed differently; this is due to autolayout
+    [self.delegate zoomIn];
+    CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformTranslate(viewBG.transform, tx*scale, ty*scale), scale, scale);
+    CGAffineTransform transform2 = CGAffineTransformScale(CGAffineTransformTranslate(buttonViewFinder.transform, tx, 0), scale, scale);
+
+    [UIView animateWithDuration:1 animations:^{
+        viewBG.transform = transform;
+        buttonViewFinder.transform = transform2;
+        buttonViewFinder.alpha = .25;
+    } completion:^(BOOL finished) {
+        isZooming = !isZooming;
+    }];
+}
+
+-(void)stopLookingInViewFinder {
+    [self.delegate zoomOut:YES];
+    [UIView animateWithDuration:1 animations:^{
+        viewBG.transform = CGAffineTransformIdentity;
+        buttonViewFinder.transform = CGAffineTransformIdentity;
+        buttonViewFinder.alpha = 1;
+    } completion:^(BOOL finished) {
         [buttonFlash setUserInteractionEnabled:isZooming];
         [viewFilmAdvance setUserInteractionEnabled:isZooming];
         [flashImage setHidden:!isZooming];
         [scrollImage2 setHidden:!isZooming];
         [scrollImage3 setHidden:!isZooming];
 
-        float tx = (self.view.frame.size.width/2 - buttonViewFinder.center.x);
-        float ty = (self.view.frame.size.height/2 - buttonViewFinder.center.y);
-        float scale = 7;
-
-        // scale and translate so that the center of the viewFinder is enlarged and centered
-        // transform for viewFinder and background/view must be composed differently; this is due to autolayout
-        [self.delegate zoomIn];
-        CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformTranslate(viewBG.transform, tx*scale, ty*scale), scale, scale);
-        CGAffineTransform transform2 = CGAffineTransformScale(CGAffineTransformTranslate(buttonViewFinder.transform, tx, 0), scale, scale);
-
-        [UIView animateWithDuration:1 animations:^{
-            viewBG.transform = transform;
-            buttonViewFinder.transform = transform2;
-            buttonViewFinder.alpha = .25;
-        } completion:^(BOOL finished) {
-            isZooming = !isZooming;
-        }];
-    }
-    else {
-        [self.delegate zoomOut:YES];
-        [UIView animateWithDuration:1 animations:^{
-            viewBG.transform = CGAffineTransformIdentity;
-            buttonViewFinder.transform = CGAffineTransformIdentity;
-            buttonViewFinder.alpha = 1;
-        } completion:^(BOOL finished) {
-            [buttonFlash setUserInteractionEnabled:isZooming];
-            [viewFilmAdvance setUserInteractionEnabled:isZooming];
-            [flashImage setHidden:!isZooming];
-            [scrollImage2 setHidden:!isZooming];
-            [scrollImage3 setHidden:!isZooming];
-
-            isZooming = !isZooming;
-        }];
-    }
+        isZooming = !isZooming;
+    }];
 }
-
 /*
 #pragma mark - Navigation
 

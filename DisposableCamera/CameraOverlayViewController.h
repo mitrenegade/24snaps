@@ -16,6 +16,7 @@
 
 -(void)zoomIn;
 -(void)zoomOut:(BOOL)animated;
+-(void)capture;
 
 @end
 @interface CameraOverlayViewController : UIViewController <UIGestureRecognizerDelegate, AVAudioPlayerDelegate>

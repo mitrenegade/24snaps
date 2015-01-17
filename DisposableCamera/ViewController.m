@@ -19,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    [self loadImageDictionary];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -29,6 +30,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Image storage
+-(void)loadImageDictionary {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *imageData = [defaults objectForKey:@"images"];
+    if (imageData) {
+        images = [NSKeyedUnarchiver unarchiveObjectWithData:imageData];
+    }
+    else {
+        images = [NSMutableArray array];
+    }
+    NSLog(@"Current images on film roll: %lu", [images count]);
+}
+
+-(void)saveImageDictionary {
+    NSData *imageData = [NSKeyedArchiver archivedDataWithRootObject:images];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:imageData forKey:@"images"];
+    [defaults synchronize];
 }
 
 #pragma mark Camera
@@ -65,6 +86,7 @@
     }
 }
 
+#pragma mark Camera Transform
 -(float)scale {
     return .15;
 }
@@ -104,4 +126,18 @@
     }
 }
 
+#pragma mark UIImagePickerDelegate
+-(void)capture {
+    [_picker takePicture];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSLog(@"Captured image!");
+
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+    // todo: shrink, filter images; create negative
+    [images addObject:image];
+    [self saveImageDictionary];
+}
 @end

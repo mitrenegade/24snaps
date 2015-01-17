@@ -13,6 +13,8 @@
 {
     UIImagePickerController *_picker;
     CameraOverlayViewController *overlayController;
+
+    NSMutableArray *images;
 }
 @end
 
