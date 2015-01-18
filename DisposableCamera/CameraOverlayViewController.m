@@ -112,10 +112,16 @@
     labelCountNext.transform = CGAffineTransformMakeRotation(M_PI_2);
     rollCount = [self.delegate initialRollCount];
 
-    if (rollCount == 0)
+    if (rollCount == 0 && ![[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"]) {
+        rollCount = 0;
         advancedCount = INITIAL_ADVANCE_COUNT;
+    }
     else
-        advancedCount = 0;
+        advancedCount = [[[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"] intValue];
+
+    if (advancedCount == MAX_ADVANCE_COUNT) {
+        [self toggleCapture:YES];
+    }
     [self setLabelCountPosition:advancedCount];
 }
 
@@ -147,7 +153,7 @@
         [self toggleFlash:NO];
         [self toggleFlash:YES];
     }
-    advancedCount = 0;
+    advancedCount = 0; // on click, the advanced count should be 4
     rollCount++;
     [self setLabelCountPosition:advancedCount];
 
@@ -251,7 +257,7 @@
     if (advancedCount < MAX_ADVANCE_COUNT) {
         [self playAdvance];
 
-        advancedCount++;
+        advancedCount = advancedCount + 1;
         [self setLabelCountPosition:advancedCount];
         [self doScrollAnimation];
 
@@ -348,10 +354,12 @@
 
 #pragma mark rotating animations
 -(void)setLabelCountPosition:(int)position {
+    NSLog(@"roll %d position %d", rollCount, position);
     // 20 degrees between each number, 4 scroll wheel positions = 5 degrees each position
-    float degreesCurr = 5 * position - 20;
-    float degreesNext = degreesCurr - 20;
+    float degreesCurr = 5 * position;
     float degreesPrev = degreesCurr + 20;
+    float degreesNext = degreesCurr - 20;
+
     labelCountCurr.text = [NSString stringWithFormat:@"%lu", rollCount];
     labelCountNext.text = [NSString stringWithFormat:@"%lu", rollCount+1];
     if (rollCount > 0)
@@ -359,10 +367,12 @@
     else
         labelCountPrev.text = nil;
 
-    viewRotaterCurr.transform = CGAffineTransformMakeRotation(degreesCurr / 360 * 2*M_PI);
     viewRotaterPrev.transform = CGAffineTransformMakeRotation(degreesPrev / 360 * 2*M_PI);
+    viewRotaterCurr.transform = CGAffineTransformMakeRotation(degreesCurr / 360 * 2*M_PI);
     viewRotaterNext.transform = CGAffineTransformMakeRotation(degreesNext / 360 * 2*M_PI);
 
+    [[NSUserDefaults standardUserDefaults] setObject:@(advancedCount) forKey:@"film:position"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end
