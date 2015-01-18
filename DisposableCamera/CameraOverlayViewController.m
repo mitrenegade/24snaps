@@ -35,6 +35,7 @@
     NSLog(@"Advance: %f %f", constraintAdvanceOffsetTop.constant, constraintAdvanceOffsetRight.constant);
     NSLog(@"Capture: %f %f", constraintCaptureOffsetTop.constant, constraintCaptureOffsetRight.constant);
     NSLog(@"ViewFinder: %f %f", constraintViewFinderOffsetTop.constant, constraintViewFinderOffsetRight.constant);
+    NSLog(@"Count: %f %f", constraintFilmCountOffsetTop.constant, constraintFilmCountOffsetRight.constant);
 
     // hack: difficult to position the buttons and views exactly so do it programmatically for each screen size
 
@@ -102,7 +103,20 @@
 
     [self toggleFlash:NO];
     [self toggleCapture:NO];
-    advancedCount = 6;
+
+    viewLabel.layer.cornerRadius = viewLabel.frame.size.width/4;
+    viewLabel.layer.borderWidth = 1;
+    viewLabel.layer.borderColor = [[UIColor darkGrayColor] CGColor];
+    labelCountCurr.transform = CGAffineTransformMakeRotation(M_PI_2);
+    labelCountPrev.transform = CGAffineTransformMakeRotation(M_PI_2);
+    labelCountNext.transform = CGAffineTransformMakeRotation(M_PI_2);
+    rollCount = [self.delegate initialRollCount];
+
+    if (rollCount == 0)
+        advancedCount = INITIAL_ADVANCE_COUNT;
+    else
+        advancedCount = 0;
+    [self setLabelCountPosition:advancedCount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,7 +136,7 @@
 }
 
 -(IBAction)didClickCapture:(id)sender {
-    if (advancedCount > 0)
+    if (advancedCount < MAX_ADVANCE_COUNT-1)
         return;
 
     if (!flash) {
@@ -133,7 +147,9 @@
         [self toggleFlash:NO];
         [self toggleFlash:YES];
     }
-    advancedCount = MAX_ADVANCE_COUNT;
+    advancedCount = 0;
+    rollCount++;
+    [self setLabelCountPosition:advancedCount];
 
     // doesn't matter if the camera outcome fails, always toggle the button and "advance" the count
     [self toggleCapture:NO];
@@ -232,13 +248,14 @@
     return NO;
 }
 -(void)handleGesture:(UIGestureRecognizer *)gesture {
-    if (advancedCount > 0) {
+    if (advancedCount < MAX_ADVANCE_COUNT) {
         [self playAdvance];
-        advancedCount--;
 
+        advancedCount++;
+        [self setLabelCountPosition:advancedCount];
         [self doScrollAnimation];
 
-        if (advancedCount == 0) {
+        if (advancedCount == MAX_ADVANCE_COUNT) {
             [self toggleCapture:YES];
         }
     }
@@ -328,5 +345,24 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark rotating animations
+-(void)setLabelCountPosition:(int)position {
+    // 20 degrees between each number, 4 scroll wheel positions = 5 degrees each position
+    float degreesCurr = 5 * position - 20;
+    float degreesNext = degreesCurr - 20;
+    float degreesPrev = degreesCurr + 20;
+    labelCountCurr.text = [NSString stringWithFormat:@"%lu", rollCount];
+    labelCountNext.text = [NSString stringWithFormat:@"%lu", rollCount+1];
+    if (rollCount > 0)
+        labelCountPrev.text = [NSString stringWithFormat:@"%lu", rollCount-1];
+    else
+        labelCountPrev.text = nil;
+
+    viewRotaterCurr.transform = CGAffineTransformMakeRotation(degreesCurr / 360 * 2*M_PI);
+    viewRotaterPrev.transform = CGAffineTransformMakeRotation(degreesPrev / 360 * 2*M_PI);
+    viewRotaterNext.transform = CGAffineTransformMakeRotation(degreesNext / 360 * 2*M_PI);
+
+}
 
 @end

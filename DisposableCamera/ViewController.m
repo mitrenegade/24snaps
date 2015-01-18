@@ -128,7 +128,14 @@
 
 #pragma mark UIImagePickerDelegate
 -(void)capture {
-    [_picker takePicture];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [_picker takePicture];
+    }
+    else {
+        // generate fake image (old style)
+        UIImage *image = [UIImage imageNamed:@"bowling"];
+        [self imagePickerController:_picker didFinishPickingMediaWithInfo:@{UIImagePickerControllerOriginalImage:image}];
+    }
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -139,5 +146,9 @@
     // todo: shrink, filter images; create negative
     [images addObject:image];
     [self saveImageDictionary];
+}
+
+-(NSInteger)initialRollCount {
+    return [images count];
 }
 @end

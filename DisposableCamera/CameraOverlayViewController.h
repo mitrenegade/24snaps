@@ -10,6 +10,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
+#define INITIAL_ADVANCE_COUNT -2 // new camera roll
 #define MAX_ADVANCE_COUNT 4
 
 @protocol CameraOverlayDelegate <NSObject>
@@ -17,6 +18,7 @@
 -(void)zoomIn;
 -(void)zoomOut:(BOOL)animated;
 -(void)capture;
+-(NSInteger)initialRollCount;
 
 @end
 @interface CameraOverlayViewController : UIViewController <UIGestureRecognizerDelegate, AVAudioPlayerDelegate>
@@ -37,11 +39,18 @@
     IBOutlet NSLayoutConstraint *constraintCaptureOffsetRight;
     IBOutlet NSLayoutConstraint *constraintViewFinderOffsetTop;
     IBOutlet NSLayoutConstraint *constraintViewFinderOffsetRight;
+    IBOutlet NSLayoutConstraint *constraintFilmCountOffsetTop;
+    IBOutlet NSLayoutConstraint *constraintFilmCountOffsetRight;
 
     IBOutlet UIImageView *viewBG;
     IBOutlet UIImageView *flashImage;
     IBOutlet UIImageView *scrollImage2;
     IBOutlet UIImageView *scrollImage3;
+
+    IBOutlet UIView *viewLabel;
+    IBOutlet UIView *viewRotaterPrev, *viewRotaterCurr, *viewRotaterNext;
+    IBOutlet UILabel *labelCountPrev, *labelCountCurr, *labelCountNext;
+    NSInteger rollCount;
 
     BOOL isZooming;
 }
