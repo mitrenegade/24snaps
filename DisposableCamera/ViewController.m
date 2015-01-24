@@ -217,4 +217,5 @@
 -(NSInteger)initialRollCount {
     return [images count];
 }
+
 @end

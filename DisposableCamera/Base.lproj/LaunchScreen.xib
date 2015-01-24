@@ -24,6 +24,7 @@
                 <constraint firstAttribute="trailing" secondItem="Mue-Od-XoC" secondAttribute="trailing" id="spg-D5-GY8"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
