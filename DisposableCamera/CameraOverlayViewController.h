@@ -42,8 +42,8 @@
     IBOutlet NSLayoutConstraint *constraintViewFinderWidth;
 
     IBOutlet UIView *viewLabel;
-    IBOutlet UIView *viewRotaterPrev, *viewRotaterCurr, *viewRotaterNext;
-    IBOutlet UILabel *labelCountPrev, *labelCountCurr, *labelCountNext;
+    IBOutlet UIView *viewRotaterPrev, *viewRotaterCurr, *viewRotaterNext, *viewRotaterFuture;
+    IBOutlet UILabel *labelCountPrev, *labelCountCurr, *labelCountNext, *labelCountFuture;
     NSInteger rollCount;
 
     BOOL isZooming;

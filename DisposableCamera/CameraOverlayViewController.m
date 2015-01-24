@@ -39,6 +39,7 @@
     labelCountCurr.transform = CGAffineTransformMakeRotation(M_PI_2);
     labelCountPrev.transform = CGAffineTransformMakeRotation(M_PI_2);
     labelCountNext.transform = CGAffineTransformMakeRotation(M_PI_2);
+    labelCountFuture.transform = CGAffineTransformMakeRotation(M_PI_2);
     rollCount = [self.delegate initialRollCount];
 
     if (rollCount == 0 && ![[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"]) {
@@ -309,11 +310,12 @@
 
 #pragma mark rotating animations
 -(void)setLabelCountPosition:(int)position {
-    NSLog(@"roll %d position %d", rollCount, position);
+    NSLog(@"roll %lu position %d", rollCount, position);
     // 20 degrees between each number, 4 scroll wheel positions = 5 degrees each position
     float degreesCurr = 5 * position;
     float degreesPrev = degreesCurr + 20;
     float degreesNext = degreesCurr - 20;
+    float degreesFuture = degreesCurr - 40;
 
     labelCountCurr.text = [NSString stringWithFormat:@"%lu", rollCount];
     labelCountNext.text = [NSString stringWithFormat:@"%lu", rollCount+1];
@@ -321,10 +323,12 @@
         labelCountPrev.text = [NSString stringWithFormat:@"%lu", rollCount-1];
     else
         labelCountPrev.text = nil;
+    labelCountFuture.text = [NSString stringWithFormat:@"%lu", rollCount+2];
 
     viewRotaterPrev.transform = CGAffineTransformMakeRotation(degreesPrev / 360 * 2*M_PI);
     viewRotaterCurr.transform = CGAffineTransformMakeRotation(degreesCurr / 360 * 2*M_PI);
     viewRotaterNext.transform = CGAffineTransformMakeRotation(degreesNext / 360 * 2*M_PI);
+    viewRotaterFuture.transform = CGAffineTransformMakeRotation(degreesFuture / 360 * 2*M_PI);
 
     [[NSUserDefaults standardUserDefaults] setObject:@(advancedCount) forKey:@"film:position"];
     [[NSUserDefaults standardUserDefaults] synchronize];
