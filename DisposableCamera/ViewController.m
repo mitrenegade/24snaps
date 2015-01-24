@@ -69,7 +69,26 @@
     // todo:
     // calculate offsets for each device
 
-    overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlayViewController"];
+//    overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlayViewController"];
+    // iphone 6+
+    if (_appDelegate.window.bounds.size.height == 736) {
+        overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone6+"];
+    }
+
+    // iphone 6
+    else if (_appDelegate.window.bounds.size.height == 667) {
+        overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone6"];
+    }
+
+    // iphone 5/5s
+    else if (_appDelegate.window.bounds.size.height == 568) {
+        overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone5"];
+    }
+
+    // iphone 4/4s
+    else if (_appDelegate.window.bounds.size.height == 480) {
+        overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone4"];
+    }
     overlayController.delegate = self;
     //overlayController.view.alpha = .3;
 

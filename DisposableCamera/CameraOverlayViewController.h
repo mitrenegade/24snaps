@@ -31,17 +31,6 @@
     BOOL flash;
     int advancedCount;
 
-    IBOutlet NSLayoutConstraint *constraintFlashOffsetTop;
-    IBOutlet NSLayoutConstraint *constraintFlashOffsetRight;
-    IBOutlet NSLayoutConstraint *constraintAdvanceOffsetTop;
-    IBOutlet NSLayoutConstraint *constraintAdvanceOffsetRight;
-    IBOutlet NSLayoutConstraint *constraintCaptureOffsetTop;
-    IBOutlet NSLayoutConstraint *constraintCaptureOffsetRight;
-    IBOutlet NSLayoutConstraint *constraintViewFinderOffsetTop;
-    IBOutlet NSLayoutConstraint *constraintViewFinderOffsetRight;
-    IBOutlet NSLayoutConstraint *constraintFilmCountOffsetTop;
-    IBOutlet NSLayoutConstraint *constraintFilmCountOffsetRight;
-
     IBOutlet UIImageView *viewBG;
     IBOutlet UIImageView *flashImage;
     IBOutlet UIImageView *scrollImage2;
