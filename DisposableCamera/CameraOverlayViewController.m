@@ -52,6 +52,12 @@
         [self toggleCapture:YES];
     }
     [self setLabelCountPosition:advancedCount];
+
+#if !TESTING
+    buttonFlash.backgroundColor = [UIColor clearColor];
+    buttonViewFinder.backgroundColor = [UIColor clearColor];
+    viewFilmAdvance.backgroundColor = [UIColor clearColor];
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -177,6 +183,9 @@
 
 #pragma mark film advance
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if (isZooming)
+        return NO;
+
     if (CGRectContainsPoint(viewFilmAdvance.frame, [touch locationInView:self.view])) {
         return YES;
     }
@@ -246,6 +255,7 @@
     CGAffineTransform transform = CGAffineTransformScale(CGAffineTransformTranslate(viewBG.transform, tx*scale, ty*scale), scale, scale);
     CGAffineTransform transform2 = CGAffineTransformScale(CGAffineTransformTranslate(buttonViewFinder.transform, tx, 0), scale, scale);
 
+    viewLabel.alpha = 0;
     [UIView animateWithDuration:1 animations:^{
         viewBG.transform = transform;
         buttonViewFinder.transform = transform2;
@@ -262,6 +272,7 @@
         buttonViewFinder.transform = CGAffineTransformIdentity;
         buttonViewFinder.alpha = 1;
     } completion:^(BOOL finished) {
+        viewLabel.alpha = 1;
         [buttonFlash setUserInteractionEnabled:isZooming];
         [viewFilmAdvance setUserInteractionEnabled:isZooming];
         [flashImage setHidden:!isZooming];
