@@ -18,6 +18,7 @@
 -(void)zoomIn;
 -(void)zoomOut:(BOOL)animated;
 -(void)capture;
+-(void)enableFlash;
 -(NSInteger)initialRollCount;
 
 @end

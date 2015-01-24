@@ -177,6 +177,8 @@
     else {
         [UIView animateWithDuration:1 animations:^{
             flashImage.alpha = 1;
+        } completion:^(BOOL finished) {
+            [self.delegate enableFlash];
         }];
     }
 }

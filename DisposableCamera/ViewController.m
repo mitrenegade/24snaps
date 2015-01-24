@@ -80,6 +80,7 @@
     _picker.toolbarHidden = YES; // hide toolbar of app, if there is one.
     _picker.allowsEditing = NO;
     _picker.delegate = self;
+    [_picker setCameraFlashMode:UIImagePickerControllerCameraFlashModeOff];
 
     // todo:
     // calculate offsets for each device
@@ -158,6 +159,10 @@
             }];
         }
     }
+}
+
+-(void)enableFlash {
+    [_picker setCameraFlashMode:UIImagePickerControllerCameraFlashModeOn];
 }
 
 #pragma mark UIImagePickerDelegate
