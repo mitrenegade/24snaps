@@ -34,6 +34,7 @@
 
 #pragma mark Image storage
 -(void)loadImageDictionary {
+#if 1
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *imageData = [defaults objectForKey:@"images"];
     if (imageData) {
@@ -42,14 +43,28 @@
     else {
         images = [NSMutableArray array];
     }
+#else
+    images = [NSKeyedUnarchiver unarchiveObjectWithFile:@"images"];
+    if (!images)
+        images = [NSMutableArray array];
+#endif
     NSLog(@"Current images on film roll: %lu", [images count]);
 }
 
 -(void)saveImageDictionary {
-    NSData *imageData = [NSKeyedArchiver archivedDataWithRootObject:images];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:imageData forKey:@"images"];
-    [defaults synchronize];
+#if 1
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData *imageData = [NSKeyedArchiver archivedDataWithRootObject:images];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:imageData forKey:@"images"];
+            [defaults synchronize];
+        });
+    });
+#else
+    // todo: make this work
+    BOOL done = [NSKeyedArchiver archiveRootObject:images toFile:@"images"];
+#endif
 }
 
 #pragma mark Camera
@@ -164,7 +179,9 @@
 
     // todo: shrink, filter images; create negative
     [images addObject:image];
-    [self saveImageDictionary];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self saveImageDictionary];
+    });
 }
 
 -(NSInteger)initialRollCount {
