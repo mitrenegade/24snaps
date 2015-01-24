@@ -247,8 +247,9 @@
     [scrollImage2 setHidden:!isZooming];
     [scrollImage3 setHidden:!isZooming];
 
-    float tx = (self.view.frame.size.width/2 - buttonViewFinder.center.x);
-    float ty = (self.view.frame.size.height/2 - buttonViewFinder.center.y);
+    float tx = self.view.frame.size.width/2 - buttonViewFinder.center.x;
+    float ty = self.view.frame.size.height/2 - buttonViewFinder.center.y;
+    NSLog(@"x y: %f %f", buttonViewFinder.center.x, buttonViewFinder.center.y);
     float scale = 7;
 
     // scale and translate so that the center of the viewFinder is enlarged and centered
@@ -283,6 +284,18 @@
 
         isZooming = !isZooming;
     }];
+}
+
+-(float)viewFinderOffsetX {
+    return buttonViewFinder.center.x - self.view.center.x;
+}
+
+-(float)viewFinderOffsetY {
+    return buttonViewFinder.center.y - self.view.center.y;
+}
+
+-(float)viewFinderWidth {
+    return constraintViewFinderWidth.constant;
 }
 /*
 #pragma mark - Navigation

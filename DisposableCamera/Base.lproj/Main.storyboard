@@ -230,6 +230,7 @@
                         <outlet property="buttonCapture" destination="l5b-lP-dEw" id="tcw-Of-qIG"/>
                         <outlet property="buttonFlash" destination="xHq-Ce-BqI" id="Ddy-MP-8rC"/>
                         <outlet property="buttonViewFinder" destination="QvB-iY-x0c" id="5SI-MV-vVH"/>
+                        <outlet property="constraintViewFinderWidth" destination="sWf-Gf-meg" id="1Hc-Kj-2pj"/>
                         <outlet property="flashImage" destination="Tnz-Zm-zJf" id="Cgl-2g-LOO"/>
                         <outlet property="labelCountCurr" destination="gQ4-ck-FhV" id="yhE-OZ-Ek9"/>
                         <outlet property="labelCountNext" destination="GzT-ph-Cwq" id="o47-A7-u4W"/>
@@ -444,6 +445,7 @@
                         <outlet property="buttonCapture" destination="jxK-aQ-7bv" id="jQS-24-HoC"/>
                         <outlet property="buttonFlash" destination="qxT-Uo-cIy" id="S9k-0b-YEM"/>
                         <outlet property="buttonViewFinder" destination="Mmn-1U-L9Q" id="rP0-h8-Y6L"/>
+                        <outlet property="constraintViewFinderWidth" destination="knN-id-uCk" id="vWw-V0-1p0"/>
                         <outlet property="flashImage" destination="Ff9-3K-51K" id="hTy-Co-GaN"/>
                         <outlet property="labelCountCurr" destination="r7u-eK-vwd" id="nGk-8c-4Nh"/>
                         <outlet property="labelCountNext" destination="vcK-sF-3NG" id="lfI-6m-ob2"/>
@@ -502,20 +504,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didClickButtonFlash:" destination="Gyh-33-dro" eventType="touchUpInside" id="5ct-gw-kyE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSE-VU-ow0" userLabel="Button - zoom">
-                                <rect key="frame" x="288" y="290" width="49" height="88"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="88" id="iNU-nt-xo1"/>
-                                    <constraint firstAttribute="width" constant="49" id="zm4-42-3up"/>
-                                </constraints>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didClickViewFinder:" destination="Gyh-33-dro" eventType="touchUpInside" id="G2v-Lm-MQb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woB-vi-z5x" userLabel="Button - capture">
@@ -619,6 +607,20 @@
                                     <constraint firstAttribute="height" constant="129" id="dNC-8F-d7N"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSE-VU-ow0" userLabel="Button - zoom">
+                                <rect key="frame" x="288" y="295" width="49" height="88"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="iNU-nt-xo1"/>
+                                    <constraint firstAttribute="width" constant="49" id="zm4-42-3up"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickViewFinder:" destination="Gyh-33-dro" eventType="touchUpInside" id="G2v-Lm-MQb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -635,7 +637,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="4Tc-UJ-xWF" secondAttribute="trailing" constant="-16" id="T2b-zX-Vw4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="woB-vi-z5x" secondAttribute="trailing" constant="230" id="V1h-DN-GzQ"/>
                             <constraint firstItem="3Uj-4t-Fpb" firstAttribute="top" secondItem="JiO-jP-Ewu" secondAttribute="topMargin" id="dh1-pu-M58"/>
-                            <constraint firstItem="YSE-VU-ow0" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="290" id="fGc-A7-PEw"/>
+                            <constraint firstItem="YSE-VU-ow0" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="295" id="fGc-A7-PEw"/>
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="wZE-3l-Lki" secondAttribute="bottom" id="hIp-9c-1GE"/>
                             <constraint firstItem="nKY-Jd-vck" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="230" id="i7b-oM-L70"/>
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="3Uj-4t-Fpb" secondAttribute="bottom" id="irD-lO-roM"/>
@@ -657,6 +659,7 @@
                         <outlet property="buttonCapture" destination="woB-vi-z5x" id="NmK-1u-lbA"/>
                         <outlet property="buttonFlash" destination="yZl-cR-4M0" id="pyQ-iL-ar0"/>
                         <outlet property="buttonViewFinder" destination="YSE-VU-ow0" id="SOA-Fr-uxg"/>
+                        <outlet property="constraintViewFinderWidth" destination="zm4-42-3up" id="ynd-G7-AHc"/>
                         <outlet property="flashImage" destination="wZE-3l-Lki" id="9t9-I4-fdk"/>
                         <outlet property="labelCountCurr" destination="0VF-ah-3W1" id="dJ9-kh-cBz"/>
                         <outlet property="labelCountNext" destination="71r-Qc-418" id="Trd-Nj-mgg"/>
@@ -871,6 +874,7 @@
                         <outlet property="buttonCapture" destination="ZHG-Cz-DoW" id="sOS-2T-hnl"/>
                         <outlet property="buttonFlash" destination="0Jy-js-igg" id="q3p-Mo-LpS"/>
                         <outlet property="buttonViewFinder" destination="3Zw-KW-e0w" id="DfM-n8-A9q"/>
+                        <outlet property="constraintViewFinderWidth" destination="Vsv-n5-MEh" id="aMT-1l-BtF"/>
                         <outlet property="flashImage" destination="Rco-vm-sRd" id="aAF-w6-wy5"/>
                         <outlet property="labelCountCurr" destination="2fL-qt-O5p" id="Jsj-Cx-30f"/>
                         <outlet property="labelCountNext" destination="ktF-F6-Qvn" id="iZR-jq-LPa"/>

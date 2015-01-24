@@ -37,6 +37,10 @@
     IBOutlet UIImageView *scrollImage2;
     IBOutlet UIImageView *scrollImage3;
 
+    IBOutlet NSLayoutConstraint *constraintViewFinderTop;
+    IBOutlet NSLayoutConstraint *constraintViewFinderRight;
+    IBOutlet NSLayoutConstraint *constraintViewFinderWidth;
+
     IBOutlet UIView *viewLabel;
     IBOutlet UIView *viewRotaterPrev, *viewRotaterCurr, *viewRotaterNext;
     IBOutlet UILabel *labelCountPrev, *labelCountCurr, *labelCountNext;
@@ -50,4 +54,8 @@
 -(IBAction)didClickButtonFlash:(id)sender;
 -(IBAction)didClickCapture:(id)sender;
 -(IBAction)didClickViewFinder:(id)sender;
+
+-(float)viewFinderOffsetX;
+-(float)viewFinderOffsetY;
+-(float)viewFinderWidth;
 @end
