@@ -172,6 +172,9 @@
                          error:nil];
     }
     [playerAdvance play];
+
+    // if tactile feedback is desired. doesn't feel too authentic.
+    //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
