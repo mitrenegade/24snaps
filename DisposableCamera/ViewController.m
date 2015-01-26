@@ -13,6 +13,7 @@
 #import "BackgroundHelper.h"
 
 static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
+static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
 
 @interface ViewController ()
 @end
@@ -27,7 +28,7 @@ static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [self loadImageDictionary];
+    [self loadImages];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -41,30 +42,43 @@ static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
 }
 
 #pragma mark Image storage
--(void)loadImageDictionary {
-    // use pasteboard
-    UIPasteboard *appPasteBoard = [UIPasteboard pasteboardWithName:PASTEBOARD_NAME create:YES];
-    appPasteBoard.persistent = YES;
+-(void)loadImages {
+    images = [NSMutableArray arrayWithCapacity:MAX_ROLL_SIZE];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    for (int i=0; i<MAX_ROLL_SIZE; i++) {
+        NSString *imageName = [documentsDirectory stringByAppendingString:[NSString stringWithFormat:@"/disposableCamera_%d", i]];
+        NSString *imagePath = [imageName stringByAppendingString:@".png"];
 
-    images = [appPasteBoard.images mutableCopy];;
-    if (!images)
-        images = [NSMutableArray array];
-
+        NSData *data = [NSData dataWithContentsOfFile:imagePath];
+        if (data) {
+            UIImage *image = [UIImage imageWithData:data];
+            [images addObject:image];
+        }
+        else {
+            break;
+        }
+    }
     NSLog(@"Current images on film roll: %lu", [images count]);
+
 }
+-(void)saveImage:(UIImage *)image atIndex:(int)index {
+    //save it
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *imageName = [documentsDirectory stringByAppendingString:[NSString stringWithFormat:@"/disposableCamera_%d", index]];
+    NSString *imagePath = [imageName stringByAppendingString:@".png"];
 
--(void)saveImageDictionary {
-    UIPasteboard *appPasteBoard = [UIPasteboard pasteboardWithName:PASTEBOARD_NAME create:YES];
-    appPasteBoard.persistent = YES;
-    [BackgroundHelper keepTaskInBackgroundForPhotoUpload];
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [appPasteBoard setImages:images];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            NSLog(@"%d images saved to pasteboard", appPasteBoard.images.count);
-            [BackgroundHelper stopTaskInBackgroundForPhotoUpload];
-        });
-    });
+    NSData *data = UIImageJPEGRepresentation(image, .8);
+    NSError* error = nil;
+    BOOL success = [data writeToFile:imagePath options:0 error:&error];
+    if (success) {
+        // successfull save
+        NSLog(@"Success save to: %@", imagePath);
+    }
+    else if (error) {
+        NSLog(@"Error:%@", error.localizedDescription);
+    }
 }
 
 #pragma mark Camera
@@ -225,7 +239,8 @@ static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
 
     // todo: shrink, filter images; create negative
     [images addObject:image];
-    [self saveImageDictionary];
+//    [self saveImageDictionary];
+    [self saveImage:image atIndex:(int)(images.count-1)];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"image:captured" object:nil];
 }
