@@ -231,6 +231,8 @@
     // todo: shrink, filter images; create negative
     [images addObject:image];
     [self saveImageDictionary];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"image:captured" object:nil];
 }
 
 @end

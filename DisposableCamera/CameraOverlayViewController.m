@@ -63,6 +63,11 @@
     buttonViewFinder.backgroundColor = [UIColor clearColor];
     viewFilmAdvance.backgroundColor = [UIColor clearColor];
 #endif
+
+    if (rollCount == 0)
+        buttonRoll.alpha = 0;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFilmRollButton:) name:@"image:captured" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -268,6 +273,7 @@
     CGAffineTransform transform2 = CGAffineTransformScale(CGAffineTransformTranslate(buttonViewFinder.transform, tx, 0), scale, scale);
 
     viewLabel.alpha = 0;
+    buttonRoll.alpha = 0;
     [UIView animateWithDuration:1 animations:^{
         viewBG.transform = transform;
         buttonViewFinder.transform = transform2;
@@ -285,6 +291,8 @@
         buttonViewFinder.alpha = 1;
     } completion:^(BOOL finished) {
         viewLabel.alpha = 1;
+        buttonRoll.alpha = 1;
+        
         [buttonFlash setUserInteractionEnabled:isZooming];
         [viewFilmAdvance setUserInteractionEnabled:isZooming];
         [flashImage setHidden:!isZooming];
@@ -340,6 +348,12 @@
 
     [[NSUserDefaults standardUserDefaults] setObject:@(advancedCount) forKey:@"film:position"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)updateFilmRollButton:(NSNotification *)n {
+    if ([self.delegate initialRollCount] > 0) {
+        buttonRoll.alpha = 1;
+    }
 }
 
 @end

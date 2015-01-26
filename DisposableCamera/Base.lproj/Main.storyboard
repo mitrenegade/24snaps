@@ -81,6 +81,14 @@
                                     <action selector="didClickButtonFlash:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ocH-ef-7Oy"/>
                                 </connections>
                             </button>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xv3-cn-EbN">
+                                <rect key="frame" x="223" y="334" width="53" height="138"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="138" id="SJ2-3q-R1T"/>
+                                    <constraint firstAttribute="width" constant="53" id="YHz-XC-06h"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-lP-dEw" userLabel="Button - capture">
                                 <rect key="frame" x="43" y="463" width="75" height="75"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -205,14 +213,21 @@
                                     <action selector="didClickViewFinder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jma-UH-PEN"/>
                                 </connections>
                             </button>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xv3-cn-EbN">
-                                <rect key="frame" x="223" y="334" width="53" height="138"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWV-E8-lS0">
+                                <rect key="frame" x="58" y="28" width="45" height="55"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="138" id="SJ2-3q-R1T"/>
-                                    <constraint firstAttribute="width" constant="53" id="YHz-XC-06h"/>
+                                    <constraint firstAttribute="height" constant="40" id="8U2-Xk-JU5"/>
+                                    <constraint firstAttribute="width" constant="30" id="Myf-Fo-Oqp"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" image="filmRollWhiteRight">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickFilmRoll:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="frN-pO-NZM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -224,6 +239,7 @@
                             <constraint firstItem="QvB-iY-x0c" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="195" id="Mqi-XH-Anl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MPs-sY-HNs" secondAttribute="trailing" constant="-16" id="N1o-Ch-Ewa"/>
                             <constraint firstItem="Tnz-Zm-zJf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="OVx-FL-bEW"/>
+                            <constraint firstItem="rWV-E8-lS0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="42" id="Ptd-5p-lsB"/>
                             <constraint firstItem="MPs-sY-HNs" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="RHf-oQ-UF5"/>
                             <constraint firstItem="lAd-VB-51p" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Vmm-Pe-dHW"/>
                             <constraint firstItem="1Zl-5N-bMP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ZPG-J7-1E7"/>
@@ -232,6 +248,7 @@
                             <constraint firstItem="xHq-Ce-BqI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="250" id="ez9-gm-NJw"/>
                             <constraint firstItem="Tnz-Zm-zJf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="f7j-BG-x0c"/>
                             <constraint firstItem="1Zl-5N-bMP" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="hAc-RB-eTa"/>
+                            <constraint firstItem="rWV-E8-lS0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="hMj-oX-3Va"/>
                             <constraint firstAttribute="trailing" secondItem="lAd-VB-51p" secondAttribute="trailing" id="hv9-ub-IiA"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="1Zl-5N-bMP" secondAttribute="bottom" id="ia8-5D-jkb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BJK-ht-A38" secondAttribute="trailing" constant="40" id="jcq-m2-T0w"/>
@@ -249,6 +266,7 @@
                     <connections>
                         <outlet property="buttonCapture" destination="l5b-lP-dEw" id="tcw-Of-qIG"/>
                         <outlet property="buttonFlash" destination="xHq-Ce-BqI" id="Ddy-MP-8rC"/>
+                        <outlet property="buttonRoll" destination="rWV-E8-lS0" id="fPN-uR-hfp"/>
                         <outlet property="buttonViewFinder" destination="QvB-iY-x0c" id="5SI-MV-vVH"/>
                         <outlet property="constraintViewFinderWidth" destination="sWf-Gf-meg" id="1Hc-Kj-2pj"/>
                         <outlet property="flashImage" destination="Tnz-Zm-zJf" id="Cgl-2g-LOO"/>
@@ -470,21 +488,6 @@
                                     <constraint firstAttribute="bottom" secondItem="reW-hU-dOA" secondAttribute="bottom" constant="-60" id="u3k-wh-nzF"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LB-gp-Q9C">
-                                <rect key="frame" x="43" y="40" width="46" height="48"/>
-                                <color key="backgroundColor" red="0.15294118230000001" green="0.79215693470000004" blue="0.71372550729999995" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="2Hj-WL-CPh"/>
-                                    <constraint firstAttribute="width" constant="46" id="alf-I6-MWh"/>
-                                </constraints>
-                                <state key="normal" title="Roll">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didClickFilmRoll:" destination="BTn-FV-BfF" eventType="touchUpInside" id="NhB-WY-Boz"/>
-                                </connections>
-                            </button>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ob-EV-ymL">
                                 <rect key="frame" x="242" y="405" width="51" height="155"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -493,6 +496,21 @@
                                     <constraint firstAttribute="width" constant="51" id="XHn-PF-knt"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LB-gp-Q9C">
+                                <rect key="frame" x="38" y="41" width="45" height="55"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2Hj-WL-CPh"/>
+                                    <constraint firstAttribute="width" constant="30" id="alf-I6-MWh"/>
+                                </constraints>
+                                <state key="normal" image="filmRollWhiteRight">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickFilmRoll:" destination="BTn-FV-BfF" eventType="touchUpInside" id="NhB-WY-Boz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -505,7 +523,7 @@
                             <constraint firstItem="0Df-OK-REa" firstAttribute="top" secondItem="CPn-EY-lIY" secondAttribute="bottom" id="QfW-XA-D5W"/>
                             <constraint firstItem="Ezs-6P-4lf" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leading" id="Rw8-du-IQ7"/>
                             <constraint firstItem="Mmn-1U-L9Q" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="262" id="WiR-m4-x2m"/>
-                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="40" id="ZKz-9A-Upd"/>
+                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="41" id="ZKz-9A-Upd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qxT-Uo-cIy" secondAttribute="trailing" constant="68" id="b7j-1O-otS"/>
                             <constraint firstItem="qxT-Uo-cIy" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="324" id="e4Q-u7-3aa"/>
                             <constraint firstItem="CPn-EY-lIY" firstAttribute="top" secondItem="g8S-1d-OBu" secondAttribute="topMargin" id="eJy-gM-BOr"/>
@@ -513,7 +531,7 @@
                             <constraint firstItem="Ezs-6P-4lf" firstAttribute="top" secondItem="g8S-1d-OBu" secondAttribute="top" id="fTf-VQ-vaX"/>
                             <constraint firstItem="Ff9-3K-51K" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leadingMargin" constant="-16" id="fw9-P1-fPa"/>
                             <constraint firstItem="jxK-aQ-7bv" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="453" id="hdX-3h-MX2"/>
-                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leadingMargin" constant="27" id="ibl-OJ-IdD"/>
+                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leadingMargin" constant="22" id="ibl-OJ-IdD"/>
                             <constraint firstItem="0Df-OK-REa" firstAttribute="top" secondItem="kEd-o3-Ur3" secondAttribute="bottom" id="lga-Oc-tRj"/>
                             <constraint firstItem="5Ob-EV-ymL" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="405" id="mzf-TI-QY5"/>
                             <constraint firstAttribute="trailing" secondItem="Ezs-6P-4lf" secondAttribute="trailing" id="nX3-A3-JT8"/>
@@ -533,6 +551,7 @@
                     <connections>
                         <outlet property="buttonCapture" destination="jxK-aQ-7bv" id="jQS-24-HoC"/>
                         <outlet property="buttonFlash" destination="qxT-Uo-cIy" id="S9k-0b-YEM"/>
+                        <outlet property="buttonRoll" destination="4LB-gp-Q9C" id="9Hb-Ru-6uI"/>
                         <outlet property="buttonViewFinder" destination="Mmn-1U-L9Q" id="rP0-h8-Y6L"/>
                         <outlet property="constraintViewFinderWidth" destination="knN-id-uCk" id="vWw-V0-1p0"/>
                         <outlet property="flashImage" destination="Ff9-3K-51K" id="hTy-Co-GaN"/>
@@ -707,6 +726,14 @@
                                     <constraint firstAttribute="bottom" secondItem="4Th-9h-0fI" secondAttribute="bottom" constant="-60" id="z1H-n9-Pik"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtR-CC-ZPz">
+                                <rect key="frame" x="284" y="471" width="56" height="188"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="V49-Py-sn7"/>
+                                    <constraint firstAttribute="height" constant="188" id="dNC-8F-d7N"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSE-VU-ow0" userLabel="Button - zoom">
                                 <rect key="frame" x="288" y="295" width="49" height="88"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -721,14 +748,21 @@
                                     <action selector="didClickViewFinder:" destination="Gyh-33-dro" eventType="touchUpInside" id="G2v-Lm-MQb"/>
                                 </connections>
                             </button>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtR-CC-ZPz">
-                                <rect key="frame" x="284" y="471" width="56" height="188"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyI-bg-7dO">
+                                <rect key="frame" x="44" y="46" width="60" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="V49-Py-sn7"/>
-                                    <constraint firstAttribute="height" constant="188" id="dNC-8F-d7N"/>
+                                    <constraint firstAttribute="width" constant="40" id="2UX-zX-FYV"/>
+                                    <constraint firstAttribute="height" constant="50" id="Soi-dW-8S8"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" image="filmRollWhiteRight">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickFilmRoll:" destination="Gyh-33-dro" eventType="touchUpInside" id="ota-mL-eQj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -745,6 +779,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="4Tc-UJ-xWF" secondAttribute="trailing" constant="-16" id="T2b-zX-Vw4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="woB-vi-z5x" secondAttribute="trailing" constant="230" id="V1h-DN-GzQ"/>
                             <constraint firstItem="3Uj-4t-Fpb" firstAttribute="top" secondItem="JiO-jP-Ewu" secondAttribute="topMargin" id="dh1-pu-M58"/>
+                            <constraint firstItem="EyI-bg-7dO" firstAttribute="leading" secondItem="JiO-jP-Ewu" secondAttribute="leadingMargin" constant="28" id="fCO-iv-ln6"/>
                             <constraint firstItem="YSE-VU-ow0" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="295" id="fGc-A7-PEw"/>
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="wZE-3l-Lki" secondAttribute="bottom" id="hIp-9c-1GE"/>
                             <constraint firstItem="nKY-Jd-vck" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="230" id="i7b-oM-L70"/>
@@ -753,6 +788,7 @@
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="4Tc-UJ-xWF" secondAttribute="bottom" id="ldz-U1-rmJ"/>
                             <constraint firstItem="3Uj-4t-Fpb" firstAttribute="leading" secondItem="JiO-jP-Ewu" secondAttribute="leadingMargin" constant="-16" id="mZc-cf-VWP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YSE-VU-ow0" secondAttribute="trailing" constant="22" id="oSH-1s-RXQ"/>
+                            <constraint firstItem="EyI-bg-7dO" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="46" id="pfO-G8-X1Z"/>
                             <constraint firstItem="CtR-CC-ZPz" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="471" id="r42-ft-JOw"/>
                             <constraint firstItem="woB-vi-z5x" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="534" id="rmU-07-9hv"/>
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="NhK-Wk-lN4" secondAttribute="bottom" id="roR-rd-HgW"/>
@@ -766,6 +802,7 @@
                     <connections>
                         <outlet property="buttonCapture" destination="woB-vi-z5x" id="NmK-1u-lbA"/>
                         <outlet property="buttonFlash" destination="yZl-cR-4M0" id="pyQ-iL-ar0"/>
+                        <outlet property="buttonRoll" destination="EyI-bg-7dO" id="E7X-KP-uXF"/>
                         <outlet property="buttonViewFinder" destination="YSE-VU-ow0" id="SOA-Fr-uxg"/>
                         <outlet property="constraintViewFinderWidth" destination="zm4-42-3up" id="ynd-G7-AHc"/>
                         <outlet property="flashImage" destination="wZE-3l-Lki" id="9t9-I4-fdk"/>
@@ -830,6 +867,14 @@
                                     <action selector="didClickButtonFlash:" destination="cB2-Wl-0zf" eventType="touchUpInside" id="KYa-eq-4M5"/>
                                 </connections>
                             </button>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BK2-cw-Y6n">
+                                <rect key="frame" x="312" y="524" width="66" height="204"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="204" id="7Ou-J2-ExM"/>
+                                    <constraint firstAttribute="width" constant="66" id="bbZ-bm-D25"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zw-KW-e0w" userLabel="Button - zoom">
                                 <rect key="frame" x="317" y="328" width="56" height="92"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -954,14 +999,21 @@
                                     <action selector="didClickCapture:" destination="cB2-Wl-0zf" eventType="touchUpInside" id="yHS-67-gOa"/>
                                 </connections>
                             </button>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BK2-cw-Y6n">
-                                <rect key="frame" x="312" y="524" width="66" height="204"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-0A-hKc">
+                                <rect key="frame" x="48" y="41" width="60" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="204" id="7Ou-J2-ExM"/>
-                                    <constraint firstAttribute="width" constant="66" id="bbZ-bm-D25"/>
+                                    <constraint firstAttribute="height" constant="60" id="hEi-cL-huC"/>
+                                    <constraint firstAttribute="width" constant="50" id="sEv-RG-eOZ"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" image="filmRollWhiteRight">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickFilmRoll:" destination="cB2-Wl-0zf" eventType="touchUpInside" id="jGb-Q9-K3o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -969,6 +1021,7 @@
                             <constraint firstItem="A7q-pa-O31" firstAttribute="top" secondItem="zLo-Td-XnK" secondAttribute="topMargin" id="5aE-3K-r2T"/>
                             <constraint firstItem="D85-8d-11a" firstAttribute="top" secondItem="Rco-vm-sRd" secondAttribute="bottom" id="Adr-HZ-GND"/>
                             <constraint firstItem="D85-8d-11a" firstAttribute="top" secondItem="czS-4P-gat" secondAttribute="bottom" id="As2-2r-NDc"/>
+                            <constraint firstItem="QCP-0A-hKc" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leadingMargin" constant="32" id="Bfy-vl-fxD"/>
                             <constraint firstItem="gyL-tf-u2m" firstAttribute="top" secondItem="zLo-Td-XnK" secondAttribute="top" id="Cdu-KK-sa8"/>
                             <constraint firstItem="Rco-vm-sRd" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leadingMargin" constant="-16" id="FdI-3R-9jE"/>
                             <constraint firstItem="EwD-RI-XJb" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="260" id="GUA-0O-iIK"/>
@@ -984,6 +1037,7 @@
                             <constraint firstItem="3Zw-KW-e0w" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="328" id="Rwz-65-gb2"/>
                             <constraint firstItem="BK2-cw-Y6n" firstAttribute="trailing" secondItem="zLo-Td-XnK" secondAttribute="trailingMargin" constant="-20" id="Y5m-4a-NuR"/>
                             <constraint firstItem="A7q-pa-O31" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leadingMargin" constant="-16" id="aDd-RA-zB4"/>
+                            <constraint firstItem="QCP-0A-hKc" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="41" id="bWY-gt-1yJ"/>
                             <constraint firstItem="gyL-tf-u2m" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leading" id="csK-x4-QPS"/>
                             <constraint firstItem="D85-8d-11a" firstAttribute="top" secondItem="gyL-tf-u2m" secondAttribute="bottom" id="f14-Li-U68"/>
                             <constraint firstAttribute="trailingMargin" secondItem="czS-4P-gat" secondAttribute="trailing" constant="-16" id="nHJ-vf-62I"/>
@@ -1000,6 +1054,7 @@
                     <connections>
                         <outlet property="buttonCapture" destination="ZHG-Cz-DoW" id="sOS-2T-hnl"/>
                         <outlet property="buttonFlash" destination="0Jy-js-igg" id="q3p-Mo-LpS"/>
+                        <outlet property="buttonRoll" destination="QCP-0A-hKc" id="Fhj-Nl-T9Q"/>
                         <outlet property="buttonViewFinder" destination="3Zw-KW-e0w" id="DfM-n8-A9q"/>
                         <outlet property="constraintViewFinderWidth" destination="Vsv-n5-MEh" id="aMT-1l-BtF"/>
                         <outlet property="flashImage" destination="Rco-vm-sRd" id="aAF-w6-wy5"/>
@@ -1029,5 +1084,6 @@
         <image name="camScroll2Right" width="323" height="660"/>
         <image name="camScroll3Right" width="323" height="660"/>
         <image name="captureRight" width="128" height="129"/>
+        <image name="filmRollWhiteRight" width="264" height="264"/>
     </resources>
 </document>
