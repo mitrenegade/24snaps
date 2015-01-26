@@ -127,12 +127,12 @@ static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
 
     // iphone 6+
     if (_appDelegate.window.bounds.size.height == 736) {
-        return 50; // todo
+        return 80; // todo
     }
 
     // iphone 6
     else if (_appDelegate.window.bounds.size.height == 667) {
-        return 50; // todo
+        return 75;
     }
 
     // iphone 5/5s

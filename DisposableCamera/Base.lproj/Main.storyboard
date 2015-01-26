@@ -200,7 +200,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvB-iY-x0c" userLabel="Button - zoom">
-                                <rect key="frame" x="226" y="215" width="46" height="70"/>
+                                <rect key="frame" x="226" y="219" width="46" height="70"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="sWf-Gf-meg"/>
@@ -236,7 +236,7 @@
                             <constraint firstItem="Xv3-cn-EbN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" constant="-28" id="EB4-5s-crx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Zl-5N-bMP" secondAttribute="trailing" constant="-16" id="FNE-it-LNG"/>
                             <constraint firstItem="l5b-lP-dEw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="443" id="JXb-Cs-muA"/>
-                            <constraint firstItem="QvB-iY-x0c" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="195" id="Mqi-XH-Anl"/>
+                            <constraint firstItem="QvB-iY-x0c" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="199" id="Mqi-XH-Anl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MPs-sY-HNs" secondAttribute="trailing" constant="-16" id="N1o-Ch-Ewa"/>
                             <constraint firstItem="Tnz-Zm-zJf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="OVx-FL-bEW"/>
                             <constraint firstItem="rWV-E8-lS0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="42" id="Ptd-5p-lsB"/>
@@ -732,7 +732,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSE-VU-ow0" userLabel="Button - zoom">
-                                <rect key="frame" x="288" y="295" width="49" height="88"/>
+                                <rect key="frame" x="288" y="303" width="49" height="88"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="iNU-nt-xo1"/>
@@ -777,7 +777,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="woB-vi-z5x" secondAttribute="trailing" constant="230" id="V1h-DN-GzQ"/>
                             <constraint firstItem="3Uj-4t-Fpb" firstAttribute="top" secondItem="JiO-jP-Ewu" secondAttribute="topMargin" id="dh1-pu-M58"/>
                             <constraint firstItem="EyI-bg-7dO" firstAttribute="leading" secondItem="JiO-jP-Ewu" secondAttribute="leadingMargin" constant="38" id="fCO-iv-ln6"/>
-                            <constraint firstItem="YSE-VU-ow0" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="295" id="fGc-A7-PEw"/>
+                            <constraint firstItem="YSE-VU-ow0" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="303" id="fGc-A7-PEw"/>
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="wZE-3l-Lki" secondAttribute="bottom" id="hIp-9c-1GE"/>
                             <constraint firstItem="nKY-Jd-vck" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="230" id="i7b-oM-L70"/>
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="3Uj-4t-Fpb" secondAttribute="bottom" id="irD-lO-roM"/>
@@ -873,7 +873,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Zw-KW-e0w" userLabel="Button - zoom">
-                                <rect key="frame" x="317" y="328" width="56" height="92"/>
+                                <rect key="frame" x="317" y="336" width="56" height="92"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="Vsv-n5-MEh"/>
@@ -1031,7 +1031,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0Jy-js-igg" secondAttribute="trailing" constant="94" id="MRo-UP-UVP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EwD-RI-XJb" secondAttribute="trailing" constant="38" id="Qws-p1-QtQ"/>
                             <constraint firstItem="czS-4P-gat" firstAttribute="top" secondItem="zLo-Td-XnK" secondAttribute="topMargin" id="RMR-Bh-oEy"/>
-                            <constraint firstItem="3Zw-KW-e0w" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="328" id="Rwz-65-gb2"/>
+                            <constraint firstItem="3Zw-KW-e0w" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="336" id="Rwz-65-gb2"/>
                             <constraint firstItem="BK2-cw-Y6n" firstAttribute="trailing" secondItem="zLo-Td-XnK" secondAttribute="trailingMargin" constant="-20" id="Y5m-4a-NuR"/>
                             <constraint firstItem="A7q-pa-O31" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leadingMargin" constant="-16" id="aDd-RA-zB4"/>
                             <constraint firstItem="QCP-0A-hKc" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="53" id="bWY-gt-1yJ"/>
