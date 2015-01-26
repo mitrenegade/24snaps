@@ -10,6 +10,9 @@
 #import "AppDelegate.h"
 #import "CameraOverlayViewController.h"
 #import "FilmRollViewController.h"
+#import "BackgroundHelper.h"
+
+static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
 
 @interface ViewController ()
 @end
@@ -39,37 +42,29 @@
 
 #pragma mark Image storage
 -(void)loadImageDictionary {
-#if 1
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *imageData = [defaults objectForKey:@"images"];
-    if (imageData) {
-        images = [NSKeyedUnarchiver unarchiveObjectWithData:imageData];
-    }
-    else {
-        images = [NSMutableArray array];
-    }
-#else
-    images = [NSKeyedUnarchiver unarchiveObjectWithFile:@"images"];
+    // use pasteboard
+    UIPasteboard *appPasteBoard = [UIPasteboard pasteboardWithName:PASTEBOARD_NAME create:YES];
+    appPasteBoard.persistent = YES;
+
+    images = [appPasteBoard.images mutableCopy];;
     if (!images)
         images = [NSMutableArray array];
-#endif
+
     NSLog(@"Current images on film roll: %lu", [images count]);
 }
 
 -(void)saveImageDictionary {
-#if 1
+    UIPasteboard *appPasteBoard = [UIPasteboard pasteboardWithName:PASTEBOARD_NAME create:YES];
+    appPasteBoard.persistent = YES;
+    [BackgroundHelper keepTaskInBackgroundForPhotoUpload];
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData *imageData = [NSKeyedArchiver archivedDataWithRootObject:images];
+        [appPasteBoard setImages:images];
         dispatch_sync(dispatch_get_main_queue(), ^{
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:imageData forKey:@"images"];
-            [defaults synchronize];
+            NSLog(@"%d images saved to pasteboard", appPasteBoard.images.count);
+            [BackgroundHelper stopTaskInBackgroundForPhotoUpload];
         });
     });
-#else
-    // todo: make this work
-    BOOL done = [NSKeyedArchiver archiveRootObject:images toFile:@"images"];
-#endif
 }
 
 #pragma mark Camera
