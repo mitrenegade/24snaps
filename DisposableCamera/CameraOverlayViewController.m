@@ -71,7 +71,7 @@
     if (rollCount == 0)
         buttonRoll.alpha = 0;
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFilmRollButton:) name:@"image:captured" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageCaptured:) name:@"image:captured" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,13 +94,9 @@
     if (advancedCount < MAX_ADVANCE_COUNT-1)
         return;
 
-    if (!flash) {
-        [self playClick];
-    }
-    else {
-        [self playClickFlash];
+    [self playClick];
+    if (flash) {
         [self toggleFlash:NO];
-        [self toggleFlash:YES];
     }
     advancedCount = 0; // on click, the advanced count should be 4
     rollCount++;
@@ -357,9 +353,14 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(void)updateFilmRollButton:(NSNotification *)n {
+-(void)imageCaptured:(NSNotification *)n {
     if ([self.delegate initialRollCount] > 0) {
         buttonRoll.alpha = 1;
+    }
+
+    if (flash) {
+        [self playFlash];
+        [self toggleFlash:YES];
     }
 }
 
