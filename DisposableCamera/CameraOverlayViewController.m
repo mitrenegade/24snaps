@@ -44,6 +44,10 @@
     labelCountPrev.transform = CGAffineTransformMakeRotation(M_PI_2);
     labelCountNext.transform = CGAffineTransformMakeRotation(M_PI_2);
     labelCountFuture.transform = CGAffineTransformMakeRotation(M_PI_2);
+
+    for (UILabel *label in @[labelCountCurr, labelCountFuture, labelCountNext, labelCountPrev]) {
+        label.font = [UIFont boldSystemFontOfSize:12];
+    }
     rollCount = [self.delegate initialRollCount];
 
     if (rollCount == 0 && ![[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"]) {
