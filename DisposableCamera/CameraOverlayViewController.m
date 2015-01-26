@@ -21,6 +21,10 @@
 
 @implementation CameraOverlayViewController
 
+-(NSUInteger)navigationControllerSupportedInterfaceOrientations:(UINavigationController *)navigationController {
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -103,7 +107,11 @@
 
     // tell camera to actually try to capture
     [self.delegate capture];
+}
 
+-(IBAction)didClickFilmRoll:(id)sender {
+    // opens roll and reveals existing images
+    [self.delegate showFilmRoll];
 }
 
 #pragma mark Sounds

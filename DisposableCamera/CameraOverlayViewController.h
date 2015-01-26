@@ -20,6 +20,7 @@
 -(void)capture;
 -(void)enableFlash;
 -(NSInteger)initialRollCount;
+-(void)showFilmRoll;
 
 @end
 @interface CameraOverlayViewController : UIViewController <UIGestureRecognizerDelegate, AVAudioPlayerDelegate>
@@ -28,7 +29,8 @@
     IBOutlet UIView *viewFilmAdvance;
     IBOutlet UIButton *buttonCapture;
     IBOutlet UIButton *buttonViewFinder;
-    
+    IBOutlet UIButton *buttonRoll;
+
     BOOL flash;
     int advancedCount;
 
@@ -54,6 +56,7 @@
 -(IBAction)didClickButtonFlash:(id)sender;
 -(IBAction)didClickCapture:(id)sender;
 -(IBAction)didClickViewFinder:(id)sender;
+-(IBAction)didClickFilmRoll:(id)sender;
 
 -(float)viewFinderOffsetX;
 -(float)viewFinderOffsetY;

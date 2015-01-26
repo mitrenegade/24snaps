@@ -13,6 +13,7 @@
 		9E3A7BE81A5A3F8A0024D640 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3A7BE71A5A3F8A0024D640 /* AudioToolbox.framework */; };
 		9E3A7BEB1A5A406A0024D640 /* cameraClickFlash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BE91A5A406A0024D640 /* cameraClickFlash.mp3 */; };
 		9E3A7BEC1A5A406A0024D640 /* cameraFlash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BEA1A5A406A0024D640 /* cameraFlash.mp3 */; };
+		9E440F1A1A745FFB009E3C35 /* FilmRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E440F191A745FFB009E3C35 /* FilmRollViewController.m */; };
 		9EE1AA791A51F64D006A54AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA781A51F64D006A54AC /* main.m */; };
 		9EE1AA7C1A51F64D006A54AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA7B1A51F64D006A54AC /* AppDelegate.m */; };
 		9EE1AA7F1A51F64D006A54AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA7E1A51F64D006A54AC /* ViewController.m */; };
@@ -41,6 +42,8 @@
 		9E3A7BE91A5A406A0024D640 /* cameraClickFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClickFlash.mp3; sourceTree = SOURCE_ROOT; };
 		9E3A7BEA1A5A406A0024D640 /* cameraFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFlash.mp3; sourceTree = SOURCE_ROOT; };
 		9E440F171A744C3F009E3C35 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		9E440F181A745FFB009E3C35 /* FilmRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilmRollViewController.h; sourceTree = "<group>"; };
+		9E440F191A745FFB009E3C35 /* FilmRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilmRollViewController.m; sourceTree = "<group>"; };
 		9E9CFF621A6B0FD000658E7E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		9EE1AA731A51F64D006A54AC /* DisposableCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisposableCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1AA771A51F64D006A54AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				9EE1AA7E1A51F64D006A54AC /* ViewController.m */,
 				9EECB3B81A5B31B400EAD911 /* CameraOverlayViewController.h */,
 				9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */,
+				9E440F181A745FFB009E3C35 /* FilmRollViewController.h */,
+				9E440F191A745FFB009E3C35 /* FilmRollViewController.m */,
 				9EE1AA801A51F64D006A54AC /* Main.storyboard */,
 				9EE1AA831A51F64D006A54AC /* Images.xcassets */,
 				9EE1AA851A51F64D006A54AC /* LaunchScreen.xib */,
@@ -264,6 +269,7 @@
 				9EE1AA7C1A51F64D006A54AC /* AppDelegate.m in Sources */,
 				9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */,
 				9EE1AA791A51F64D006A54AC /* main.m in Sources */,
+				9E440F1A1A745FFB009E3C35 /* FilmRollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

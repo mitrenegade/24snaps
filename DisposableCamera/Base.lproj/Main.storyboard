@@ -271,6 +271,39 @@
             </objects>
             <point key="canvasLocation" x="385" y="387"/>
         </scene>
+        <!--Film Roll View Controller-->
+        <scene sceneID="AXh-FQ-Jjm">
+            <objects>
+                <viewController storyboardIdentifier="FilmRollViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Q6Q-29-yQg" customClass="FilmRollViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3U8-ft-5lv"/>
+                        <viewControllerLayoutGuide type="bottom" id="G1r-Qf-PaE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mod-8q-Ctb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFO-fs-kTM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cFO-fs-kTM" firstAttribute="leading" secondItem="mod-8q-Ctb" secondAttribute="leadingMargin" constant="-16" id="GMe-YT-fZK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cFO-fs-kTM" secondAttribute="trailing" constant="-16" id="Lfs-1U-wTx"/>
+                            <constraint firstItem="cFO-fs-kTM" firstAttribute="top" secondItem="mod-8q-Ctb" secondAttribute="topMargin" id="h4W-Yj-dvl"/>
+                            <constraint firstItem="G1r-Qf-PaE" firstAttribute="top" secondItem="cFO-fs-kTM" secondAttribute="bottom" id="tdM-BW-GvY"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <connections>
+                        <outlet property="scrollView" destination="cFO-fs-kTM" id="OdV-1b-S4P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bvo-Qs-SQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="461" y="1115"/>
+        </scene>
         <!--iPhone 5/5S Camera Overlay View Controller-->
         <scene sceneID="qaw-5t-pOO">
             <objects>
@@ -445,6 +478,21 @@
                                     <constraint firstAttribute="width" constant="48" id="XHn-PF-knt"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LB-gp-Q9C">
+                                <rect key="frame" x="43" y="40" width="46" height="48"/>
+                                <color key="backgroundColor" red="0.15294118230000001" green="0.79215693470000004" blue="0.71372550729999995" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="2Hj-WL-CPh"/>
+                                    <constraint firstAttribute="width" constant="46" id="alf-I6-MWh"/>
+                                </constraints>
+                                <state key="normal" title="Roll">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickFilmRoll:" destination="BTn-FV-BfF" eventType="touchUpInside" id="NhB-WY-Boz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -457,6 +505,7 @@
                             <constraint firstItem="0Df-OK-REa" firstAttribute="top" secondItem="CPn-EY-lIY" secondAttribute="bottom" id="QfW-XA-D5W"/>
                             <constraint firstItem="Ezs-6P-4lf" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leading" id="Rw8-du-IQ7"/>
                             <constraint firstItem="Mmn-1U-L9Q" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="262" id="WiR-m4-x2m"/>
+                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="40" id="ZKz-9A-Upd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qxT-Uo-cIy" secondAttribute="trailing" constant="68" id="b7j-1O-otS"/>
                             <constraint firstItem="qxT-Uo-cIy" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="324" id="e4Q-u7-3aa"/>
                             <constraint firstItem="CPn-EY-lIY" firstAttribute="top" secondItem="g8S-1d-OBu" secondAttribute="topMargin" id="eJy-gM-BOr"/>
@@ -464,6 +513,7 @@
                             <constraint firstItem="Ezs-6P-4lf" firstAttribute="top" secondItem="g8S-1d-OBu" secondAttribute="top" id="fTf-VQ-vaX"/>
                             <constraint firstItem="Ff9-3K-51K" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leadingMargin" constant="-16" id="fw9-P1-fPa"/>
                             <constraint firstItem="jxK-aQ-7bv" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="453" id="hdX-3h-MX2"/>
+                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leadingMargin" constant="27" id="ibl-OJ-IdD"/>
                             <constraint firstItem="0Df-OK-REa" firstAttribute="top" secondItem="kEd-o3-Ur3" secondAttribute="bottom" id="lga-Oc-tRj"/>
                             <constraint firstItem="5Ob-EV-ymL" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="440" id="mzf-TI-QY5"/>
                             <constraint firstAttribute="trailing" secondItem="Ezs-6P-4lf" secondAttribute="trailing" id="nX3-A3-JT8"/>

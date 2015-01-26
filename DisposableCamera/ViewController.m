@@ -9,11 +9,16 @@
 #import "ViewController.h"
 #import "AppDelegate.h"
 #import "CameraOverlayViewController.h"
+#import "FilmRollViewController.h"
 
 @interface ViewController ()
 @end
 
 @implementation ViewController
+
+-(NSUInteger)navigationControllerSupportedInterfaceOrientations:(UINavigationController *)navigationController {
+    return UIInterfaceOrientationMaskLandscapeRight;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -84,22 +89,22 @@
 
     // iphone 6+
     if (_appDelegate.window.bounds.size.height == 736) {
-        overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone6+"];
+        overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone6+"];
     }
 
     // iphone 6
     else if (_appDelegate.window.bounds.size.height == 667) {
-        overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone6"];
+        overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone6"];
     }
 
     // iphone 5/5s
     else if (_appDelegate.window.bounds.size.height == 568) {
-        overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone5"];
+        overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone5"];
     }
 
     // iphone 4/4s
     else if (_appDelegate.window.bounds.size.height == 480) {
-        overlayController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone4"];
+        overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone4"];
     }
     overlayController.delegate = self;
 #if TESTING
@@ -162,6 +167,7 @@
     return offsety;
 }
 
+#pragma mark CameraOverlayDelegate
 -(void)zoomIn {
     // run in inverse
     CGAffineTransform target = CGAffineTransformIdentity;
@@ -190,7 +196,21 @@
     }
 }
 
-#pragma mark UIImagePickerDelegate
+-(NSInteger)initialRollCount {
+    return [images count];
+}
+
+-(void)showFilmRoll {
+    FilmRollViewController *controller = [_storyboard instantiateViewControllerWithIdentifier:@"FilmRollViewController"];
+    controller.images = images;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+
+    NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
+    [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+
+    [_picker presentViewController:nav animated:YES completion:nil];
+}
+
 -(void)capture {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [_picker takePicture];
@@ -202,6 +222,7 @@
     }
 }
 
+#pragma mark UIImagePickerDelegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSLog(@"Captured image!");
 
@@ -209,13 +230,7 @@
 
     // todo: shrink, filter images; create negative
     [images addObject:image];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self saveImageDictionary];
-    });
-}
-
--(NSInteger)initialRollCount {
-    return [images count];
+    [self saveImageDictionary];
 }
 
 @end
