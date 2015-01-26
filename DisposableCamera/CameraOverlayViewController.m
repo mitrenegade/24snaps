@@ -57,7 +57,7 @@
     else
         advancedCount = [[[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"] intValue];
 
-    if (advancedCount == MAX_ADVANCE_COUNT) {
+    if (advancedCount == MAX_ADVANCE_COUNT && rollCount < MAX_ROLL_SIZE) {
         [self toggleCapture:YES];
     }
     [self setLabelCountPosition:advancedCount];
@@ -211,6 +211,9 @@
     return NO;
 }
 -(void)handleGesture:(UIGestureRecognizer *)gesture {
+    if (rollCount > MAX_ROLL_SIZE)
+        return;
+
     if (advancedCount < MAX_ADVANCE_COUNT) {
         [self playAdvance];
 
@@ -218,7 +221,7 @@
         [self setLabelCountPosition:advancedCount];
         [self doScrollAnimation];
 
-        if (advancedCount == MAX_ADVANCE_COUNT) {
+        if (advancedCount == MAX_ADVANCE_COUNT && rollCount < MAX_ROLL_SIZE) {
             [self toggleCapture:YES];
         }
     }
@@ -336,14 +339,21 @@
     float degreesNext = degreesCurr - 20;
     float degreesFuture = degreesCurr - 40;
 
-    labelCountCurr.text = [NSString stringWithFormat:@"%lu", rollCount];
-    labelCountNext.text = [NSString stringWithFormat:@"%lu", rollCount+1];
     if (rollCount > 0)
         labelCountPrev.text = [NSString stringWithFormat:@"%lu", rollCount-1];
     else
         labelCountPrev.text = nil;
-    labelCountFuture.text = [NSString stringWithFormat:@"%lu", rollCount+2];
+    labelCountCurr.text = [NSString stringWithFormat:@"%lu", rollCount];
 
+    if (rollCount + 1 <= MAX_ROLL_SIZE)
+        labelCountNext.text = [NSString stringWithFormat:@"%lu", rollCount+1];
+    else
+        labelCountNext.text = nil;
+
+    if (rollCount + 2 <= MAX_ROLL_SIZE)
+        labelCountFuture.text = [NSString stringWithFormat:@"%lu", rollCount+2];
+    else
+        labelCountFuture.text = nil;
     viewRotaterPrev.transform = CGAffineTransformMakeRotation(degreesPrev / 360 * 2*M_PI);
     viewRotaterCurr.transform = CGAffineTransformMakeRotation(degreesCurr / 360 * 2*M_PI);
     viewRotaterNext.transform = CGAffineTransformMakeRotation(degreesNext / 360 * 2*M_PI);
