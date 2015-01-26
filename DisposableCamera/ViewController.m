@@ -267,8 +267,11 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
         image = [self rotateImage:image withCurrentOrientation:image.imageOrientation];
     }
 
-    // todo: shrink, filter images; create negative
-    [images addObject:image];
+    UIImage *negative = [self makeImageNegative:image];
+
+    // todo: shrink, filter images
+
+    [images addObject:negative];
     [self saveImage:image atIndex:(int)(images.count-1)];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"image:captured" object:nil];
@@ -346,5 +349,17 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     UIGraphicsEndImageContext();
 
     return imageCopy;
+}
+
+- (UIImage *)makeImageNegative:(UIImage *)image{
+    UIGraphicsBeginImageContext(image.size);
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeCopy);
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeDifference);
+    CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),[UIColor       whiteColor].CGColor);
+    CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, 0,   image.size.width, image.size.height));
+    UIImage *returnImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return returnImage;
 }
 @end
