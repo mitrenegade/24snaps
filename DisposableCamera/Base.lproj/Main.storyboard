@@ -301,16 +301,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="filmTop" translatesAutoresizingMaskIntoConstraints="NO" id="ONc-RL-iQY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mWN-tN-Yx2"/>
+                                </constraints>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="filmBottom" translatesAutoresizingMaskIntoConstraints="NO" id="eha-UT-u0e">
+                                <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="95r-cH-4TZ"/>
+                                </constraints>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFO-fs-kTM">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="30" width="600" height="540"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cFO-fs-kTM" firstAttribute="leading" secondItem="mod-8q-Ctb" secondAttribute="leadingMargin" constant="-16" id="GMe-YT-fZK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="cFO-fs-kTM" secondAttribute="trailing" constant="-16" id="Lfs-1U-wTx"/>
-                            <constraint firstItem="cFO-fs-kTM" firstAttribute="top" secondItem="mod-8q-Ctb" secondAttribute="topMargin" id="h4W-Yj-dvl"/>
-                            <constraint firstItem="G1r-Qf-PaE" firstAttribute="top" secondItem="cFO-fs-kTM" secondAttribute="bottom" id="tdM-BW-GvY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ONc-RL-iQY" secondAttribute="trailing" constant="-16" id="15K-mi-k8c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eha-UT-u0e" secondAttribute="trailing" constant="-16" id="7ll-Na-Jc9"/>
+                            <constraint firstItem="cFO-fs-kTM" firstAttribute="top" secondItem="ONc-RL-iQY" secondAttribute="bottom" id="AbP-4r-JyQ"/>
+                            <constraint firstItem="eha-UT-u0e" firstAttribute="leading" secondItem="mod-8q-Ctb" secondAttribute="leadingMargin" constant="-16" id="DAy-0A-J6n"/>
+                            <constraint firstItem="eha-UT-u0e" firstAttribute="leading" secondItem="mod-8q-Ctb" secondAttribute="leadingMargin" constant="-16" id="H31-9z-0Aa"/>
+                            <constraint firstItem="ONc-RL-iQY" firstAttribute="leading" secondItem="mod-8q-Ctb" secondAttribute="leadingMargin" constant="-16" id="YC0-fG-40B"/>
+                            <constraint firstItem="eha-UT-u0e" firstAttribute="top" secondItem="cFO-fs-kTM" secondAttribute="bottom" id="aOH-oi-Bt8"/>
+                            <constraint firstItem="ONc-RL-iQY" firstAttribute="top" secondItem="mod-8q-Ctb" secondAttribute="topMargin" id="eNB-QM-DCI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eha-UT-u0e" secondAttribute="trailing" constant="-16" id="i41-FK-EdB"/>
+                            <constraint firstItem="G1r-Qf-PaE" firstAttribute="top" secondItem="eha-UT-u0e" secondAttribute="bottom" id="qcN-WS-zYt"/>
+                            <constraint firstItem="cFO-fs-kTM" firstAttribute="leading" secondItem="mod-8q-Ctb" secondAttribute="leadingMargin" constant="-16" id="stI-Uy-8mr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cFO-fs-kTM" secondAttribute="trailing" constant="-16" id="uUk-Oj-qMl"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -320,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bvo-Qs-SQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="1115"/>
+            <point key="canvasLocation" x="461" y="1225"/>
         </scene>
         <!--iPhone 5/5S Camera Overlay View Controller-->
         <scene sceneID="qaw-5t-pOO">
@@ -1081,6 +1102,8 @@
         <image name="camScroll2Right" width="323" height="660"/>
         <image name="camScroll3Right" width="323" height="660"/>
         <image name="captureRight" width="128" height="129"/>
+        <image name="filmBottom" width="300" height="30"/>
         <image name="filmRollWhiteRight" width="264" height="264"/>
+        <image name="filmTop" width="297" height="31"/>
     </resources>
 </document>
