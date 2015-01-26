@@ -261,7 +261,7 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
         NSLog(@"up");
         // images captured with the camera in the correct orientation is this way.
     }
-    else if (o == UIImageOrientationRight) {
+    else { //if (o == UIImageOrientationRight) {
         NSLog(@"Right");
         // phone in portrait mode
         image = [self rotateImage:image withCurrentOrientation:image.imageOrientation];
@@ -272,7 +272,7 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     // todo: shrink, filter images
 
     [images addObject:negative];
-    [self saveImage:image atIndex:(int)(images.count-1)];
+    [self saveImage:negative atIndex:(int)(images.count-1)];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"image:captured" object:nil];
 }
@@ -292,50 +292,17 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     CGFloat scaleRatio = 1; //bounds.size.width / width;
     CGSize imageSize = CGSizeMake(CGImageGetWidth(imgRef), CGImageGetHeight(imgRef));
     CGFloat boundHeight;
-    switch(orient) {
 
-        case UIImageOrientationUp: // up
-            transform = CGAffineTransformIdentity;
-            break;
-        case UIImageOrientationDown: // down
-            transform = CGAffineTransformMakeTranslation(imageSize.width, imageSize.height);
-            transform = CGAffineTransformRotate(transform, M_PI);
-            break;
-
-        case UIImageOrientationLeft: // left
-            boundHeight = bounds.size.height;
-            bounds.size.height = bounds.size.width;
-            bounds.size.width = boundHeight;
-            transform = CGAffineTransformMakeTranslation(0.0, imageSize.width);
-            transform = CGAffineTransformRotate(transform, 3.0 * M_PI / 2.0);
-            break;
-
-        case UIImageOrientationRight: // right
-            boundHeight = bounds.size.height;
-            bounds.size.height = bounds.size.width;
-            bounds.size.width = boundHeight;
-            transform = CGAffineTransformMakeTranslation(imageSize.height, 0.0);
-            transform = CGAffineTransformRotate(transform, M_PI / 2.0);
-            break;
-
-        default:
-            //            [NSException raise:NSInternalInconsistencyException format:@"Invalid image orientation: %d", orient];
-            transform = CGAffineTransformIdentity;
-            /*
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Camera Error!" message:[NSString stringWithFormat:@"Invalid orientation: %d", orient] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-             [alert show];
-             */
-            break;
-    }
+    // do not rotate any images
+    transform = CGAffineTransformIdentity;
 
     UIGraphicsBeginImageContext(bounds.size);
 
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     if (orient == 3 || orient == 4) {   // landscape
-        CGContextScaleCTM(context, -scaleRatio, scaleRatio);
-        //        if (![captureManager getMirrored])
-        CGContextTranslateCTM(context, -height, 0);
+//        CGContextScaleCTM(context, -scaleRatio, scaleRatio);
+//        CGContextTranslateCTM(context, -height, 0);
     }
     else {
         CGContextScaleCTM(context, scaleRatio, -scaleRatio);
