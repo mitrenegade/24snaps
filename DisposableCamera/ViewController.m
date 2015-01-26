@@ -167,7 +167,7 @@ static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
     // run in inverse
     CGAffineTransform target = CGAffineTransformIdentity;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        [UIView animateWithDuration:1 animations:^{
+        [UIView animateWithDuration:.5 animations:^{
             _picker.cameraViewTransform = target;
         }];
     }
@@ -177,7 +177,7 @@ static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
     CGAffineTransform target = CGAffineTransformTranslate(CGAffineTransformMakeScale(self.scale, self.scale), self.offsetx, self.offsety);
 
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        float duration = animated?1:0;
+        float duration = animated?.5:0;
 
         [UIView animateWithDuration:duration animations:^{
             _picker.cameraViewTransform = target;

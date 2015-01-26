@@ -217,8 +217,8 @@
                                 <rect key="frame" x="58" y="28" width="45" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="8U2-Xk-JU5"/>
-                                    <constraint firstAttribute="width" constant="30" id="Myf-Fo-Oqp"/>
+                                    <constraint firstAttribute="height" constant="55" id="8U2-Xk-JU5"/>
+                                    <constraint firstAttribute="width" constant="45" id="Myf-Fo-Oqp"/>
                                 </constraints>
                                 <state key="normal" image="filmRollWhiteRight">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -497,16 +497,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4LB-gp-Q9C">
-                                <rect key="frame" x="38" y="41" width="45" height="55"/>
+                                <rect key="frame" x="48" y="47" width="50" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="2Hj-WL-CPh"/>
-                                    <constraint firstAttribute="width" constant="30" id="alf-I6-MWh"/>
+                                    <constraint firstAttribute="height" constant="60" id="2Hj-WL-CPh"/>
+                                    <constraint firstAttribute="width" constant="50" id="alf-I6-MWh"/>
                                 </constraints>
-                                <state key="normal" image="filmRollWhiteRight">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="filmRollWhiteRight"/>
                                 <connections>
                                     <action selector="didClickFilmRoll:" destination="BTn-FV-BfF" eventType="touchUpInside" id="NhB-WY-Boz"/>
                                 </connections>
@@ -523,7 +520,7 @@
                             <constraint firstItem="0Df-OK-REa" firstAttribute="top" secondItem="CPn-EY-lIY" secondAttribute="bottom" id="QfW-XA-D5W"/>
                             <constraint firstItem="Ezs-6P-4lf" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leading" id="Rw8-du-IQ7"/>
                             <constraint firstItem="Mmn-1U-L9Q" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="262" id="WiR-m4-x2m"/>
-                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="41" id="ZKz-9A-Upd"/>
+                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="47" id="ZKz-9A-Upd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qxT-Uo-cIy" secondAttribute="trailing" constant="68" id="b7j-1O-otS"/>
                             <constraint firstItem="qxT-Uo-cIy" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="324" id="e4Q-u7-3aa"/>
                             <constraint firstItem="CPn-EY-lIY" firstAttribute="top" secondItem="g8S-1d-OBu" secondAttribute="topMargin" id="eJy-gM-BOr"/>
@@ -531,7 +528,7 @@
                             <constraint firstItem="Ezs-6P-4lf" firstAttribute="top" secondItem="g8S-1d-OBu" secondAttribute="top" id="fTf-VQ-vaX"/>
                             <constraint firstItem="Ff9-3K-51K" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leadingMargin" constant="-16" id="fw9-P1-fPa"/>
                             <constraint firstItem="jxK-aQ-7bv" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="453" id="hdX-3h-MX2"/>
-                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leadingMargin" constant="22" id="ibl-OJ-IdD"/>
+                            <constraint firstItem="4LB-gp-Q9C" firstAttribute="leading" secondItem="g8S-1d-OBu" secondAttribute="leadingMargin" constant="32" id="ibl-OJ-IdD"/>
                             <constraint firstItem="0Df-OK-REa" firstAttribute="top" secondItem="kEd-o3-Ur3" secondAttribute="bottom" id="lga-Oc-tRj"/>
                             <constraint firstItem="5Ob-EV-ymL" firstAttribute="top" secondItem="kNw-Oz-zRz" secondAttribute="bottom" constant="405" id="mzf-TI-QY5"/>
                             <constraint firstAttribute="trailing" secondItem="Ezs-6P-4lf" secondAttribute="trailing" id="nX3-A3-JT8"/>
@@ -749,11 +746,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyI-bg-7dO">
-                                <rect key="frame" x="44" y="46" width="60" height="80"/>
+                                <rect key="frame" x="54" y="54" width="60" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="2UX-zX-FYV"/>
-                                    <constraint firstAttribute="height" constant="50" id="Soi-dW-8S8"/>
+                                    <constraint firstAttribute="width" constant="60" id="2UX-zX-FYV"/>
+                                    <constraint firstAttribute="height" constant="80" id="Soi-dW-8S8"/>
                                 </constraints>
                                 <state key="normal" image="filmRollWhiteRight">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -779,7 +776,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="4Tc-UJ-xWF" secondAttribute="trailing" constant="-16" id="T2b-zX-Vw4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="woB-vi-z5x" secondAttribute="trailing" constant="230" id="V1h-DN-GzQ"/>
                             <constraint firstItem="3Uj-4t-Fpb" firstAttribute="top" secondItem="JiO-jP-Ewu" secondAttribute="topMargin" id="dh1-pu-M58"/>
-                            <constraint firstItem="EyI-bg-7dO" firstAttribute="leading" secondItem="JiO-jP-Ewu" secondAttribute="leadingMargin" constant="28" id="fCO-iv-ln6"/>
+                            <constraint firstItem="EyI-bg-7dO" firstAttribute="leading" secondItem="JiO-jP-Ewu" secondAttribute="leadingMargin" constant="38" id="fCO-iv-ln6"/>
                             <constraint firstItem="YSE-VU-ow0" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="295" id="fGc-A7-PEw"/>
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="wZE-3l-Lki" secondAttribute="bottom" id="hIp-9c-1GE"/>
                             <constraint firstItem="nKY-Jd-vck" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="230" id="i7b-oM-L70"/>
@@ -788,7 +785,7 @@
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="4Tc-UJ-xWF" secondAttribute="bottom" id="ldz-U1-rmJ"/>
                             <constraint firstItem="3Uj-4t-Fpb" firstAttribute="leading" secondItem="JiO-jP-Ewu" secondAttribute="leadingMargin" constant="-16" id="mZc-cf-VWP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YSE-VU-ow0" secondAttribute="trailing" constant="22" id="oSH-1s-RXQ"/>
-                            <constraint firstItem="EyI-bg-7dO" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="46" id="pfO-G8-X1Z"/>
+                            <constraint firstItem="EyI-bg-7dO" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="54" id="pfO-G8-X1Z"/>
                             <constraint firstItem="CtR-CC-ZPz" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="471" id="r42-ft-JOw"/>
                             <constraint firstItem="woB-vi-z5x" firstAttribute="top" secondItem="iyy-27-A3C" secondAttribute="bottom" constant="534" id="rmU-07-9hv"/>
                             <constraint firstItem="MSj-OF-wHR" firstAttribute="top" secondItem="NhK-Wk-lN4" secondAttribute="bottom" id="roR-rd-HgW"/>
@@ -1000,11 +997,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCP-0A-hKc">
-                                <rect key="frame" x="48" y="41" width="60" height="80"/>
+                                <rect key="frame" x="57" y="53" width="60" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="hEi-cL-huC"/>
-                                    <constraint firstAttribute="width" constant="50" id="sEv-RG-eOZ"/>
+                                    <constraint firstAttribute="height" constant="80" id="hEi-cL-huC"/>
+                                    <constraint firstAttribute="width" constant="60" id="sEv-RG-eOZ"/>
                                 </constraints>
                                 <state key="normal" image="filmRollWhiteRight">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1021,7 +1018,7 @@
                             <constraint firstItem="A7q-pa-O31" firstAttribute="top" secondItem="zLo-Td-XnK" secondAttribute="topMargin" id="5aE-3K-r2T"/>
                             <constraint firstItem="D85-8d-11a" firstAttribute="top" secondItem="Rco-vm-sRd" secondAttribute="bottom" id="Adr-HZ-GND"/>
                             <constraint firstItem="D85-8d-11a" firstAttribute="top" secondItem="czS-4P-gat" secondAttribute="bottom" id="As2-2r-NDc"/>
-                            <constraint firstItem="QCP-0A-hKc" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leadingMargin" constant="32" id="Bfy-vl-fxD"/>
+                            <constraint firstItem="QCP-0A-hKc" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leadingMargin" constant="41" id="Bfy-vl-fxD"/>
                             <constraint firstItem="gyL-tf-u2m" firstAttribute="top" secondItem="zLo-Td-XnK" secondAttribute="top" id="Cdu-KK-sa8"/>
                             <constraint firstItem="Rco-vm-sRd" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leadingMargin" constant="-16" id="FdI-3R-9jE"/>
                             <constraint firstItem="EwD-RI-XJb" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="260" id="GUA-0O-iIK"/>
@@ -1037,7 +1034,7 @@
                             <constraint firstItem="3Zw-KW-e0w" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="328" id="Rwz-65-gb2"/>
                             <constraint firstItem="BK2-cw-Y6n" firstAttribute="trailing" secondItem="zLo-Td-XnK" secondAttribute="trailingMargin" constant="-20" id="Y5m-4a-NuR"/>
                             <constraint firstItem="A7q-pa-O31" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leadingMargin" constant="-16" id="aDd-RA-zB4"/>
-                            <constraint firstItem="QCP-0A-hKc" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="41" id="bWY-gt-1yJ"/>
+                            <constraint firstItem="QCP-0A-hKc" firstAttribute="top" secondItem="sit-7e-hKm" secondAttribute="bottom" constant="53" id="bWY-gt-1yJ"/>
                             <constraint firstItem="gyL-tf-u2m" firstAttribute="leading" secondItem="zLo-Td-XnK" secondAttribute="leading" id="csK-x4-QPS"/>
                             <constraint firstItem="D85-8d-11a" firstAttribute="top" secondItem="gyL-tf-u2m" secondAttribute="bottom" id="f14-Li-U68"/>
                             <constraint firstAttribute="trailingMargin" secondItem="czS-4P-gat" secondAttribute="trailing" constant="-16" id="nHJ-vf-62I"/>

@@ -277,7 +277,7 @@
 
     viewLabel.alpha = 0;
     buttonRoll.alpha = 0;
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:.5 animations:^{
         viewBG.transform = transform;
         buttonViewFinder.transform = transform2;
         buttonViewFinder.alpha = .25;
@@ -288,7 +288,7 @@
 
 -(void)stopLookingInViewFinder {
     [self.delegate zoomOut:YES];
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:.5 animations:^{
         viewBG.transform = CGAffineTransformIdentity;
         buttonViewFinder.transform = CGAffineTransformIdentity;
         buttonViewFinder.alpha = 1;
@@ -355,7 +355,8 @@
 
 -(void)imageCaptured:(NSNotification *)n {
     if ([self.delegate initialRollCount] > 0) {
-        buttonRoll.alpha = 1;
+        if (!isZooming)
+            buttonRoll.alpha = 1;
     }
 
     if (flash) {
