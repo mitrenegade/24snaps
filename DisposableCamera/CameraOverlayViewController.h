@@ -30,6 +30,7 @@
     IBOutlet UIButton *buttonCapture;
     IBOutlet UIButton *buttonViewFinder;
     IBOutlet UIButton *buttonRoll;
+    IBOutlet UIView *viewGlow;
 
     BOOL flash;
     int advancedCount;

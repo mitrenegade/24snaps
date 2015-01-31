@@ -80,7 +80,7 @@
     [self setLabelCountPosition:advancedCount];
 
     if (rollCount < MAX_ROLL_SIZE) {
-#if TESTING
+#if TESTING == 2
         [buttonRoll setHidden:NO];
 #else
         [buttonRoll setHidden:YES];
@@ -91,6 +91,8 @@
         [buttonRoll setHidden:NO];
         [buttonCapture setHidden:YES];
     }
+
+    viewGlow.alpha = 0;
 }
 
 #pragma mark buttons
@@ -105,8 +107,14 @@
 }
 
 -(IBAction)didClickCapture:(id)sender {
-    if (advancedCount < MAX_ADVANCE_COUNT-1)
+    if (advancedCount < MAX_ADVANCE_COUNT-1) {
+        [self warnForAdvance];
         return;
+    }
+    else if (rollCount == MAX_ROLL_SIZE) {
+        [self warnForFilm];
+        return;
+    }
 
     [self playClick];
     if (flash) {
@@ -193,10 +201,10 @@
 
 -(void)toggleCapture:(BOOL)canCapture {
     if (!canCapture) {
-        [buttonCapture setEnabled:NO];
+        [buttonCapture setAlpha:.5];
     }
     else {
-        [buttonCapture setEnabled:YES];
+        [buttonCapture setAlpha:1];
     }
 }
 
@@ -391,4 +399,46 @@
     }
 }
 
+#pragma mark capture button warnings
+-(void)warnForAdvance {
+    viewGlow.alpha = .25;
+    [self glow:viewGlow];
+    [self performSelector:@selector(glow:) withObject:viewGlow afterDelay:.5];
+    [self performSelector:@selector(glow:) withObject:viewGlow afterDelay:1];
+    [self performSelector:@selector(glowHelper) withObject:nil afterDelay:1.25];
+}
+
+-(void)glowHelper {
+    viewGlow.alpha = 0;
+}
+
+-(void)warnForFilm {
+    [self glow:buttonRoll];
+    [self performSelector:@selector(glow:) withObject:buttonRoll afterDelay:.5];
+    [self performSelector:@selector(glow:) withObject:buttonRoll afterDelay:1];
+}
+
+-(void)glow:(UIView *)view {
+    NSLog(@"glow");
+    UIColor *color = [UIColor whiteColor];
+    view.layer.shadowColor = color.CGColor;
+    view.layer.borderColor = color.CGColor;
+    view.layer.shadowOffset = CGSizeZero;
+    [UIView animateWithDuration:.5 animations:^{
+        // animation doesn't work
+        view.layer.shadowRadius = 5.0f;
+        view.layer.shadowOpacity = 1.0f;
+        [self performSelector:@selector(removeGlow:) withObject:viewGlow afterDelay:.25];
+    } completion:nil];
+}
+
+-(void)removeGlow:(UIView *)view {
+    NSLog(@"glow done");
+    [UIView animateWithDuration:.5 animations:^{
+        view.layer.shadowRadius = 0;
+        view.layer.shadowOpacity = 1.0f;
+    } completion:^(BOOL finished) {
+        view.layer.shadowColor = [UIColor clearColor].CGColor;
+    }];
+}
 @end

@@ -137,7 +137,7 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
         overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone4"];
     }
     overlayController.delegate = self;
-#if TESTING
+#if TESTING == 1
     overlayController.view.alpha = .3;
 #endif
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
