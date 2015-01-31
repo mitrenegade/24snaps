@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FilmRollViewController : UIViewController <UINavigationControllerDelegate>
+@interface FilmRollViewController : UIViewController <UINavigationControllerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 {
     IBOutlet UIScrollView *scrollView;
+    IBOutlet __weak UIAlertView *alertAlbumName;
 }
 
 @property (weak, nonatomic) NSArray *images;
