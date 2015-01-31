@@ -109,37 +109,92 @@
     [alertAlbumName dismissWithClickedButtonIndex:0 animated:YES];
 
     // default name
-    [self saveToAlbum:@"DisposableCamera"];
+    [self useAlbumName:@"DisposableCamera"];
 }
 
--(BOOL)saveToAlbum:(NSString *)albumName {
+-(void)useAlbumName:(NSString *)albumName {
+    [self saveToAlbum:albumName completion:^(int failed) {
+        NSString *title = @"New film";
+        if (failed) {
+            title = [NSString stringWithFormat:@"Save to album failed: %d", failed];
+        }
+        [UIAlertView alertViewWithTitle:title message:@"Would you like to discard this roll and insert new film?" cancelButtonTitle:@"No, save the film" otherButtonTitles:@[@"New film"] onDismiss:^(int buttonIndex) {
+            [self resetFilm];
+        } onCancel:nil];
+    }];
+}
+
+-(void)resetFilm {
+    NSLog(@"Reset film");
+}
+
+-(void)saveToAlbum:(NSString *)albumName completion:(void(^)(int failed))completion {
     // save to album
 
     NSLog(@"Saving to album: %@", albumName);
-/*
-    NSMutableDictionary *cachedMeta = [meta mutableCopy];
+    [self saveToAlbumHelper:self.images albumName:albumName failedCount:0 completion:completion];
+}
+
+-(void)saveToAlbumHelper:(NSArray *)imagesLeft albumName:(NSString *)albumName failedCount:(int)failed completion:(void(^)(int failed))completion {
+    if ([imagesLeft count] == 0) {
+        // won't come here
+        completion(failed);
+        return;
+    }
+
+    UIImage *currentImage = [imagesLeft firstObject];
+    NSMutableArray *imagesLeftNow = [imagesLeft mutableCopy];
+    [imagesLeftNow removeObject:currentImage];
+    NSLog(@"Images left in queue: %d", [imagesLeftNow count]);
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[ALAssetsLibrary sharedALAssetsLibrary] saveImage:image meta:cachedMeta toAlbum:@"babyGems" withCompletionBlock:^(NSError *error) {
+        [[ALAssetsLibrary sharedALAssetsLibrary] saveImage:[self makeImageNegative:currentImage] meta:nil toAlbum:albumName withCompletionBlock:^(NSError *error) {
             if (error!=nil) {
-                NSLog(@"Image could not be saved!");
+                NSLog(@"Image could not be saved! error: %@", error);
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    if([imagesLeftNow count] == 0) {
+                        completion(failed+1);
+                    }
+                    else {
+                        [self saveToAlbumHelper:imagesLeftNow albumName:albumName failedCount:failed completion:completion];
+                    }
+                });
             }
             else {
-                NSLog(@"Saved to album with meta: %@", cachedMeta);
+                NSLog(@"Saved to album");
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    if([imagesLeftNow count] == 0) {
+                        completion(failed);
+                    }
+                    else {
+                        [self saveToAlbumHelper:imagesLeftNow albumName:albumName failedCount:failed completion:completion];
+                    }
+                });
             }
         }];
     });
-
- */
-    return YES;
 }
 
-#pragma mark UITextFieldDelegate 
+#pragma mark UITextFieldDelegate
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.view endEditing:YES];
     [alertAlbumName dismissWithClickedButtonIndex:0 animated:YES];
 
     NSString *title = [alertAlbumName textFieldAtIndex:0].text;
-    [self saveToAlbum:title];
+    [self useAlbumName:title];
     return YES;
 }
+
+- (UIImage *)makeImageNegative:(UIImage *)image{
+    UIGraphicsBeginImageContext(image.size);
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeCopy);
+    [image drawInRect:CGRectMake(0, 0, image.size.width, image.size.height)];
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(), kCGBlendModeDifference);
+    CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(),[UIColor       whiteColor].CGColor);
+    CGContextFillRect(UIGraphicsGetCurrentContext(), CGRectMake(0, 0,   image.size.width, image.size.height));
+    UIImage *returnImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return returnImage;
+}
+
 @end

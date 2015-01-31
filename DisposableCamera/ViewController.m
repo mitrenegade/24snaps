@@ -237,23 +237,6 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
 
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
 
-    /*
-    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-    if ([mediaType isEqualToString:(NSString*)kUTTypeImage]) {
-        NSURL *url = [info objectForKey:UIImagePickerControllerReferenceURL];
-        if (url) {
-            ALAssetsLibrary *assetsLib = [[ALAssetsLibrary alloc] init];
-            [assetsLib assetForURL:url resultBlock:^(ALAsset *asset) {
-                completion([[asset defaultRepresentation] metadata]);
-            } failureBlock:^(NSError *error) {
-                completion(nil);
-            }];
-        }
-        else {
-            completion([info objectForKey:UIImagePickerControllerMediaMetadata]);
-        }
-    }
-     */
     UIImageOrientation o = image.imageOrientation;
     NSLog(@"orientation: %d", o);
 
