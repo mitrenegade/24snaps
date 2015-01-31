@@ -89,20 +89,6 @@
                                     <constraint firstAttribute="width" constant="53" id="YHz-XC-06h"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-lP-dEw" userLabel="Button - capture">
-                                <rect key="frame" x="43" y="463" width="75" height="75"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="GaW-NC-I8V"/>
-                                    <constraint firstAttribute="height" constant="75" id="RAi-5l-slu"/>
-                                </constraints>
-                                <state key="normal" image="captureRight">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didClickCapture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IHM-T6-zeF"/>
-                                </connections>
-                            </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJK-ht-A38" userLabel="View - label bg">
                                 <rect key="frame" x="234" y="158" width="30" height="30"/>
                                 <subviews>
@@ -228,6 +214,20 @@
                                     <action selector="didClickFilmRoll:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="frN-pO-NZM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-lP-dEw" userLabel="Button - capture">
+                                <rect key="frame" x="43" y="378" width="75" height="75"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="GaW-NC-I8V"/>
+                                    <constraint firstAttribute="height" constant="75" id="RAi-5l-slu"/>
+                                </constraints>
+                                <state key="normal" image="captureRight">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didClickCapture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IHM-T6-zeF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -235,7 +235,7 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Tnz-Zm-zJf" secondAttribute="bottom" id="BZw-t3-F9Q"/>
                             <constraint firstItem="Xv3-cn-EbN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" constant="-28" id="EB4-5s-crx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Zl-5N-bMP" secondAttribute="trailing" constant="-16" id="FNE-it-LNG"/>
-                            <constraint firstItem="l5b-lP-dEw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="443" id="JXb-Cs-muA"/>
+                            <constraint firstItem="l5b-lP-dEw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="358" id="JXb-Cs-muA"/>
                             <constraint firstItem="QvB-iY-x0c" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="199" id="Mqi-XH-Anl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MPs-sY-HNs" secondAttribute="trailing" constant="-16" id="N1o-Ch-Ewa"/>
                             <constraint firstItem="Tnz-Zm-zJf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="OVx-FL-bEW"/>

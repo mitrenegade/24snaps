@@ -68,8 +68,14 @@
     viewFilmAdvance.backgroundColor = [UIColor clearColor];
 #endif
 
-    if (rollCount == 0)
-        buttonRoll.alpha = 0;
+    if (rollCount < MAX_ROLL_SIZE) {
+        [buttonRoll setHidden:YES];
+        [buttonCapture setHidden:NO];
+    }
+    else {
+        [buttonRoll setHidden:NO];
+        [buttonCapture setHidden:YES];
+    }
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageCaptured:) name:@"image:captured" object:nil];
 }
@@ -364,7 +370,9 @@
 }
 
 -(void)imageCaptured:(NSNotification *)n {
-    if ([self.delegate initialRollCount] > 0) {
+    if (rollCount == MAX_ROLL_SIZE) {
+        [buttonCapture setHidden:YES];
+        [buttonRoll setHidden:NO];
         if (!isZooming)
             buttonRoll.alpha = 1;
     }
