@@ -151,6 +151,8 @@
     NSLog(@"Reset film");
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentfilm:develop:success"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+
+    [self.delegate resetImages];
 }
 
 -(void)saveToAlbum:(NSString *)albumName completion:(void(^)(int failed))completion {

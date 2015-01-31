@@ -34,9 +34,6 @@
     [swipe setDelegate:self];
     [self.view addGestureRecognizer:swipe];
 
-    [self toggleFlash:NO];
-    [self toggleCapture:NO];
-
     viewLabel.layer.cornerRadius = viewLabel.frame.size.width/4;
     viewLabel.layer.borderWidth = 1;
     viewLabel.layer.borderColor = [[UIColor darkGrayColor] CGColor];
@@ -48,6 +45,26 @@
     for (UILabel *label in @[labelCountCurr, labelCountFuture, labelCountNext, labelCountPrev]) {
         label.font = [UIFont boldSystemFontOfSize:12];
     }
+
+#if !TESTING
+    buttonFlash.backgroundColor = [UIColor clearColor];
+    buttonViewFinder.backgroundColor = [UIColor clearColor];
+    viewFilmAdvance.backgroundColor = [UIColor clearColor];
+#endif
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageCaptured:) name:@"image:captured" object:nil];
+    [self refresh];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)refresh {
+    [self toggleFlash:NO];
+    [self toggleCapture:NO];
+
     rollCount = [self.delegate initialRollCount];
 
     if (rollCount == 0 && ![[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"]) {
@@ -62,27 +79,18 @@
     }
     [self setLabelCountPosition:advancedCount];
 
-#if !TESTING
-    buttonFlash.backgroundColor = [UIColor clearColor];
-    buttonViewFinder.backgroundColor = [UIColor clearColor];
-    viewFilmAdvance.backgroundColor = [UIColor clearColor];
-#endif
-
     if (rollCount < MAX_ROLL_SIZE) {
+#if TESTING
+        [buttonRoll setHidden:NO];
+#else
         [buttonRoll setHidden:YES];
+#endif
         [buttonCapture setHidden:NO];
     }
     else {
         [buttonRoll setHidden:NO];
         [buttonCapture setHidden:YES];
     }
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageCaptured:) name:@"image:captured" object:nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark buttons

@@ -61,4 +61,6 @@
 -(float)viewFinderOffsetX;
 -(float)viewFinderOffsetY;
 -(float)viewFinderWidth;
+
+-(void)refresh;
 @end

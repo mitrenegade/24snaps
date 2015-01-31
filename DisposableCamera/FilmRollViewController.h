@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol FilmRollDelegate <NSObject>
+
+-(void)resetImages;
+
+@end
+
 @interface FilmRollViewController : UIViewController <UINavigationControllerDelegate, UIAlertViewDelegate, UITextFieldDelegate>
 {
     IBOutlet UIScrollView *scrollView;
@@ -15,4 +21,5 @@
 }
 
 @property (weak, nonatomic) NSArray *images;
+@property (weak, nonatomic) id delegate;
 @end

@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "CameraOverlayViewController.h"
+#import "FilmRollViewController.h"
 
-@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CameraOverlayDelegate>
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CameraOverlayDelegate, FilmRollDelegate>
 {
     UIImagePickerController *_picker;
     CameraOverlayViewController *overlayController;
 
     NSMutableArray *images;
 }
+
 @end
 

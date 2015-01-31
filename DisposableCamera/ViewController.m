@@ -60,8 +60,8 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
         }
     }
     NSLog(@"Current images on film roll: %lu", [images count]);
-
 }
+
 -(void)saveImage:(UIImage *)image atIndex:(int)index {
     //save it
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -79,6 +79,27 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     else if (error) {
         NSLog(@"Error:%@", error.localizedDescription);
     }
+}
+
+-(void)resetImages {
+    [images removeAllObjects];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    for (int i=0; i<MAX_ROLL_SIZE; i++) {
+        NSString *imageName = [documentsDirectory stringByAppendingString:[NSString stringWithFormat:@"/disposableCamera_%d", i]];
+        NSString *imagePath = [imageName stringByAppendingString:@".png"];
+
+        NSError *error;
+        [[NSFileManager defaultManager] removeItemAtPath:imagePath error:&error];
+
+        if (error) {
+            NSLog(@"Error: %@", error);
+        }
+    }
+
+    [_picker dismissViewControllerAnimated:YES completion:^{
+        [overlayController refresh];
+    }];
 }
 
 #pragma mark Camera
@@ -212,6 +233,7 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
 -(void)showFilmRoll {
     FilmRollViewController *controller = [_storyboard instantiateViewControllerWithIdentifier:@"FilmRollViewController"];
     controller.images = images;
+    controller.delegate = self;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
 
     NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeRight];
