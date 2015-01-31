@@ -107,6 +107,11 @@
 }
 
 -(IBAction)didClickCapture:(id)sender {
+#if TESTING == 2
+    [self warnForFilm];
+    return;
+#endif
+    
     if (advancedCount < MAX_ADVANCE_COUNT-1) {
         [self warnForAdvance];
         return;
@@ -428,7 +433,7 @@
         // animation doesn't work
         view.layer.shadowRadius = 5.0f;
         view.layer.shadowOpacity = 1.0f;
-        [self performSelector:@selector(removeGlow:) withObject:viewGlow afterDelay:.25];
+        [self performSelector:@selector(removeGlow:) withObject:view afterDelay:.25];
     } completion:nil];
 }
 
