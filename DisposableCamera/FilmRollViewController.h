@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
 @protocol FilmRollDelegate <NSObject>
 
@@ -18,6 +19,7 @@
 {
     IBOutlet UIScrollView *scrollView;
     IBOutlet __weak UIAlertView *alertAlbumName;
+    MBProgressHUD *progress;
 }
 
 @property (weak, nonatomic) NSArray *images;

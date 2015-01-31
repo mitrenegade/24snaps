@@ -26,6 +26,7 @@
 		9EE471801A7D6CF1001C4B48 /* UIActionSheet+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4717C1A7D6CF1001C4B48 /* UIActionSheet+MKBlockAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9EE471811A7D6CF1001C4B48 /* UIAlertView+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4717E1A7D6CF1001C4B48 /* UIAlertView+MKBlockAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9EE471841A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE471831A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		9EE471871A7D82CC001C4B48 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE471861A7D82CC001C4B48 /* MBProgressHUD.m */; };
 		9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		9EE4717E1A7D6CF1001C4B48 /* UIAlertView+MKBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+MKBlockAdditions.m"; sourceTree = "<group>"; };
 		9EE471821A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		9EE471831A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		9EE471851A7D82CC001C4B48 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9EE471861A7D82CC001C4B48 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9EECB3B81A5B31B400EAD911 /* CameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayViewController.h; sourceTree = "<group>"; };
 		9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +136,8 @@
 		9EE1AA751A51F64D006A54AC /* DisposableCamera */ = {
 			isa = PBXGroup;
 			children = (
+				9EE471851A7D82CC001C4B48 /* MBProgressHUD.h */,
+				9EE471861A7D82CC001C4B48 /* MBProgressHUD.m */,
 				9EE471821A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
 				9EE471831A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				9EE471771A7D6CF1001C4B48 /* MKAdditions */,
@@ -305,6 +310,7 @@
 				9EE1AA7C1A51F64D006A54AC /* AppDelegate.m in Sources */,
 				9EE471811A7D6CF1001C4B48 /* UIAlertView+MKBlockAdditions.m in Sources */,
 				9EE471801A7D6CF1001C4B48 /* UIActionSheet+MKBlockAdditions.m in Sources */,
+				9EE471871A7D82CC001C4B48 /* MBProgressHUD.m in Sources */,
 				9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */,
 				9EE471841A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				9EE1AA791A51F64D006A54AC /* main.m in Sources */,

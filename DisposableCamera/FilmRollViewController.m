@@ -159,6 +159,7 @@
     // save to album
 
     NSLog(@"Saving to album: %@", albumName);
+    progress = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self saveToAlbumHelper:self.images albumName:albumName failedCount:0 completion:completion];
 }
 
@@ -173,6 +174,7 @@
     NSMutableArray *imagesLeftNow = [imagesLeft mutableCopy];
     [imagesLeftNow removeObject:currentImage];
     NSLog(@"Images left in queue: %d", [imagesLeftNow count]);
+    progress.labelText = [NSString stringWithFormat:@"Developing %d of %d", MAX_ROLL_SIZE - imagesLeftNow.count, MAX_ROLL_SIZE];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[ALAssetsLibrary sharedALAssetsLibrary] saveImage:[self makeImageNegative:currentImage] meta:nil toAlbum:albumName withCompletionBlock:^(NSError *error) {
@@ -181,6 +183,7 @@
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     if([imagesLeftNow count] == 0) {
                         completion(failed+1);
+                        [progress hide:YES];
                     }
                     else {
                         [self saveToAlbumHelper:imagesLeftNow albumName:albumName failedCount:failed completion:completion];
@@ -192,6 +195,7 @@
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     if([imagesLeftNow count] == 0) {
                         completion(failed);
+                        [progress hide:YES];
                     }
                     else {
                         [self saveToAlbumHelper:imagesLeftNow albumName:albumName failedCount:failed completion:completion];
