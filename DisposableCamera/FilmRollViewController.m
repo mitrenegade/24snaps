@@ -143,7 +143,10 @@
         }
         [UIAlertView alertViewWithTitle:title message:@"Would you like to discard this roll and insert new film?" cancelButtonTitle:@"No, save the film" otherButtonTitles:@[@"New film"] onDismiss:^(int buttonIndex) {
             [self resetFilm];
-        } onCancel:nil];
+            [self rate];
+        } onCancel:^{
+            [self rate];
+        }];
     }];
 }
 
@@ -226,6 +229,13 @@
     UIImage *returnImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return returnImage;
+}
+
+-(void)rate {
+    // force appirater to rate
+    for (int i=0; i<APPIRATER_SIG_EVENTS_UNTIL_PROMPT; i++) {
+        [Appirater userDidSignificantEvent:YES];
+    }
 }
 
 @end

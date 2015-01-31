@@ -29,6 +29,7 @@
 		9EE471871A7D82CC001C4B48 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE471861A7D82CC001C4B48 /* MBProgressHUD.m */; };
 		9EE4718B1A7D8BA7001C4B48 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471891A7D8BA7001C4B48 /* Crashlytics.framework */; };
 		9EE4718C1A7D8BA7001C4B48 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE4718A1A7D8BA7001C4B48 /* Fabric.framework */; };
+		9EE4718F1A7D8C8C001C4B48 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4718E1A7D8C8C001C4B48 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,8 @@
 		9EE471861A7D82CC001C4B48 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9EE471891A7D8BA7001C4B48 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		9EE4718A1A7D8BA7001C4B48 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		9EE4718D1A7D8C8C001C4B48 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		9EE4718E1A7D8C8C001C4B48 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		9EECB3B81A5B31B400EAD911 /* CameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayViewController.h; sourceTree = "<group>"; };
 		9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +147,8 @@
 		9EE1AA751A51F64D006A54AC /* DisposableCamera */ = {
 			isa = PBXGroup;
 			children = (
+				9EE4718D1A7D8C8C001C4B48 /* Appirater.h */,
+				9EE4718E1A7D8C8C001C4B48 /* Appirater.m */,
 				9EE471851A7D82CC001C4B48 /* MBProgressHUD.h */,
 				9EE471861A7D82CC001C4B48 /* MBProgressHUD.m */,
 				9EE471821A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
@@ -337,6 +342,7 @@
 				9EE471801A7D6CF1001C4B48 /* UIActionSheet+MKBlockAdditions.m in Sources */,
 				9EE471871A7D82CC001C4B48 /* MBProgressHUD.m in Sources */,
 				9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */,
+				9EE4718F1A7D8C8C001C4B48 /* Appirater.m in Sources */,
 				9EE471841A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				9EE1AA791A51F64D006A54AC /* main.m in Sources */,
 				9E440F1A1A745FFB009E3C35 /* FilmRollViewController.m in Sources */,

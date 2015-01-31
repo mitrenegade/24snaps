@@ -228,18 +228,14 @@
 }
 
 #pragma mark film advance
--(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if (isZooming)
-        return NO;
-
-    if (CGRectContainsPoint(viewFilmAdvance.frame, [touch locationInView:self.view])) {
-        return YES;
-    }
-    return NO;
-}
 -(void)handleGesture:(UIGestureRecognizer *)gesture {
+    if (isZooming)
+        return;
     if (rollCount > MAX_ROLL_SIZE)
         return;
+    if (!CGRectContainsPoint(viewFilmAdvance.frame, [gesture locationInView:self.view])) {
+        return;
+    }
 
     if (advancedCount < MAX_ADVANCE_COUNT) {
         [self playAdvance];
@@ -402,6 +398,8 @@
         [self playFlash];
         [self toggleFlash:YES];
     }
+
+    [Appirater userDidSignificantEvent:YES];
 }
 
 #pragma mark capture button warnings
