@@ -30,7 +30,12 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Camera Roll" style:UIBarButtonItemStyleDone target:self action:@selector(promptForDevelop)];
     }
     else {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Develop" style:UIBarButtonItemStyleDone target:self action:@selector(promptForDevelop)];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"currentfilm:develop:success"] boolValue]) {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Film" style:UIBarButtonItemStyleDone target:self action:@selector(promptForDevelop)];
+        }
+        else {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Develop" style:UIBarButtonItemStyleDone target:self action:@selector(promptForDevelop)];
+        }
     }
 
     self.navigationController.delegate = self;
@@ -71,9 +76,23 @@
         } onCancel:nil];
     }
     else {
-        [UIAlertView alertViewWithTitle:@"Develop your film?" message:@"Would you like to develop your film (save it to your photo album) and start a new roll?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"OK"] onDismiss:^(int buttonIndex) {
-            [self developFilm];
-        } onCancel:nil];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"currentfilm:develop:success"] boolValue]) {
+            // user has already developed this roll of film
+            // allow them to reset the roll
+            [UIAlertView alertViewWithTitle:@"New film?" message:@"Would you like to insert new film and start a new roll, or develop your current film roll?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"New film", @"Develop film"] onDismiss:^(int buttonIndex) {
+                if (buttonIndex == 0) {
+                    [self resetFilm];
+                }
+                else {
+                    [self developFilm];
+                }
+            } onCancel:nil];
+        }
+        else {
+            [UIAlertView alertViewWithTitle:@"Develop your film?" message:@"Would you like to develop your film (save it to your photo album) and start a new roll?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"OK"] onDismiss:^(int buttonIndex) {
+                [self developFilm];
+            } onCancel:nil];
+        }
     }
 }
 
@@ -118,6 +137,10 @@
         if (failed) {
             title = [NSString stringWithFormat:@"Save to album failed: %d", failed];
         }
+        else {
+            [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"currentfilm:develop:success"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
         [UIAlertView alertViewWithTitle:title message:@"Would you like to discard this roll and insert new film?" cancelButtonTitle:@"No, save the film" otherButtonTitles:@[@"New film"] onDismiss:^(int buttonIndex) {
             [self resetFilm];
         } onCancel:nil];
@@ -126,6 +149,8 @@
 
 -(void)resetFilm {
     NSLog(@"Reset film");
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentfilm:develop:success"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)saveToAlbum:(NSString *)albumName completion:(void(^)(int failed))completion {
