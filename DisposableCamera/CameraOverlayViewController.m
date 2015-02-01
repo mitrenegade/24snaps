@@ -312,6 +312,8 @@
     } completion:^(BOOL finished) {
         isZooming = !isZooming;
     }];
+
+    [PFAnalytics trackEventInBackground:@"tap viewfinder" dimensions:@{@"action": @"look in"} block:nil];
 }
 
 -(void)stopLookingInViewFinder {
@@ -332,6 +334,8 @@
 
         isZooming = !isZooming;
     }];
+
+    [PFAnalytics trackEventInBackground:@"tap viewfinder" dimensions:@{@"action": @"look away"} block:nil];
 }
 
 -(float)viewFinderOffsetX {
