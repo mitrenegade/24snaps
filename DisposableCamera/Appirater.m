@@ -116,6 +116,9 @@ NSString *templateReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZSto
 											   otherButtonTitles:APPIRATER_RATE_BUTTON, APPIRATER_RATE_LATER, nil] autorelease];
 	self.ratingAlert = alertView;
 	[alertView show];
+
+    NSString *sigEventCount = [NSString stringWithFormat:@"%d", [[NSUserDefaults standardUserDefaults] integerForKey:kAppiraterSignificantEventCount]];
+    [PFAnalytics trackEventInBackground:@"Appirater rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
 }
 
 
@@ -347,6 +350,9 @@ NSString *templateReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZSto
 	[userDefaults setBool:YES forKey:kAppiraterRatedCurrentVersion];
 	[userDefaults synchronize];
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:reviewURL]];
+
+    NSString *sigEventCount = [NSString stringWithFormat:@"%d", [[NSUserDefaults standardUserDefaults] integerForKey:kAppiraterSignificantEventCount]];
+    [PFAnalytics trackEventInBackground:@"Appirater rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
 #endif
 }
 

@@ -20,9 +20,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
     [Fabric with:@[CrashlyticsKit]];
 
     [Appirater appLaunched:YES];
+
+    // Initialize Parse.
+    [Parse setApplicationId:@"Du1y60Hn4LDHt1lbabT9FBSwEm5Shiyezu0MquMP"
+                  clientKey:@"QAxIKHFZoJFsRdeQmq0tJSjJ0h7bwyKKr5IpFROI"];
+
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     return YES;
 }

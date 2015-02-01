@@ -102,6 +102,8 @@
         flash = YES;
         [self playFlash];
         [self toggleFlash:NO];
+
+        [PFAnalytics trackEventInBackground:@"turn flash on" block:nil];
     }
     [self toggleFlash:YES];
 }
@@ -409,6 +411,9 @@
     [self performSelector:@selector(glow:) withObject:viewGlow afterDelay:.5];
     [self performSelector:@selector(glow:) withObject:viewGlow afterDelay:1];
     [self performSelector:@selector(glowHelper) withObject:nil afterDelay:1.25];
+
+    NSString *val = [NSString stringWithFormat:@"%d", rollCount];
+    [PFAnalytics trackEventInBackground:@"warn for advance" dimensions:@{@"rollCount": val} block:nil];
 }
 
 -(void)glowHelper {
@@ -419,6 +424,9 @@
     [self glow:buttonRoll];
     [self performSelector:@selector(glow:) withObject:buttonRoll afterDelay:.5];
     [self performSelector:@selector(glow:) withObject:buttonRoll afterDelay:1];
+
+    NSString *val = [NSString stringWithFormat:@"%d", rollCount];
+    [PFAnalytics trackEventInBackground:@"warn for film" dimensions:@{@"rollCount": val} block:nil];
 }
 
 -(void)glow:(UIView *)view {

@@ -240,6 +240,8 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     [[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 
     [_picker presentViewController:nav animated:YES completion:nil];
+
+    [PFAnalytics trackEventInBackground:@"show film roll" block:nil];
 }
 
 -(void)capture {
