@@ -46,6 +46,9 @@
         label.font = [UIFont boldSystemFontOfSize:12];
     }
 
+    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] init]; // prevent user zoom
+    [self.view addGestureRecognizer:pinch];
+
 #if !TESTING
     buttonFlash.backgroundColor = [UIColor clearColor];
     buttonViewFinder.backgroundColor = [UIColor clearColor];
