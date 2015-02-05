@@ -56,7 +56,13 @@
 #endif
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageCaptured:) name:@"image:captured" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"appdelegate:returnFromBackground" object:nil];
     [self refresh];
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"image:captured" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"appdelegate:returnFromBackground" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -413,6 +419,9 @@
 
 #pragma mark capture button warnings
 -(void)warnForAdvance {
+    if (isZooming)
+        return;
+    
     viewGlow.alpha = .25;
     [self glow:viewGlow];
     [self performSelector:@selector(glow:) withObject:viewGlow afterDelay:.5];
