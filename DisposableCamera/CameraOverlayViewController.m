@@ -132,22 +132,13 @@
         return;
     }
 
+    // doesn't matter if the camera outcome fails, always toggle the button and "advance" the count
+    [self toggleCapture:NO];
+
     [self playClick];
     if (flash) {
         [self toggleFlash:NO];
     }
-    advancedCount = 0; // on click, the advanced count should be 4
-    rollCount++;
-    [self setLabelCountPosition:advancedCount];
-
-    // doesn't matter if the camera outcome fails, always toggle the button and "advance" the count
-    [self toggleCapture:NO];
-
-    // zoom out
-    if (isZooming) {
-        [self performSelector:@selector(stopLookingInViewFinder) withObject:nil afterDelay:.5];
-    }
-
     // tell camera to actually try to capture
     [self.delegate capture];
 }
@@ -249,15 +240,7 @@
     }
 
     if (advancedCount < MAX_ADVANCE_COUNT) {
-        [self playAdvance];
-
-        advancedCount = advancedCount + 1;
-        [self setLabelCountPosition:advancedCount];
-        [self doScrollAnimation];
-
-        if (advancedCount == MAX_ADVANCE_COUNT && rollCount < MAX_ROLL_SIZE) {
-            [self toggleCapture:YES];
-        }
+        [self advance];
     }
 }
 
@@ -272,15 +255,30 @@
 }
 
 -(void)endScroll {
-    static BOOL repeat = YES;
+    static int repeat = MAX_ADVANCE_COUNT;
     [scrollImage2 setHidden:YES];
     [scrollImage3 setHidden:YES];
-    if (repeat) {
-        repeat = NO;
-        [self performSelector:@selector(doScrollAnimation) withObject:nil afterDelay:.1];
+    if (repeat > 0) {
+        repeat -= 1;
+        [self performSelector:@selector(doScrollAnimation) withObject:nil afterDelay:.5];
     }
     else {
-        repeat = YES;
+        repeat = MAX_ADVANCE_COUNT;
+    }
+}
+
+-(void)advance {
+    [self playAdvance];
+
+    advancedCount = advancedCount + 1;
+    [self setLabelCountPosition:advancedCount];
+    [self doScrollAnimation];
+
+    if (advancedCount == MAX_ADVANCE_COUNT && rollCount < MAX_ROLL_SIZE) {
+        [self toggleCapture:YES];
+    }
+    else {
+        [self performSelector:@selector(advance) withObject:nil afterDelay:.4];
     }
 }
 
@@ -409,6 +407,15 @@
             buttonRoll.alpha = 1;
     }
 
+    advancedCount = 0; // on click, the advanced count should be 4
+    rollCount++;
+    [self setLabelCountPosition:advancedCount];
+
+    // zoom out
+    if (isZooming) {
+        [self performSelector:@selector(stopLookingInViewFinder) withObject:nil afterDelay:.5];
+    }
+    
     if (flash) {
         [self playFlash];
         [self toggleFlash:YES];
