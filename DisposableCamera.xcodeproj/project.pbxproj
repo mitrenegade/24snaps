@@ -68,7 +68,7 @@
 		9E906BE61A75ECF400AF3056 /* BackgroundHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundHelper.h; sourceTree = "<group>"; };
 		9E906BE71A75ECF400AF3056 /* BackgroundHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundHelper.m; sourceTree = "<group>"; };
 		9E9CFF621A6B0FD000658E7E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		9EE1AA731A51F64D006A54AC /* DisposableCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisposableCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE1AA731A51F64D006A54AC /* 24snaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24snaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1AA771A51F64D006A54AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EE1AA781A51F64D006A54AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9EE1AA7A1A51F64D006A54AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		9EE1AA741A51F64D006A54AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9EE1AA731A51F64D006A54AC /* DisposableCamera.app */,
+				9EE1AA731A51F64D006A54AC /* 24snaps.app */,
 				9EE1AA8C1A51F64D006A54AC /* DisposableCameraTests.xctest */,
 			);
 			name = Products;
@@ -280,7 +280,7 @@
 			);
 			name = DisposableCamera;
 			productName = DisposableCamera;
-			productReference = 9EE1AA731A51F64D006A54AC /* DisposableCamera.app */;
+			productReference = 9EE1AA731A51F64D006A54AC /* 24snaps.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9EE1AA8B1A51F64D006A54AC /* DisposableCameraTests */ = {
@@ -526,7 +526,7 @@
 				INFOPLIST_FILE = DisposableCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = 24snaps;
 				PROVISIONING_PROFILE = "9cea04a5-bcbe-4142-bea2-443bd6975126";
 			};
 			name = Debug;
@@ -544,7 +544,7 @@
 				INFOPLIST_FILE = DisposableCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = 24snaps;
 				PROVISIONING_PROFILE = "9cea04a5-bcbe-4142-bea2-443bd6975126";
 			};
 			name = Release;
