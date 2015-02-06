@@ -260,9 +260,10 @@
     [scrollImage3 setHidden:YES];
     if (repeat > 0) {
         repeat -= 1;
-        [self performSelector:@selector(doScrollAnimation) withObject:nil afterDelay:.5];
+        [self performSelector:@selector(doScrollAnimation) withObject:nil afterDelay:.1];
     }
     else {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doScrollAnimation) object:nil];
         repeat = MAX_ADVANCE_COUNT;
     }
 }
@@ -294,6 +295,7 @@
 
 -(void)lookInViewFinder {
     [buttonFlash setUserInteractionEnabled:isZooming];
+    [buttonFlash setHidden:!isZooming];
     [viewFilmAdvance setUserInteractionEnabled:isZooming];
     [flashImage setHidden:!isZooming];
     [scrollImage2 setHidden:!isZooming];
@@ -334,6 +336,7 @@
         buttonRoll.alpha = 1;
         
         [buttonFlash setUserInteractionEnabled:isZooming];
+        [buttonFlash setHidden:!isZooming];
         [viewFilmAdvance setUserInteractionEnabled:isZooming];
         [flashImage setHidden:!isZooming];
         [scrollImage2 setHidden:!isZooming];
