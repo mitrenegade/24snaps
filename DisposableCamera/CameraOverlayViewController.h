@@ -34,6 +34,7 @@
 
     BOOL flash;
     int advancedCount;
+    BOOL canScroll;
 
     IBOutlet UIImageView *viewBG;
     IBOutlet UIImageView *flashImage;

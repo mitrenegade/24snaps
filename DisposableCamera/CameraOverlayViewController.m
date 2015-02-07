@@ -79,12 +79,17 @@
     if (rollCount == 0 && ![[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"]) {
         rollCount = 0;
         advancedCount = INITIAL_ADVANCE_COUNT;
+        canScroll = YES;
     }
     else
         advancedCount = [[[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"] intValue];
 
     if (advancedCount == MAX_ADVANCE_COUNT && rollCount < MAX_ROLL_SIZE) {
         [self toggleCapture:YES];
+        canScroll = NO;
+    }
+    else {
+        canScroll = YES;
     }
     [self setLabelCountPosition:advancedCount];
 
@@ -212,6 +217,7 @@
     }
     else {
         [buttonCapture setAlpha:1];
+        canScroll = YES;
     }
 }
 
@@ -230,6 +236,10 @@
 }
 
 #pragma mark film advance
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return canScroll;
+}
+
 -(void)handleGesture:(UIGestureRecognizer *)gesture {
     if (isZooming)
         return;
@@ -269,6 +279,7 @@
 }
 
 -(void)advance {
+    canScroll = NO;
     [self playAdvance];
 
     advancedCount = advancedCount + 1;
