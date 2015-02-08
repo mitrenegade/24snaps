@@ -53,6 +53,7 @@ typedef enum FilmStateEnum {
     NSInteger rollCount;
 
     BOOL isZooming;
+    BOOL waitForCapture;
 }
 
 @property (weak, nonatomic) id delegate;
@@ -67,4 +68,5 @@ typedef enum FilmStateEnum {
 -(float)viewFinderWidth;
 
 -(void)refresh;
+-(void)reset;
 @end
