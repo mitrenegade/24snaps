@@ -285,7 +285,7 @@
     [self setLabelCountPosition:advancedCount];
     [self doScrollAnimation];
 
-    if (advancedCount >= 4 && rollCount < MAX_ROLL_SIZE) {
+    if (advancedCount >= 4 && rollCount <= MAX_ROLL_SIZE) {
         filmState = FilmStateReady;
         [[NSUserDefaults standardUserDefaults] setInteger:filmState forKey:@"film:state"];
         [self toggleCapture:YES];
@@ -415,14 +415,13 @@
 }
 
 -(void)imageCaptured:(NSNotification *)n {
+    rollCount++;
     if (rollCount == MAX_ROLL_SIZE) {
         [buttonCapture setHidden:YES];
         [buttonRoll setHidden:NO];
         if (!isZooming)
             buttonRoll.alpha = 1;
     }
-
-    rollCount++;
 
     // zoom out
     if (isZooming) {
