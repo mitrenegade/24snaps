@@ -10,8 +10,11 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
-#define INITIAL_ADVANCE_COUNT 0 // new camera roll
-#define MAX_ADVANCE_COUNT 4
+typedef enum FilmStateEnum {
+    FilmStateNeedsWinding = 0,
+    FilmStateReady = 1,
+    FilmStateInitialWound = 2 // same as FilmStateReady but position needs to be at 4
+} FilmState;
 
 @protocol CameraOverlayDelegate <NSObject>
 
@@ -33,8 +36,7 @@
     IBOutlet UIView *viewGlow;
 
     BOOL flash;
-    int advancedCount;
-    BOOL canScroll;
+    FilmState filmState;
 
     IBOutlet UIImageView *viewBG;
     IBOutlet UIImageView *flashImage;
