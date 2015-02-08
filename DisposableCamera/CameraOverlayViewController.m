@@ -57,6 +57,18 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageCaptured:) name:@"image:captured" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"appdelegate:returnFromBackground" object:nil];
+    rollCount = [self.delegate initialRollCount];
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"film:state"]) {
+        filmState = [[NSUserDefaults standardUserDefaults] integerForKey:@"film:state"];
+        if (filmState == FilmStateReady) {
+            filmState = FilmStateInitialWound;
+        }
+    }
+    else {
+        filmState = FilmStateNeedsWinding;
+        [[NSUserDefaults standardUserDefaults] setInteger:filmState forKey:@"film:state"];
+    }
+
     [self refresh];
 }
 
@@ -73,29 +85,24 @@
 -(void)refresh {
     [self toggleFlash:NO];
 
-    rollCount = [self.delegate initialRollCount];
-
-    if (rollCount == 0 && ![[NSUserDefaults standardUserDefaults] integerForKey:@"film:state"]) {
+    if (filmState == FilmStateNeedsWinding) {
         [self toggleCapture:NO];
-        filmState = FilmStateNeedsWinding;
-        [[NSUserDefaults standardUserDefaults] setInteger:filmState forKey:@"film:state"];
     }
     else {
-        filmState = [[NSUserDefaults standardUserDefaults] integerForKey:@"film:state"];
-        if (filmState == FilmStateNeedsWinding) {
-            [self toggleCapture:NO];
+        if (rollCount < MAX_ROLL_SIZE) {
+            [self toggleCapture:YES];
         }
         else {
-            if (rollCount < MAX_ROLL_SIZE) {
-                [self toggleCapture:YES];
-            }
-            else {
-                [self toggleCapture:NO];
-            }
+            [self toggleCapture:NO];
         }
     }
 
-    [self setLabelCountPosition:0];
+    if (filmState == FilmStateInitialWound) {
+        [self setLabelCountPosition:4];
+    }
+    else {
+        [self setLabelCountPosition:0];
+    }
 
     if (rollCount < MAX_ROLL_SIZE) {
 #if TESTING == 2
@@ -416,7 +423,6 @@
     }
 
     rollCount++;
-    [self setLabelCountPosition:0];
 
     // zoom out
     if (isZooming) {

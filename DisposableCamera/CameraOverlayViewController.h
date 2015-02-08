@@ -12,7 +12,8 @@
 
 typedef enum FilmStateEnum {
     FilmStateNeedsWinding = 0,
-    FilmStateReady = 1
+    FilmStateReady = 1,
+    FilmStateInitialWound = 2 // same as FilmStateReady but position needs to be at 4
 } FilmState;
 
 @protocol CameraOverlayDelegate <NSObject>
