@@ -241,7 +241,7 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
 
     [_picker presentViewController:nav animated:YES completion:nil];
 
-    [PFAnalytics trackEventInBackground:@"show film roll" block:nil];
+    [PFAnalytics trackEventInBackground:@"showFilmRoll" block:nil];
 }
 
 -(void)capture {
