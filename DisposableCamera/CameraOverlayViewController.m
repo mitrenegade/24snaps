@@ -128,7 +128,7 @@
         [self playFlash];
         [self toggleFlash:NO];
 
-        [PFAnalytics trackEventInBackground:@"turn flash on" block:nil];
+        [PFAnalytics trackEventInBackground:@"turnFlashOn" block:nil];
     }
     [self toggleFlash:YES];
 }
@@ -285,7 +285,7 @@
     [self setLabelCountPosition:advancedCount];
     [self doScrollAnimation];
 
-    if (advancedCount >= 4 && rollCount < MAX_ROLL_SIZE) {
+    if (advancedCount >= 4 && rollCount <= MAX_ROLL_SIZE) {
         filmState = FilmStateReady;
         [[NSUserDefaults standardUserDefaults] setInteger:filmState forKey:@"film:state"];
         [self toggleCapture:YES];
@@ -337,7 +337,7 @@
         isZooming = !isZooming;
     }];
 
-    [PFAnalytics trackEventInBackground:@"tap viewfinder" dimensions:@{@"action": @"look in"} block:nil];
+    [PFAnalytics trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look in"} block:nil];
 }
 
 -(void)stopLookingInViewFinder {
@@ -360,7 +360,7 @@
         isZooming = !isZooming;
     }];
 
-    [PFAnalytics trackEventInBackground:@"tap viewfinder" dimensions:@{@"action": @"look away"} block:nil];
+    [PFAnalytics trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look away"} block:nil];
 }
 
 -(float)viewFinderOffsetX {
@@ -415,14 +415,13 @@
 }
 
 -(void)imageCaptured:(NSNotification *)n {
+    rollCount++;
     if (rollCount == MAX_ROLL_SIZE) {
         [buttonCapture setHidden:YES];
         [buttonRoll setHidden:NO];
         if (!isZooming)
             buttonRoll.alpha = 1;
     }
-
-    rollCount++;
 
     // zoom out
     if (isZooming) {
@@ -449,7 +448,7 @@
     [self performSelector:@selector(glowHelper) withObject:nil afterDelay:1.25];
 
     NSString *val = [NSString stringWithFormat:@"%d", rollCount];
-    [PFAnalytics trackEventInBackground:@"warn for advance" dimensions:@{@"rollCount": val} block:nil];
+    [PFAnalytics trackEventInBackground:@"warnForAdvance" dimensions:@{@"rollCount": val} block:nil];
 }
 
 -(void)glowHelper {
@@ -462,7 +461,7 @@
     [self performSelector:@selector(glow:) withObject:buttonRoll afterDelay:1];
 
     NSString *val = [NSString stringWithFormat:@"%d", rollCount];
-    [PFAnalytics trackEventInBackground:@"warn for film" dimensions:@{@"rollCount": val} block:nil];
+    [PFAnalytics trackEventInBackground:@"warnForFilm" dimensions:@{@"rollCount": val} block:nil];
 }
 
 -(void)glow:(UIView *)view {
