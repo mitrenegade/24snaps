@@ -56,7 +56,7 @@
 #endif
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageCaptured:) name:@"image:captured" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"appdelegate:returnFromBackground" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshFromBackground) name:@"appdelegate:returnFromBackground" object:nil];
     rollCount = [self.delegate initialRollCount];
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"film:state"]) {
         filmState = [[NSUserDefaults standardUserDefaults] integerForKey:@"film:state"];
@@ -80,6 +80,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)refreshFromBackground {
+    [self toggleFlash:NO];
 }
 
 -(void)refresh {
