@@ -67,4 +67,5 @@ typedef enum FilmStateEnum {
 -(float)viewFinderWidth;
 
 -(void)refresh;
+-(void)reset;
 @end

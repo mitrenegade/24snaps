@@ -86,6 +86,16 @@
     [self toggleFlash:NO];
 }
 
+-(void)reset {
+    rollCount = 0;
+    [[NSUserDefaults standardUserDefaults] setInteger:FilmStateNeedsWinding forKey:@"film:state"];
+
+    [buttonCapture setHidden:NO];
+    [buttonRoll setHidden:YES];
+
+    [self refresh];
+}
+
 -(void)refresh {
     [self toggleFlash:NO];
 

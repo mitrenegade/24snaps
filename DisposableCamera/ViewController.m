@@ -98,7 +98,7 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     }
 
     [_picker dismissViewControllerAnimated:YES completion:^{
-        [overlayController refresh];
+        [overlayController reset];
     }];
 }
 
