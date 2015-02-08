@@ -53,6 +53,7 @@ typedef enum FilmStateEnum {
     NSInteger rollCount;
 
     BOOL isZooming;
+    BOOL waitForCapture;
 }
 
 @property (weak, nonatomic) id delegate;

@@ -166,6 +166,7 @@
     [self toggleCapture:NO];
     filmState = FilmStateNeedsWinding;
     [[NSUserDefaults standardUserDefaults] setInteger:filmState forKey:@"film:state"];
+    waitForCapture = YES;
 
     [self playClick];
     if (flash) {
@@ -259,6 +260,9 @@
 
 #pragma mark film advance
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if (waitForCapture)
+        return NO;
+    
     return filmState == FilmStateNeedsWinding;
 }
 
@@ -430,6 +434,7 @@
 
 -(void)imageCaptured:(NSNotification *)n {
     rollCount++;
+    waitForCapture = NO;
     if (rollCount == MAX_ROLL_SIZE) {
         [buttonCapture setHidden:YES];
         [buttonRoll setHidden:NO];
