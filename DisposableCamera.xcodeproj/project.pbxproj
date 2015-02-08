@@ -545,7 +545,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = 24snaps;
-				PROVISIONING_PROFILE = "9cea04a5-bcbe-4142-bea2-443bd6975126";
+				PROVISIONING_PROFILE = "500c39d3-3d1a-4afb-8284-619e12a12a3b";
 			};
 			name = Release;
 		};
