@@ -72,26 +72,30 @@
 
 -(void)refresh {
     [self toggleFlash:NO];
-    [self toggleCapture:NO];
 
     rollCount = [self.delegate initialRollCount];
 
-    if (rollCount == 0 && ![[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"]) {
-        rollCount = 0;
-        advancedCount = INITIAL_ADVANCE_COUNT;
-        canScroll = YES;
-    }
-    else
-        advancedCount = [[[NSUserDefaults standardUserDefaults] objectForKey:@"film:position"] intValue];
-
-    if (advancedCount == MAX_ADVANCE_COUNT && rollCount < MAX_ROLL_SIZE) {
-        [self toggleCapture:YES];
-        canScroll = NO;
+    if (rollCount == 0 && ![[NSUserDefaults standardUserDefaults] integerForKey:@"film:state"]) {
+        [self toggleCapture:NO];
+        filmState = FilmStateNeedsWinding;
+        [[NSUserDefaults standardUserDefaults] setInteger:filmState forKey:@"film:state"];
     }
     else {
-        canScroll = YES;
+        filmState = [[NSUserDefaults standardUserDefaults] integerForKey:@"film:state"];
+        if (filmState == FilmStateNeedsWinding) {
+            [self toggleCapture:NO];
+        }
+        else {
+            if (rollCount < MAX_ROLL_SIZE) {
+                [self toggleCapture:YES];
+            }
+            else {
+                [self toggleCapture:NO];
+            }
+        }
     }
-    [self setLabelCountPosition:advancedCount];
+
+    [self setLabelCountPosition:0];
 
     if (rollCount < MAX_ROLL_SIZE) {
 #if TESTING == 2
@@ -127,8 +131,8 @@
     [self warnForFilm];
     return;
 #endif
-    
-    if (advancedCount < MAX_ADVANCE_COUNT-1) {
+
+    if (filmState == FilmStateNeedsWinding) {
         [self warnForAdvance];
         return;
     }
@@ -139,6 +143,8 @@
 
     // doesn't matter if the camera outcome fails, always toggle the button and "advance" the count
     [self toggleCapture:NO];
+    filmState = FilmStateNeedsWinding;
+    [[NSUserDefaults standardUserDefaults] setInteger:filmState forKey:@"film:state"];
 
     [self playClick];
     if (flash) {
@@ -207,17 +213,12 @@
     //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
--(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    NSLog(@"Done");
-}
-
 -(void)toggleCapture:(BOOL)canCapture {
     if (!canCapture) {
         [buttonCapture setAlpha:.5];
     }
     else {
         [buttonCapture setAlpha:1];
-        canScroll = YES;
     }
 }
 
@@ -237,7 +238,7 @@
 
 #pragma mark film advance
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    return canScroll;
+    return filmState == FilmStateNeedsWinding;
 }
 
 -(void)handleGesture:(UIGestureRecognizer *)gesture {
@@ -249,7 +250,7 @@
         return;
     }
 
-    if (advancedCount < MAX_ADVANCE_COUNT) {
+    if (filmState == FilmStateNeedsWinding) {
         [self advance];
     }
 }
@@ -265,31 +266,27 @@
 }
 
 -(void)endScroll {
-    static int repeat = MAX_ADVANCE_COUNT;
     [scrollImage2 setHidden:YES];
     [scrollImage3 setHidden:YES];
-    if (repeat > 0) {
-        repeat -= 1;
-        [self performSelector:@selector(doScrollAnimation) withObject:nil afterDelay:.1];
-    }
-    else {
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(doScrollAnimation) object:nil];
-        repeat = MAX_ADVANCE_COUNT;
-    }
 }
 
 -(void)advance {
-    canScroll = NO;
+    static int advancedCount = 0;
     [self playAdvance];
 
     advancedCount = advancedCount + 1;
     [self setLabelCountPosition:advancedCount];
     [self doScrollAnimation];
 
-    if (advancedCount == MAX_ADVANCE_COUNT && rollCount < MAX_ROLL_SIZE) {
+    if (advancedCount >= 4 && rollCount < MAX_ROLL_SIZE) {
+        filmState = FilmStateReady;
+        [[NSUserDefaults standardUserDefaults] setInteger:filmState forKey:@"film:state"];
         [self toggleCapture:YES];
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(advance) object:nil];
+        advancedCount = 0;
     }
     else {
+        [self doScrollAnimation];
         [self performSelector:@selector(advance) withObject:nil afterDelay:.4];
     }
 }
@@ -408,9 +405,6 @@
     viewRotaterCurr.transform = CGAffineTransformMakeRotation(degreesCurr / 360 * 2*M_PI);
     viewRotaterNext.transform = CGAffineTransformMakeRotation(degreesNext / 360 * 2*M_PI);
     viewRotaterFuture.transform = CGAffineTransformMakeRotation(degreesFuture / 360 * 2*M_PI);
-
-    [[NSUserDefaults standardUserDefaults] setObject:@(advancedCount) forKey:@"film:position"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(void)imageCaptured:(NSNotification *)n {
@@ -421,9 +415,8 @@
             buttonRoll.alpha = 1;
     }
 
-    advancedCount = 0; // on click, the advanced count should be 4
     rollCount++;
-    [self setLabelCountPosition:advancedCount];
+    [self setLabelCountPosition:0];
 
     // zoom out
     if (isZooming) {
