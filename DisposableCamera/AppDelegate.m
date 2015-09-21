@@ -21,7 +21,7 @@
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
-    [Fabric with:@[CrashlyticsKit]];
+    [Fabric with:@[[Crashlytics class]]];
 
     [Appirater appLaunched:YES];
 
