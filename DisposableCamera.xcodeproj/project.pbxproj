@@ -28,8 +28,6 @@
 		9EE471841A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE471831A7D6DDD001C4B48 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		9EE471871A7D82CC001C4B48 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE471861A7D82CC001C4B48 /* MBProgressHUD.m */; };
 		9EE4718F1A7D8C8C001C4B48 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4718E1A7D8C8C001C4B48 /* Appirater.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		9EE471921A7DBDE2001C4B48 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471901A7DBDE2001C4B48 /* Bolts.framework */; };
-		9EE471931A7DBDE2001C4B48 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471911A7DBDE2001C4B48 /* Parse.framework */; };
 		9EE471951A7DBDFD001C4B48 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471941A7DBDFD001C4B48 /* CFNetwork.framework */; };
 		9EE471971A7DC2E0001C4B48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471961A7DC2E0001C4B48 /* CoreGraphics.framework */; };
 		9EE471991A7DC2E4001C4B48 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471981A7DC2E4001C4B48 /* CoreLocation.framework */; };
@@ -41,8 +39,7 @@
 		9EE471A51A7DC308001C4B48 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471A41A7DC308001C4B48 /* libz.dylib */; };
 		9EE471A71A7DC30D001C4B48 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471A61A7DC30D001C4B48 /* libsqlite3.dylib */; };
 		9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */; };
-		AC36EE831BB066FF000FDDF7 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC36EE811BB066FF000FDDF7 /* Fabric.framework */; };
-		AC36EE841BB066FF000FDDF7 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC36EE821BB066FF000FDDF7 /* Crashlytics.framework */; };
+		C66361F2EEA6EAEFAF1A879A /* Pods_DisposableCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787347D19BA4F042D2B886FF /* Pods_DisposableCamera.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3890FBC93B5843B723F83F4A /* Pods-DisposableCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DisposableCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DisposableCamera/Pods-DisposableCamera.debug.xcconfig"; sourceTree = "<group>"; };
+		787347D19BA4F042D2B886FF /* Pods_DisposableCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DisposableCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClick.mp3; sourceTree = "<group>"; };
 		9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFilmAdvance.mp3; sourceTree = "<group>"; };
 		9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -94,8 +93,6 @@
 		9EE471861A7D82CC001C4B48 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9EE4718D1A7D8C8C001C4B48 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		9EE4718E1A7D8C8C001C4B48 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
-		9EE471901A7DBDE2001C4B48 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		9EE471911A7DBDE2001C4B48 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		9EE471941A7DBDFD001C4B48 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9EE471961A7DC2E0001C4B48 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9EE471981A7DC2E4001C4B48 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -108,8 +105,7 @@
 		9EE471A61A7DC30D001C4B48 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9EECB3B81A5B31B400EAD911 /* CameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayViewController.h; sourceTree = "<group>"; };
 		9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayViewController.m; sourceTree = "<group>"; };
-		AC36EE811BB066FF000FDDF7 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		AC36EE821BB066FF000FDDF7 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		E8113D8EE0CB8BD6721BD8EC /* Pods-DisposableCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DisposableCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-DisposableCamera/Pods-DisposableCamera.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +123,9 @@
 				9EE471991A7DC2E4001C4B48 /* CoreLocation.framework in Frameworks */,
 				9EE471971A7DC2E0001C4B48 /* CoreGraphics.framework in Frameworks */,
 				9EE471951A7DBDFD001C4B48 /* CFNetwork.framework in Frameworks */,
-				AC36EE841BB066FF000FDDF7 /* Crashlytics.framework in Frameworks */,
-				9EE471921A7DBDE2001C4B48 /* Bolts.framework in Frameworks */,
-				AC36EE831BB066FF000FDDF7 /* Fabric.framework in Frameworks */,
 				9E3A7BE81A5A3F8A0024D640 /* AudioToolbox.framework in Frameworks */,
 				9E3A7BE61A5A3D430024D640 /* AVFoundation.framework in Frameworks */,
-				9EE471931A7DBDE2001C4B48 /* Parse.framework in Frameworks */,
+				C66361F2EEA6EAEFAF1A879A /* Pods_DisposableCamera.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,8 +163,6 @@
 			children = (
 				9EE471A61A7DC30D001C4B48 /* libsqlite3.dylib */,
 				9EE471A41A7DC308001C4B48 /* libz.dylib */,
-				AC36EE811BB066FF000FDDF7 /* Fabric.framework */,
-				AC36EE821BB066FF000FDDF7 /* Crashlytics.framework */,
 				9EE471A21A7DC302001C4B48 /* SystemConfiguration.framework */,
 				9EE471A01A7DC2FB001C4B48 /* StoreKit.framework */,
 				9EE4719E1A7DC2F8001C4B48 /* Security.framework */,
@@ -180,14 +171,14 @@
 				9EE471981A7DC2E4001C4B48 /* CoreLocation.framework */,
 				9EE471961A7DC2E0001C4B48 /* CoreGraphics.framework */,
 				9EE471941A7DBDFD001C4B48 /* CFNetwork.framework */,
-				9EE471901A7DBDE2001C4B48 /* Bolts.framework */,
-				9EE471911A7DBDE2001C4B48 /* Parse.framework */,
 				9E9CFF621A6B0FD000658E7E /* AssetsLibrary.framework */,
 				9E3A7BE71A5A3F8A0024D640 /* AudioToolbox.framework */,
 				9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */,
 				9EE1AA751A51F64D006A54AC /* DisposableCamera */,
 				9EE1AA8F1A51F64D006A54AC /* DisposableCameraTests */,
 				9EE1AA741A51F64D006A54AC /* Products */,
+				DD5313B2AA0F45C76B762341 /* Pods */,
+				F8A7140D3B91345F07946018 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,6 +261,23 @@
 			path = MKAdditions;
 			sourceTree = "<group>";
 		};
+		DD5313B2AA0F45C76B762341 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3890FBC93B5843B723F83F4A /* Pods-DisposableCamera.debug.xcconfig */,
+				E8113D8EE0CB8BD6721BD8EC /* Pods-DisposableCamera.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F8A7140D3B91345F07946018 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				787347D19BA4F042D2B886FF /* Pods_DisposableCamera.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,10 +285,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9EE1AA961A51F64D006A54AC /* Build configuration list for PBXNativeTarget "DisposableCamera" */;
 			buildPhases = (
+				F5662FF6CBA0B07EBE0F31CB /* [CP] Check Pods Manifest.lock */,
 				9EE1AA6F1A51F64D006A54AC /* Sources */,
 				9EE1AA701A51F64D006A54AC /* Frameworks */,
 				9EE1AA711A51F64D006A54AC /* Resources */,
 				9EE471881A7D8B7D001C4B48 /* ShellScript */,
+				120CD3255985F7F97327A64E /* [CP] Embed Pods Frameworks */,
+				A41947B69DF9BD8F0FD5F39D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -375,6 +386,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		120CD3255985F7F97327A64E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DisposableCamera/Pods-DisposableCamera-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseFacebookUtilsV4/ParseFacebookUtilsV4.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseFacebookUtilsV4.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DisposableCamera/Pods-DisposableCamera-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9EE471881A7D8B7D001C4B48 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,7 +423,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 70160b7dec925a91c6fe09e38bf1f8659c1eda41 0fa711cea5cca0c6a4b57c1a8955f0518514bfdd7a9e6f28b3eca2c60d905a9c";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b721eacab2230f0d8a20ca887d75b31784b433c4 884732c2668e5a7b5c524d6eb85bd1c8585dbcc135d5e5d238c707be60c03f53";
+		};
+		A41947B69DF9BD8F0FD5F39D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DisposableCamera/Pods-DisposableCamera-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5662FF6CBA0B07EBE0F31CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DisposableCamera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -533,6 +603,7 @@
 		};
 		9EE1AA971A51F64D006A54AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3890FBC93B5843B723F83F4A /* Pods-DisposableCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bobby Ren (UQA7D88UV9)";
@@ -544,7 +615,7 @@
 				);
 				GCC_PREFIX_HEADER = DisposableCamera/PrefixHeader.pch;
 				INFOPLIST_FILE = DisposableCamera/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.bobbyren.DisposableCamera;
 				PRODUCT_NAME = 24snaps;
@@ -556,6 +627,7 @@
 		};
 		9EE1AA981A51F64D006A54AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8113D8EE0CB8BD6721BD8EC /* Pods-DisposableCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Bobby Ren (H799H8B8DD)";
@@ -567,7 +639,7 @@
 				);
 				GCC_PREFIX_HEADER = DisposableCamera/PrefixHeader.pch;
 				INFOPLIST_FILE = DisposableCamera/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.bobbyren.DisposableCamera;
 				PRODUCT_NAME = 24snaps;
