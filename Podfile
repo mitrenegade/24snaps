@@ -2,7 +2,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-target 'DisposableCamera' do
+target '24snaps' do
   pod 'Parse'
   pod 'ParseFacebookUtilsV4'
   pod 'Fabric'
