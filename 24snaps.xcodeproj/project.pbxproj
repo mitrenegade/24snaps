@@ -40,7 +40,6 @@
 		9EE471A51A7DC308001C4B48 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471A41A7DC308001C4B48 /* libz.dylib */; };
 		9EE471A71A7DC30D001C4B48 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE471A61A7DC30D001C4B48 /* libsqlite3.dylib */; };
 		9EECB3BA1A5B31B400EAD911 /* CameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */; };
-		C66361F2EEA6EAEFAF1A879A /* Pods_DisposableCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787347D19BA4F042D2B886FF /* Pods_DisposableCamera.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +54,8 @@
 
 /* Begin PBXFileReference section */
 		126D0ED40011FE5E4CB1C26D /* Pods-24snaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.release.xcconfig"; sourceTree = "<group>"; };
-		3890FBC93B5843B723F83F4A /* Pods-DisposableCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DisposableCamera.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DisposableCamera/Pods-DisposableCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		679DDA392240EEC06A0F17B3 /* Pods_24snaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_24snaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F821CD08F1BBF756EED46A /* Pods-24snaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.debug.xcconfig"; sourceTree = "<group>"; };
-		787347D19BA4F042D2B886FF /* Pods_DisposableCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DisposableCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClick.mp3; sourceTree = "<group>"; };
 		9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFilmAdvance.mp3; sourceTree = "<group>"; };
 		9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -109,7 +106,6 @@
 		9EE471A61A7DC30D001C4B48 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9EECB3B81A5B31B400EAD911 /* CameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayViewController.h; sourceTree = "<group>"; };
 		9EECB3B91A5B31B400EAD911 /* CameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayViewController.m; sourceTree = "<group>"; };
-		E8113D8EE0CB8BD6721BD8EC /* Pods-DisposableCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DisposableCamera.release.xcconfig"; path = "Pods/Target Support Files/Pods-DisposableCamera/Pods-DisposableCamera.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +125,6 @@
 				9EE471951A7DBDFD001C4B48 /* CFNetwork.framework in Frameworks */,
 				9E3A7BE81A5A3F8A0024D640 /* AudioToolbox.framework in Frameworks */,
 				9E3A7BE61A5A3D430024D640 /* AVFoundation.framework in Frameworks */,
-				C66361F2EEA6EAEFAF1A879A /* Pods_DisposableCamera.framework in Frameworks */,
 				16B5185A1CFBC1BE3F7C4F5B /* Pods_24snaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,8 +264,6 @@
 		DD5313B2AA0F45C76B762341 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3890FBC93B5843B723F83F4A /* Pods-DisposableCamera.debug.xcconfig */,
-				E8113D8EE0CB8BD6721BD8EC /* Pods-DisposableCamera.release.xcconfig */,
 				77F821CD08F1BBF756EED46A /* Pods-24snaps.debug.xcconfig */,
 				126D0ED40011FE5E4CB1C26D /* Pods-24snaps.release.xcconfig */,
 			);
@@ -280,7 +273,6 @@
 		F8A7140D3B91345F07946018 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				787347D19BA4F042D2B886FF /* Pods_DisposableCamera.framework */,
 				679DDA392240EEC06A0F17B3 /* Pods_24snaps.framework */,
 			);
 			name = Frameworks;
