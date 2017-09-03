@@ -313,10 +313,12 @@
 					9EE1AA721A51F64D006A54AC = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = H799H8B8DD;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					9EE1AA8B1A51F64D006A54AC = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 0830;
 						TestTargetID = 9EE1AA721A51F64D006A54AC;
 					};
 				};
@@ -540,6 +542,7 @@
 				PRODUCT_NAME = 24snaps;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -562,6 +565,7 @@
 				PRODUCT_NAME = 24snaps;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -581,6 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tech.bobbyren.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/24snaps.app/24snaps";
 			};
 			name = Debug;
@@ -597,6 +602,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tech.bobbyren.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/24snaps.app/24snaps";
 			};
 			name = Release;
