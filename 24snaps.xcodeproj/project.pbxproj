@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		16B5185A1CFBC1BE3F7C4F5B /* Pods_24snaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679DDA392240EEC06A0F17B3 /* Pods_24snaps.framework */; };
+		8EBAC314200BE0F400D85B62 /* iPhone5.8.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC313200BE0F400D85B62 /* iPhone5.8.storyboard */; };
+		8EBAC316200BE1FB00D85B62 /* iPhone5.5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC315200BE1FB00D85B62 /* iPhone5.5.storyboard */; };
+		8EBAC318200BE22F00D85B62 /* iPhone4.7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC317200BE22F00D85B62 /* iPhone4.7.storyboard */; };
+		8EBAC31A200C12A900D85B62 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC319200C12A900D85B62 /* Splash.storyboard */; };
 		9E3A7BE21A5A3BD90024D640 /* cameraClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */; };
 		9E3A7BE31A5A3BD90024D640 /* cameraFilmAdvance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */; };
 		9E3A7BE61A5A3D430024D640 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */; };
@@ -21,7 +25,6 @@
 		9EE1AA7F1A51F64D006A54AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA7E1A51F64D006A54AC /* ViewController.m */; };
 		9EE1AA821A51F64D006A54AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1AA801A51F64D006A54AC /* Main.storyboard */; };
 		9EE1AA841A51F64D006A54AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1AA831A51F64D006A54AC /* Images.xcassets */; };
-		9EE1AA871A51F64D006A54AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EE1AA851A51F64D006A54AC /* LaunchScreen.xib */; };
 		9EE1AA931A51F64D006A54AC /* DisposableCameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE1AA921A51F64D006A54AC /* DisposableCameraTests.m */; };
 		9EE4717F1A7D6CF1001C4B48 /* NSObject+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4717A1A7D6CF1001C4B48 /* NSObject+MKBlockAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9EE471801A7D6CF1001C4B48 /* UIActionSheet+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE4717C1A7D6CF1001C4B48 /* UIActionSheet+MKBlockAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -56,6 +59,10 @@
 		126D0ED40011FE5E4CB1C26D /* Pods-24snaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.release.xcconfig"; sourceTree = "<group>"; };
 		679DDA392240EEC06A0F17B3 /* Pods_24snaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_24snaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F821CD08F1BBF756EED46A /* Pods-24snaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.debug.xcconfig"; sourceTree = "<group>"; };
+		8EBAC313200BE0F400D85B62 /* iPhone5.8.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhone5.8.storyboard; sourceTree = "<group>"; };
+		8EBAC315200BE1FB00D85B62 /* iPhone5.5.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhone5.5.storyboard; sourceTree = "<group>"; };
+		8EBAC317200BE22F00D85B62 /* iPhone4.7.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhone4.7.storyboard; sourceTree = "<group>"; };
+		8EBAC319200C12A900D85B62 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClick.mp3; sourceTree = "<group>"; };
 		9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFilmAdvance.mp3; sourceTree = "<group>"; };
 		9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -77,7 +84,6 @@
 		9EE1AA7E1A51F64D006A54AC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9EE1AA811A51F64D006A54AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EE1AA831A51F64D006A54AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9EE1AA861A51F64D006A54AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9EE1AA8C1A51F64D006A54AC /* 24snapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 24snapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE1AA911A51F64D006A54AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EE1AA921A51F64D006A54AC /* DisposableCameraTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisposableCameraTests.m; sourceTree = "<group>"; };
@@ -143,6 +149,10 @@
 			isa = PBXGroup;
 			children = (
 				9EE1AA801A51F64D006A54AC /* Main.storyboard */,
+				8EBAC317200BE22F00D85B62 /* iPhone4.7.storyboard */,
+				8EBAC315200BE1FB00D85B62 /* iPhone5.5.storyboard */,
+				8EBAC313200BE0F400D85B62 /* iPhone5.8.storyboard */,
+				8EBAC319200C12A900D85B62 /* Splash.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -213,7 +223,6 @@
 				9E440F191A745FFB009E3C35 /* FilmRollViewController.m */,
 				8EF73C381F5C79D600B6E0B8 /* Storyboards */,
 				9EE1AA831A51F64D006A54AC /* Images.xcassets */,
-				9EE1AA851A51F64D006A54AC /* LaunchScreen.xib */,
 				9EE1AA761A51F64D006A54AC /* Supporting Files */,
 				9E440F171A744C3F009E3C35 /* PrefixHeader.pch */,
 			);
@@ -367,11 +376,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3A7BE21A5A3BD90024D640 /* cameraClick.mp3 in Resources */,
+				8EBAC316200BE1FB00D85B62 /* iPhone5.5.storyboard in Resources */,
 				9E3A7BEB1A5A406A0024D640 /* cameraClickFlash.mp3 in Resources */,
+				8EBAC318200BE22F00D85B62 /* iPhone4.7.storyboard in Resources */,
 				9EE1AA821A51F64D006A54AC /* Main.storyboard in Resources */,
 				9E3A7BE31A5A3BD90024D640 /* cameraFilmAdvance.mp3 in Resources */,
+				8EBAC314200BE0F400D85B62 /* iPhone5.8.storyboard in Resources */,
 				9E3A7BEC1A5A406A0024D640 /* cameraFlash.mp3 in Resources */,
-				9EE1AA871A51F64D006A54AC /* LaunchScreen.xib in Resources */,
+				8EBAC31A200C12A900D85B62 /* Splash.storyboard in Resources */,
 				9EE1AA841A51F64D006A54AC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,14 +517,6 @@
 				9EE1AA811A51F64D006A54AC /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9EE1AA851A51F64D006A54AC /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9EE1AA861A51F64D006A54AC /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
