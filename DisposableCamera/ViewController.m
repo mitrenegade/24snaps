@@ -117,17 +117,17 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     _picker.allowsEditing = NO;
     _picker.delegate = self;
 
-    // iphone 6+
+    // iphone 6+, iphone 6s+, 7+
     if (_appDelegate.window.bounds.size.height == 736) {
-        overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone6+"];
+        overlayController = [[UIStoryboard storyboardWithName:@"iPhone5.5" bundle:nil] instantiateInitialViewController];
     }
 
-    // iphone 6
+    // iphone 6, iphone 6s, 7
     else if (_appDelegate.window.bounds.size.height == 667) {
-        overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone6"];
+        overlayController = [[UIStoryboard storyboardWithName:@"iPhone4.7" bundle:nil] instantiateInitialViewController];
     }
 
-    // iphone 5/5s
+    // iphone 5/5s, iphone SE
     else if (_appDelegate.window.bounds.size.height == 568) {
         overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone5"];
     }
@@ -135,6 +135,17 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     // iphone 4/4s
     else if (_appDelegate.window.bounds.size.height == 480) {
         overlayController = [_storyboard instantiateViewControllerWithIdentifier:@"CameraOverlay_iPhone4"];
+    }
+    
+    // iphone x
+    else if (_appDelegate.window.bounds.size.height == 812) {
+        overlayController = [[UIStoryboard storyboardWithName:@"iPhone5.8" bundle:nil] instantiateInitialViewController];
+        NSLog(@"%f", _appDelegate.window.bounds.size.height);
+    }
+    
+    // handle other cases, badly
+    else {
+        overlayController = [[UIStoryboard storyboardWithName:@"iPhone5.5" bundle:nil] instantiateInitialViewController];
     }
     overlayController.delegate = self;
 #if TESTING == 1

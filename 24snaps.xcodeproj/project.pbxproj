@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		16B5185A1CFBC1BE3F7C4F5B /* Pods_24snaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679DDA392240EEC06A0F17B3 /* Pods_24snaps.framework */; };
+		8EBAC314200BE0F400D85B62 /* iPhone5.8.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC313200BE0F400D85B62 /* iPhone5.8.storyboard */; };
+		8EBAC316200BE1FB00D85B62 /* iPhone5.5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC315200BE1FB00D85B62 /* iPhone5.5.storyboard */; };
+		8EBAC318200BE22F00D85B62 /* iPhone4.7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC317200BE22F00D85B62 /* iPhone4.7.storyboard */; };
 		9E3A7BE21A5A3BD90024D640 /* cameraClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */; };
 		9E3A7BE31A5A3BD90024D640 /* cameraFilmAdvance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */; };
 		9E3A7BE61A5A3D430024D640 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */; };
@@ -56,6 +59,9 @@
 		126D0ED40011FE5E4CB1C26D /* Pods-24snaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.release.xcconfig"; sourceTree = "<group>"; };
 		679DDA392240EEC06A0F17B3 /* Pods_24snaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_24snaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F821CD08F1BBF756EED46A /* Pods-24snaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.debug.xcconfig"; sourceTree = "<group>"; };
+		8EBAC313200BE0F400D85B62 /* iPhone5.8.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhone5.8.storyboard; sourceTree = "<group>"; };
+		8EBAC315200BE1FB00D85B62 /* iPhone5.5.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhone5.5.storyboard; sourceTree = "<group>"; };
+		8EBAC317200BE22F00D85B62 /* iPhone4.7.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPhone4.7.storyboard; sourceTree = "<group>"; };
 		9E3A7BDE1A5A3BD90024D640 /* cameraClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClick.mp3; sourceTree = "<group>"; };
 		9E3A7BDF1A5A3BD90024D640 /* cameraFilmAdvance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFilmAdvance.mp3; sourceTree = "<group>"; };
 		9E3A7BE51A5A3D430024D640 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -143,6 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				9EE1AA801A51F64D006A54AC /* Main.storyboard */,
+				8EBAC317200BE22F00D85B62 /* iPhone4.7.storyboard */,
+				8EBAC315200BE1FB00D85B62 /* iPhone5.5.storyboard */,
+				8EBAC313200BE0F400D85B62 /* iPhone5.8.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -367,9 +376,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3A7BE21A5A3BD90024D640 /* cameraClick.mp3 in Resources */,
+				8EBAC316200BE1FB00D85B62 /* iPhone5.5.storyboard in Resources */,
 				9E3A7BEB1A5A406A0024D640 /* cameraClickFlash.mp3 in Resources */,
+				8EBAC318200BE22F00D85B62 /* iPhone4.7.storyboard in Resources */,
 				9EE1AA821A51F64D006A54AC /* Main.storyboard in Resources */,
 				9E3A7BE31A5A3BD90024D640 /* cameraFilmAdvance.mp3 in Resources */,
+				8EBAC314200BE0F400D85B62 /* iPhone5.8.storyboard in Resources */,
 				9E3A7BEC1A5A406A0024D640 /* cameraFlash.mp3 in Resources */,
 				9EE1AA871A51F64D006A54AC /* LaunchScreen.xib in Resources */,
 				9EE1AA841A51F64D006A54AC /* Images.xcassets in Resources */,
