@@ -7,5 +7,3 @@
 //
 
 import Foundation
-
-let MAX_ROLL_SIZE: Int = 24

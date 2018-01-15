@@ -8,8 +8,12 @@
 
 import UIKit
 
-class AnalyticsService: NSObject {
-    func trackEventInBackground(_ event: String, block: (()->Void)) {
+@objc public class AnalyticsService: NSObject {
+    @objc func trackEventInBackground(_ event: String, block: (()->Void)?) {
+        print("Tracking \(event)")
+    }
+
+    @objc func trackEventInBackground(_ event: String, dimensions: NSDictionary?, block: (()->Void)?) {
         print("Tracking \(event)")
     }
 }

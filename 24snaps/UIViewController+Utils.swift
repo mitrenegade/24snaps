@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIViewController {
+@objc extension UIViewController {
     
     func simpleAlert(_ title: String, defaultMessage: String?, error: NSError?) {
         if let error = error {
@@ -35,7 +35,7 @@ extension UIViewController {
     }
 }
 
-extension UIAlertController {
+@objc extension UIAlertController {
     class func simpleAlert(_ title: String, message: String?, completion: (() -> Void)?) -> UIAlertController {
         let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.view.tintColor = UIColor.black
@@ -48,4 +48,7 @@ extension UIAlertController {
         return alert
     }
     
+    class func alertViewWithTitle(_ title: String, message: String, cancelButtonTitle: String, otherButtonTitles: [String], onDismiss: ((Int)->Void), onCancel: (()->Void)) {
+        print("doh")
+    }
 }

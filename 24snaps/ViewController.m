@@ -10,7 +10,8 @@
 #import "CameraOverlayViewController.h"
 #import "FilmRollViewController.h"
 #import "BackgroundHelper.h"
-#import <24snaps/24snaps-Swift.h>
+#import "ios24snaps-Swift.h"
+#import "24snaps-Bridging-Header.h"
 
 static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
 static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";

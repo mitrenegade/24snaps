@@ -20,7 +20,6 @@
 		8EBAC382200CF55300D85B62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC37D200CF55200D85B62 /* ViewController.m */; };
 		8EBAC3C8200CF5AC00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3C2200CF5AA00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		8EBAC3C9200CF5AC00D85B62 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3C3200CF5AA00D85B62 /* MBProgressHUD.m */; };
-		8EBAC3CA200CF5AC00D85B62 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3C5200CF5AB00D85B62 /* Appirater.m */; };
 		8EBAC3D3200CF5E800D85B62 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3CB200CF5E800D85B62 /* Splash.storyboard */; };
 		8EBAC3D4200CF5E800D85B62 /* iPhone5.8.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3CD200CF5E800D85B62 /* iPhone5.8.storyboard */; };
 		8EBAC3D5200CF5E800D85B62 /* iPhone4.7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3CF200CF5E800D85B62 /* iPhone4.7.storyboard */; };
@@ -43,7 +42,6 @@
 		8EBAC364200CF1C600D85B62 /* cameraFilmAdvance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFilmAdvance.mp3; sourceTree = SOURCE_ROOT; };
 		8EBAC365200CF1C600D85B62 /* cameraFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFlash.mp3; sourceTree = SOURCE_ROOT; };
 		8EBAC374200CF30F00D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = 24snaps/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
-		8EBAC376200CF54E00D85B62 /* 24snaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "24snaps-Bridging-Header.h"; sourceTree = "<group>"; };
 		8EBAC377200CF54F00D85B62 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8EBAC378200CF55000D85B62 /* BackgroundHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundHelper.m; sourceTree = "<group>"; };
 		8EBAC379200CF55100D85B62 /* CameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayViewController.h; sourceTree = "<group>"; };
@@ -55,9 +53,7 @@
 		8EBAC3C2200CF5AA00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		8EBAC3C3200CF5AA00D85B62 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		8EBAC3C4200CF5AB00D85B62 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		8EBAC3C5200CF5AB00D85B62 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
 		8EBAC3C6200CF5AB00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
-		8EBAC3C7200CF5AC00D85B62 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		8EBAC3CC200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Splash.storyboard; sourceTree = "<group>"; };
 		8EBAC3CE200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone5.8.storyboard; sourceTree = "<group>"; };
 		8EBAC3D0200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone4.7.storyboard; sourceTree = "<group>"; };
@@ -65,6 +61,7 @@
 		8EBAC3E2200D220D00D85B62 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EBAC3E4200D250A00D85B62 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		8EBAC3E8200D2C1900D85B62 /* 24snaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "24snaps-Bridging-Header.h"; sourceTree = "<group>"; };
 		A61AED7CE4BB7BA7560D06B7 /* Pods-24snaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,12 +126,10 @@
 				8EBAC372200CF2AF00D85B62 /* Storyboards */,
 				8EBAC3C6200CF5AB00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
 				8EBAC3C2200CF5AA00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
-				8EBAC3C7200CF5AC00D85B62 /* Appirater.h */,
-				8EBAC3C5200CF5AB00D85B62 /* Appirater.m */,
 				8EBAC3C4200CF5AB00D85B62 /* MBProgressHUD.h */,
 				8EBAC3C3200CF5AA00D85B62 /* MBProgressHUD.m */,
-				8EBAC376200CF54E00D85B62 /* 24snaps-Bridging-Header.h */,
 				8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */,
+				8EBAC3E8200D2C1900D85B62 /* 24snaps-Bridging-Header.h */,
 			);
 			path = 24snaps;
 			sourceTree = "<group>";
@@ -307,7 +302,6 @@
 				8EBAC382200CF55300D85B62 /* ViewController.m in Sources */,
 				8EBAC3C8200CF5AC00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				8EBAC3E7200D264D00D85B62 /* AnalyticsService.swift in Sources */,
-				8EBAC3CA200CF5AC00D85B62 /* Appirater.m in Sources */,
 				8EBAC3C9200CF5AC00D85B62 /* MBProgressHUD.m in Sources */,
 				8EBAC3E3200D220D00D85B62 /* Constants.swift in Sources */,
 			);
@@ -478,6 +472,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.bobbyren.DisposableCamera;
+				PRODUCT_MODULE_NAME = ios24snaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "24snaps/24snaps-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -498,6 +493,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.bobbyren.DisposableCamera;
+				PRODUCT_MODULE_NAME = ios24snaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "24snaps/24snaps-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

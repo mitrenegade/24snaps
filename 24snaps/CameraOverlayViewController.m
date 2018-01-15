@@ -451,8 +451,6 @@
         [self playFlash];
         [self toggleFlash:YES];
     }
-
-    [Appirater userDidSignificantEvent:YES];
 }
 
 #pragma mark capture button warnings

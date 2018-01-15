@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 
+@class AnalyticsService;
+
 @protocol FilmRollDelegate <NSObject>
 
 -(void)resetImages;
@@ -19,6 +21,7 @@
 {
     IBOutlet UIScrollView *scrollView;
     IBOutlet __weak UIAlertView *alertAlbumName;
+    AnalyticsService *service;
     MBProgressHUD *progress;
 }
 
