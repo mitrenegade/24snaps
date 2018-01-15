@@ -7,7 +7,6 @@
 //
 
 #import "FilmRollViewController.h"
-#import "UIAlertView+MKBlockAdditions.h"
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 @interface FilmRollViewController ()
@@ -66,7 +65,7 @@
     // check for album
     if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied || [ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusRestricted) {
         [UIAlertView alertViewWithTitle:@"Cannot save album" message:@"DisposableCamera could not access your camera roll. You can go to Settings->Privacy->Photos to change this."];
-        [PFAnalytics trackEventInBackground:@"albumAccessIsDenied" block:nil];
+        [AnalyticsService trackEventInBackground:@"albumAccessIsDenied" block:nil];
         return;
     }
     else if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusNotDetermined) {
@@ -74,9 +73,9 @@
             [[ALAssetsLibrary sharedALAssetsLibrary]enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
                 // do nothing
             } failureBlock:nil];
-            [PFAnalytics trackEventInBackground:@"albumRequestGranted" block:nil];
+            [AnalyticsService trackEventInBackground:@"albumRequestGranted" block:nil];
         } onCancel:^{
-            [PFAnalytics trackEventInBackground:@"albumRequestCancelled" block:nil];
+            [AnalyticsService trackEventInBackground:@"albumRequestCancelled" block:nil];
 
         }];
     }
@@ -90,19 +89,19 @@
                 }
                 else {
                     [self developFilm];
-                    [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"YES", @"cancelled":@"NO"} block:nil];
+                    [AnalyticsService trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"YES", @"cancelled":@"NO"} block:nil];
                 }
             } onCancel:^{
-                [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"YES", @"cancelled":@"YES"} block:nil];
+                [AnalyticsService trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"YES", @"cancelled":@"YES"} block:nil];
             }];
         }
         else {
-            [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"developed":@"NO"} block:nil];
+            [AnalyticsService trackEventInBackground:@"developClicked" dimensions:@{@"developed":@"NO"} block:nil];
             [UIAlertView alertViewWithTitle:@"Develop your film?" message:@"Would you like to develop your film (save it to your photo album) and start a new roll?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"OK"] onDismiss:^(int buttonIndex) {
                 [self developFilm];
-                [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"NO", @"cancelled":@"NO"} block:nil];
+                [AnalyticsService trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"NO", @"cancelled":@"NO"} block:nil];
             } onCancel:^{
-                [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped": @"NO", @"cancelled":@"YES"} block:nil];
+                [AnalyticsService trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped": @"NO", @"cancelled":@"YES"} block:nil];
             }];
         }
     }
@@ -143,7 +142,7 @@
     // default name
     [self useAlbumName:@"DisposableCamera"];
 
-    [PFAnalytics trackEventInBackground:@"developed" dimensions:@{@"defaultAlbum":@"YES"} block:nil];
+    [AnalyticsService trackEventInBackground:@"developed" dimensions:@{@"defaultAlbum":@"YES"} block:nil];
 }
 
 -(void)useAlbumName:(NSString *)albumName {
@@ -161,7 +160,7 @@
             [self rate];
         } onCancel:^{
             [self rate];
-            [PFAnalytics trackEventInBackground:@"resetFilm" dimensions:@{@"cancelled":@"YES"} block:nil];
+            [AnalyticsService trackEventInBackground:@"resetFilm" dimensions:@{@"cancelled":@"YES"} block:nil];
         }];
     }];
 }
@@ -172,7 +171,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     [self.delegate resetImages];
-    [PFAnalytics trackEventInBackground:@"resetFilm" dimensions:@{@"cancelled":@"NO"} block:nil];
+    [AnalyticsService trackEventInBackground:@"resetFilm" dimensions:@{@"cancelled":@"NO"} block:nil];
 }
 
 -(void)saveToAlbum:(NSString *)albumName completion:(void(^)(int failed))completion {
@@ -234,7 +233,7 @@
     NSString *title = [alertAlbumName textFieldAtIndex:0].text;
     [self useAlbumName:title];
 
-    [PFAnalytics trackEventInBackground:@"developed" dimensions:@{@"defaultAlbum":@"NO"} block:nil];
+    [AnalyticsService trackEventInBackground:@"developed" dimensions:@{@"defaultAlbum":@"NO"} block:nil];
     return YES;
 }
 

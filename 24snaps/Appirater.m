@@ -120,7 +120,7 @@ NSString *templateReviewURLiOS8 = @"itms-apps://itunes.apple.com/WebObjects/MZSt
 	[alertView show];
 
     NSString *sigEventCount = [NSString stringWithFormat:@"%d", [[NSUserDefaults standardUserDefaults] integerForKey:kAppiraterSignificantEventCount]];
-    [PFAnalytics trackEventInBackground:@"Appirater_rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
+    [AnalyticsService trackEventInBackground:@"Appirater_rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
 }
 
 
@@ -363,7 +363,7 @@ NSString *templateReviewURLiOS8 = @"itms-apps://itunes.apple.com/WebObjects/MZSt
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:reviewURL]];
 
     NSString *sigEventCount = [NSString stringWithFormat:@"%d", [[NSUserDefaults standardUserDefaults] integerForKey:kAppiraterSignificantEventCount]];
-    [PFAnalytics trackEventInBackground:@"Appirater_rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
+    [AnalyticsService trackEventInBackground:@"Appirater_rateApp" dimensions:@{@"sigEventCount":sigEventCount} block:nil];
 #endif
 }
 

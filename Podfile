@@ -3,11 +3,6 @@ platform :ios, '10.0'
 use_frameworks!
 
 target '24snaps' do
-  pod 'Parse'
-  pod 'ParseFacebookUtilsV4'
-  pod 'Fabric'
-  pod 'Crashlytics'
-
   pod 'Firebase/Core'
 end
 

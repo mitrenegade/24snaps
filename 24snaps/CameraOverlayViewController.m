@@ -142,7 +142,7 @@
         [self playFlash];
         [self toggleFlash:NO];
 
-        [PFAnalytics trackEventInBackground:@"turnFlashOn" block:nil];
+        [AnalyticsService trackEventInBackground:@"turnFlashOn" block:nil];
     }
     [self toggleFlash:YES];
 }
@@ -355,7 +355,7 @@
         isZooming = !isZooming;
     }];
 
-    [PFAnalytics trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look in"} block:nil];
+    [AnalyticsService trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look in"} block:nil];
 }
 
 -(void)stopLookingInViewFinder {
@@ -378,7 +378,7 @@
         isZooming = !isZooming;
     }];
 
-    [PFAnalytics trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look away"} block:nil];
+    [AnalyticsService trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look away"} block:nil];
 }
 
 -(float)viewFinderOffsetX {
@@ -467,7 +467,7 @@
     [self performSelector:@selector(glowHelper) withObject:nil afterDelay:1.25];
 
     NSString *val = [NSString stringWithFormat:@"%d", rollCount];
-    [PFAnalytics trackEventInBackground:@"warnForAdvance" dimensions:@{@"rollCount": val} block:nil];
+    [AnalyticsService trackEventInBackground:@"warnForAdvance" dimensions:@{@"rollCount": val} block:nil];
 }
 
 -(void)glowHelper {
@@ -480,7 +480,7 @@
     [self performSelector:@selector(glow:) withObject:buttonRoll afterDelay:1];
 
     NSString *val = [NSString stringWithFormat:@"%d", rollCount];
-    [PFAnalytics trackEventInBackground:@"warnForFilm" dimensions:@{@"rollCount": val} block:nil];
+    [AnalyticsService trackEventInBackground:@"warnForFilm" dimensions:@{@"rollCount": val} block:nil];
 }
 
 -(void)glow:(UIView *)view {
