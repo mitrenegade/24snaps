@@ -9,7 +9,7 @@
 #import "FilmRollViewController.h"
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
 #import "ios24snaps-Swift.h"
-#import "24snaps-Bridging-Header.h"
+#import "Constants.h"
 
 @interface FilmRollViewController ()
 

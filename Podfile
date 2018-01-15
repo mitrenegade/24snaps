@@ -4,6 +4,8 @@ use_frameworks!
 
 target '24snaps' do
   pod 'Firebase/Core'
+  pod 'Fabric', '~> 1.7.2'
+  pod 'Crashlytics', '~> 3.9.3'
 end
 
 #post_install do |installer|

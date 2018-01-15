@@ -24,7 +24,6 @@
 		8EBAC3D4200CF5E800D85B62 /* iPhone5.8.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3CD200CF5E800D85B62 /* iPhone5.8.storyboard */; };
 		8EBAC3D5200CF5E800D85B62 /* iPhone4.7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3CF200CF5E800D85B62 /* iPhone4.7.storyboard */; };
 		8EBAC3D6200CF5E800D85B62 /* iPhone5.5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3D1200CF5E800D85B62 /* iPhone5.5.storyboard */; };
-		8EBAC3E3200D220D00D85B62 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3E2200D220D00D85B62 /* Constants.swift */; };
 		8EBAC3E5200D250A00D85B62 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3E4200D250A00D85B62 /* UIViewController+Utils.swift */; };
 		8EBAC3E7200D264D00D85B62 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */; };
 		FB917AC59BF48573A28DADAB /* Pods_24snaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23D79859AA849CAFB6FAD9 /* Pods_24snaps.framework */; };
@@ -58,10 +57,10 @@
 		8EBAC3CE200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone5.8.storyboard; sourceTree = "<group>"; };
 		8EBAC3D0200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone4.7.storyboard; sourceTree = "<group>"; };
 		8EBAC3D2200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone5.5.storyboard; sourceTree = "<group>"; };
-		8EBAC3E2200D220D00D85B62 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EBAC3E4200D250A00D85B62 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		8EBAC3E8200D2C1900D85B62 /* 24snaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "24snaps-Bridging-Header.h"; sourceTree = "<group>"; };
+		8EBAC3E9200D323200D85B62 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A61AED7CE4BB7BA7560D06B7 /* Pods-24snaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				8EBAC348200CF00000D85B62 /* AppDelegate.swift */,
-				8EBAC3E2200D220D00D85B62 /* Constants.swift */,
 				8EBAC3E4200D250A00D85B62 /* UIViewController+Utils.swift */,
 				8EBAC34F200CF00000D85B62 /* Assets.xcassets */,
 				8EBAC354200CF00000D85B62 /* Info.plist */,
@@ -130,6 +128,7 @@
 				8EBAC3C3200CF5AA00D85B62 /* MBProgressHUD.m */,
 				8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */,
 				8EBAC3E8200D2C1900D85B62 /* 24snaps-Bridging-Header.h */,
+				8EBAC3E9200D323200D85B62 /* Constants.h */,
 			);
 			path = 24snaps;
 			sourceTree = "<group>";
@@ -303,7 +302,6 @@
 				8EBAC3C8200CF5AC00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				8EBAC3E7200D264D00D85B62 /* AnalyticsService.swift in Sources */,
 				8EBAC3C9200CF5AC00D85B62 /* MBProgressHUD.m in Sources */,
-				8EBAC3E3200D220D00D85B62 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,8 @@
 //
 
 #import "CameraOverlayViewController.h"
-#import "AppDelegate.h"
+#import "ios24snaps-Swift.h"
+#import "Constants.h"
 
 @interface CameraOverlayViewController ()
 {
@@ -70,6 +71,8 @@
     }
 
     [self refresh];
+    
+    service = [[AnalyticsService alloc] init];
 }
 
 -(void)dealloc {
@@ -142,7 +145,7 @@
         [self playFlash];
         [self toggleFlash:NO];
 
-        [AnalyticsService trackEventInBackground:@"turnFlashOn" block:nil];
+        [service trackEventInBackground:@"turnFlashOn" block:nil];
     }
     [self toggleFlash:YES];
 }
@@ -355,7 +358,7 @@
         isZooming = !isZooming;
     }];
 
-    [AnalyticsService trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look in"} block:nil];
+    [service trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look in"} block:nil];
 }
 
 -(void)stopLookingInViewFinder {
@@ -378,7 +381,7 @@
         isZooming = !isZooming;
     }];
 
-    [AnalyticsService trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look away"} block:nil];
+    [service trackEventInBackground:@"tapViewfinder" dimensions:@{@"action": @"look away"} block:nil];
 }
 
 -(float)viewFinderOffsetX {
@@ -465,7 +468,7 @@
     [self performSelector:@selector(glowHelper) withObject:nil afterDelay:1.25];
 
     NSString *val = [NSString stringWithFormat:@"%d", rollCount];
-    [AnalyticsService trackEventInBackground:@"warnForAdvance" dimensions:@{@"rollCount": val} block:nil];
+    [service trackEventInBackground:@"warnForAdvance" dimensions:@{@"rollCount": val} block:nil];
 }
 
 -(void)glowHelper {
@@ -478,7 +481,7 @@
     [self performSelector:@selector(glow:) withObject:buttonRoll afterDelay:1];
 
     NSString *val = [NSString stringWithFormat:@"%d", rollCount];
-    [AnalyticsService trackEventInBackground:@"warnForFilm" dimensions:@{@"rollCount": val} block:nil];
+    [service trackEventInBackground:@"warnForFilm" dimensions:@{@"rollCount": val} block:nil];
 }
 
 -(void)glow:(UIView *)view {

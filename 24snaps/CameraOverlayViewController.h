@@ -26,6 +26,9 @@ typedef enum FilmStateEnum {
 -(void)showFilmRoll;
 
 @end
+
+@class AnalyticsService;
+
 @interface CameraOverlayViewController : UIViewController <UIGestureRecognizerDelegate, AVAudioPlayerDelegate>
 {
     IBOutlet UIButton *buttonFlash;
@@ -54,6 +57,8 @@ typedef enum FilmStateEnum {
 
     BOOL isZooming;
     BOOL waitForCapture;
+    
+    AnalyticsService *service;
 }
 
 @property (weak, nonatomic) id delegate;

@@ -11,7 +11,7 @@
 #import "FilmRollViewController.h"
 #import "BackgroundHelper.h"
 #import "ios24snaps-Swift.h"
-#import "24snaps-Bridging-Header.h"
+#import "Constants.h"
 
 static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
 static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
@@ -117,7 +117,6 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
     _picker.toolbarHidden = YES; // hide toolbar of app, if there is one.
     _picker.allowsEditing = NO;
     _picker.delegate = self;
-    AppDelegate *_appDelegate = (AppDelegate *)[UIApplication shared];
 
     // iphone 6+, iphone 6s+, 7+
     if (_appDelegate.window.bounds.size.height == 736) {
@@ -254,7 +253,7 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
 
     [_picker presentViewController:nav animated:YES completion:nil];
 
-    [AnalyticsService trackEventInBackground:@"showFilmRoll" block:nil];
+    [[[AnalyticsService alloc] init] trackEventInBackground:@"showFilmRoll" block:nil];
 }
 
 -(void)capture {
