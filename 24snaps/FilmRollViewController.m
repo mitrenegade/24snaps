@@ -7,8 +7,9 @@
 //
 
 #import "FilmRollViewController.h"
-#import "UIAlertView+MKBlockAdditions.h"
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
+#import "ios24snaps-Swift.h"
+#import "Constants.h"
 
 @interface FilmRollViewController ()
 
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    service = [[AnalyticsService alloc] init];
     self.title = @"Film roll";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(close)];
     if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusNotDetermined) {
@@ -65,18 +67,22 @@
 -(void)promptForDevelop {
     // check for album
     if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusDenied || [ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusRestricted) {
-        [UIAlertView alertViewWithTitle:@"Cannot save album" message:@"DisposableCamera could not access your camera roll. You can go to Settings->Privacy->Photos to change this."];
-        [PFAnalytics trackEventInBackground:@"albumAccessIsDenied" block:nil];
+        NSString *title = @"Cannot save album";
+        NSString *message = @"DisposableCamera could not access your camera roll. You can go to Settings->Privacy->Photos to change this.";
+        [self simpleAlert:title message:message];
+        [service trackEventInBackground:@"albumAccessIsDenied" block:nil];
         return;
     }
     else if ([ALAssetsLibrary authorizationStatus] == ALAuthorizationStatusNotDetermined) {
-        [UIAlertView alertViewWithTitle:@"Develop your film" message:@"To develop your film (save it to your photo album) please give DisposableCamera access to your camera roll." cancelButtonTitle:@"Not yet" otherButtonTitles:@[@"OK"] onDismiss:^(int buttonIndex) {
+        NSString *title = @"Develop your film";
+        NSString *message = @"To develop your film (save it to your photo album) please give DisposableCamera access to your camera roll.";
+        [UIAlertController alertViewWithTitle:title message:message cancelButtonTitle:@"Not yet" otherButtonTitles:@[@"OK"] onDismiss:^(NSInteger buttonIndex) {
             [[ALAssetsLibrary sharedALAssetsLibrary]enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
                 // do nothing
             } failureBlock:nil];
-            [PFAnalytics trackEventInBackground:@"albumRequestGranted" block:nil];
+            [service trackEventInBackground:@"albumRequestGranted" block:nil];
         } onCancel:^{
-            [PFAnalytics trackEventInBackground:@"albumRequestCancelled" block:nil];
+            [service trackEventInBackground:@"albumRequestCancelled" block:nil];
 
         }];
     }
@@ -84,25 +90,25 @@
         if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"currentfilm:develop:success"] boolValue]) {
             // user has already developed this roll of film
             // allow them to reset the roll
-            [UIAlertView alertViewWithTitle:@"New film?" message:@"Would you like to insert new film and start a new roll, or develop your current film roll?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"New film", @"Develop film"] onDismiss:^(int buttonIndex) {
+            [UIAlertController alertViewWithTitle:@"New film?" message:@"Would you like to insert new film and start a new roll, or develop your current film roll?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"New film", @"Develop film"] onDismiss:^(NSInteger buttonIndex) {
                 if (buttonIndex == 0) {
                     [self resetFilm];
                 }
                 else {
                     [self developFilm];
-                    [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"YES", @"cancelled":@"NO"} block:nil];
+                    [service trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"YES", @"cancelled":@"NO"} block:nil];
                 }
             } onCancel:^{
-                [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"YES", @"cancelled":@"YES"} block:nil];
+                [service trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"YES", @"cancelled":@"YES"} block:nil];
             }];
         }
         else {
-            [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"developed":@"NO"} block:nil];
-            [UIAlertView alertViewWithTitle:@"Develop your film?" message:@"Would you like to develop your film (save it to your photo album) and start a new roll?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"OK"] onDismiss:^(int buttonIndex) {
+            [service trackEventInBackground:@"developClicked" dimensions:@{@"developed":@"NO"} block:nil];
+            [UIAlertController alertViewWithTitle:@"Develop your film?" message:@"Would you like to develop your film (save it to your photo album) and start a new roll?" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"OK"] onDismiss:^(NSInteger buttonIndex) {
                 [self developFilm];
-                [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"NO", @"cancelled":@"NO"} block:nil];
+                [service trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped":@"NO", @"cancelled":@"NO"} block:nil];
             } onCancel:^{
-                [PFAnalytics trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped": @"NO", @"cancelled":@"YES"} block:nil];
+                [service trackEventInBackground:@"developClicked" dimensions:@{@"alreadyDeveloped": @"NO", @"cancelled":@"YES"} block:nil];
             }];
         }
     }
@@ -143,7 +149,7 @@
     // default name
     [self useAlbumName:@"DisposableCamera"];
 
-    [PFAnalytics trackEventInBackground:@"developed" dimensions:@{@"defaultAlbum":@"YES"} block:nil];
+    [service trackEventInBackground:@"developed" dimensions:@{@"defaultAlbum":@"YES"} block:nil];
 }
 
 -(void)useAlbumName:(NSString *)albumName {
@@ -156,12 +162,15 @@
             [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"currentfilm:develop:success"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
-        [UIAlertView alertViewWithTitle:title message:@"Would you like to discard this roll and insert new film?" cancelButtonTitle:@"No, save the film" otherButtonTitles:@[@"New film"] onDismiss:^(int buttonIndex) {
+        NSString *message = @"Would you like to discard this roll and insert new film?";
+        NSString *cancel = @"No, save the film";
+        NSString *other = @[@"New film"];
+        [UIAlertController alertViewWithTitle:title message:message cancelButtonTitle:cancel otherButtonTitles:other onDismiss:^(NSInteger index) {
             [self resetFilm];
             [self rate];
         } onCancel:^{
             [self rate];
-            [PFAnalytics trackEventInBackground:@"resetFilm" dimensions:@{@"cancelled":@"YES"} block:nil];
+            [service trackEventInBackground:@"resetFilm" dimensions:@{@"cancelled":@"YES"} block:nil];
         }];
     }];
 }
@@ -172,7 +181,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     [self.delegate resetImages];
-    [PFAnalytics trackEventInBackground:@"resetFilm" dimensions:@{@"cancelled":@"NO"} block:nil];
+    [service trackEventInBackground:@"resetFilm" dimensions:@{@"cancelled":@"NO"} block:nil];
 }
 
 -(void)saveToAlbum:(NSString *)albumName completion:(void(^)(int failed))completion {
@@ -234,7 +243,7 @@
     NSString *title = [alertAlbumName textFieldAtIndex:0].text;
     [self useAlbumName:title];
 
-    [PFAnalytics trackEventInBackground:@"developed" dimensions:@{@"defaultAlbum":@"NO"} block:nil];
+    [service trackEventInBackground:@"developed" dimensions:@{@"defaultAlbum":@"NO"} block:nil];
     return YES;
 }
 
@@ -251,10 +260,8 @@
 }
 
 -(void)rate {
-    // force appirater to rate
-    for (int i=0; i<APPIRATER_SIG_EVENTS_UNTIL_PROMPT; i++) {
-        [Appirater userDidSignificantEvent:YES];
-    }
+    // force app rating
+    NSLog(@"TODO");
 }
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "AppDelegate.h"
 #import "CameraOverlayViewController.h"
 #import "FilmRollViewController.h"
 #import "BackgroundHelper.h"
+#import "ios24snaps-Swift.h"
+#import "Constants.h"
 
 static NSString* const PASTEBOARD_NAME = @"tech.bobbyren.Pasteboard";
 static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
@@ -252,7 +253,7 @@ static NSString* const PASTEBOARD_TYPE = @"tech.bobbyren.data";
 
     [_picker presentViewController:nav animated:YES completion:nil];
 
-    [PFAnalytics trackEventInBackground:@"showFilmRoll" block:nil];
+    [[[AnalyticsService alloc] init] trackEventInBackground:@"showFilmRoll" block:nil];
 }
 
 -(void)capture {
