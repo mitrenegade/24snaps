@@ -8,18 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		8EBAC349200CF00000D85B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC348200CF00000D85B62 /* AppDelegate.swift */; };
-		8EBAC34B200CF00000D85B62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC34A200CF00000D85B62 /* ViewController.swift */; };
 		8EBAC350200CF00000D85B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC34F200CF00000D85B62 /* Assets.xcassets */; };
 		8EBAC353200CF00000D85B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC351200CF00000D85B62 /* LaunchScreen.storyboard */; };
 		8EBAC366200CF1C600D85B62 /* cameraClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC362200CF1C600D85B62 /* cameraClick.mp3 */; };
 		8EBAC367200CF1C600D85B62 /* cameraClickFlash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC363200CF1C600D85B62 /* cameraClickFlash.mp3 */; };
 		8EBAC368200CF1C600D85B62 /* cameraFilmAdvance.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC364200CF1C600D85B62 /* cameraFilmAdvance.mp3 */; };
 		8EBAC369200CF1C600D85B62 /* cameraFlash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC365200CF1C600D85B62 /* cameraFlash.mp3 */; };
-		8EBAC36E200CF2A000D85B62 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC36A200CF29F00D85B62 /* Splash.storyboard */; };
-		8EBAC36F200CF2A000D85B62 /* iPhone5.8.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC36B200CF29F00D85B62 /* iPhone5.8.storyboard */; };
-		8EBAC370200CF2A000D85B62 /* iPhone4.7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC36C200CF29F00D85B62 /* iPhone4.7.storyboard */; };
-		8EBAC371200CF2A000D85B62 /* iPhone5.5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC36D200CF2A000D85B62 /* iPhone5.5.storyboard */; };
 		8EBAC375200CF31000D85B62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC373200CF30F00D85B62 /* Main.storyboard */; };
+		8EBAC37F200CF55300D85B62 /* BackgroundHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC378200CF55000D85B62 /* BackgroundHelper.m */; };
+		8EBAC380200CF55300D85B62 /* CameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC37B200CF55200D85B62 /* CameraOverlayViewController.m */; };
+		8EBAC381200CF55300D85B62 /* FilmRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC37C200CF55200D85B62 /* FilmRollViewController.m */; };
+		8EBAC382200CF55300D85B62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC37D200CF55200D85B62 /* ViewController.m */; };
+		8EBAC3C8200CF5AC00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3C2200CF5AA00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		8EBAC3C9200CF5AC00D85B62 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3C3200CF5AA00D85B62 /* MBProgressHUD.m */; };
+		8EBAC3CA200CF5AC00D85B62 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3C5200CF5AB00D85B62 /* Appirater.m */; };
+		8EBAC3D3200CF5E800D85B62 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3CB200CF5E800D85B62 /* Splash.storyboard */; };
+		8EBAC3D4200CF5E800D85B62 /* iPhone5.8.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3CD200CF5E800D85B62 /* iPhone5.8.storyboard */; };
+		8EBAC3D5200CF5E800D85B62 /* iPhone4.7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3CF200CF5E800D85B62 /* iPhone4.7.storyboard */; };
+		8EBAC3D6200CF5E800D85B62 /* iPhone5.5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3D1200CF5E800D85B62 /* iPhone5.5.storyboard */; };
+		8EBAC3DF200CF60400D85B62 /* NSObject+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3DA200CF60400D85B62 /* NSObject+MKBlockAdditions.m */; };
+		8EBAC3E0200CF60400D85B62 /* UIActionSheet+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3DC200CF60400D85B62 /* UIActionSheet+MKBlockAdditions.m */; };
+		8EBAC3E1200CF60400D85B62 /* UIAlertView+MKBlockAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3DE200CF60400D85B62 /* UIAlertView+MKBlockAdditions.m */; };
 		FB917AC59BF48573A28DADAB /* Pods_24snaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23D79859AA849CAFB6FAD9 /* Pods_24snaps.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +37,6 @@
 		3C23D79859AA849CAFB6FAD9 /* Pods_24snaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_24snaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EBAC345200CF00000D85B62 /* 24snaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 24snaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EBAC348200CF00000D85B62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8EBAC34A200CF00000D85B62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8EBAC34F200CF00000D85B62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8EBAC352200CF00000D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EBAC354200CF00000D85B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,11 +44,33 @@
 		8EBAC363200CF1C600D85B62 /* cameraClickFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraClickFlash.mp3; sourceTree = SOURCE_ROOT; };
 		8EBAC364200CF1C600D85B62 /* cameraFilmAdvance.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFilmAdvance.mp3; sourceTree = SOURCE_ROOT; };
 		8EBAC365200CF1C600D85B62 /* cameraFlash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cameraFlash.mp3; sourceTree = SOURCE_ROOT; };
-		8EBAC36A200CF29F00D85B62 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Splash.storyboard; path = ../Base.lproj/Splash.storyboard; sourceTree = "<group>"; };
-		8EBAC36B200CF29F00D85B62 /* iPhone5.8.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone5.8.storyboard; path = ../Base.lproj/iPhone5.8.storyboard; sourceTree = "<group>"; };
-		8EBAC36C200CF29F00D85B62 /* iPhone4.7.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone4.7.storyboard; path = ../Base.lproj/iPhone4.7.storyboard; sourceTree = "<group>"; };
-		8EBAC36D200CF2A000D85B62 /* iPhone5.5.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = iPhone5.5.storyboard; path = ../Base.lproj/iPhone5.5.storyboard; sourceTree = "<group>"; };
 		8EBAC374200CF30F00D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = 24snaps/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		8EBAC376200CF54E00D85B62 /* 24snaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "24snaps-Bridging-Header.h"; sourceTree = "<group>"; };
+		8EBAC377200CF54F00D85B62 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8EBAC378200CF55000D85B62 /* BackgroundHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundHelper.m; sourceTree = "<group>"; };
+		8EBAC379200CF55100D85B62 /* CameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayViewController.h; sourceTree = "<group>"; };
+		8EBAC37A200CF55100D85B62 /* FilmRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilmRollViewController.h; sourceTree = "<group>"; };
+		8EBAC37B200CF55200D85B62 /* CameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayViewController.m; sourceTree = "<group>"; };
+		8EBAC37C200CF55200D85B62 /* FilmRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilmRollViewController.m; sourceTree = "<group>"; };
+		8EBAC37D200CF55200D85B62 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8EBAC37E200CF55300D85B62 /* BackgroundHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundHelper.h; sourceTree = "<group>"; };
+		8EBAC3C2200CF5AA00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		8EBAC3C3200CF5AA00D85B62 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		8EBAC3C4200CF5AB00D85B62 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		8EBAC3C5200CF5AB00D85B62 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		8EBAC3C6200CF5AB00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
+		8EBAC3C7200CF5AC00D85B62 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		8EBAC3CC200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Splash.storyboard; sourceTree = "<group>"; };
+		8EBAC3CE200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone5.8.storyboard; sourceTree = "<group>"; };
+		8EBAC3D0200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone4.7.storyboard; sourceTree = "<group>"; };
+		8EBAC3D2200CF5E800D85B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPhone5.5.storyboard; sourceTree = "<group>"; };
+		8EBAC3D8200CF60400D85B62 /* MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKBlockAdditions.h; sourceTree = "<group>"; };
+		8EBAC3D9200CF60400D85B62 /* NSObject+MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MKBlockAdditions.h"; sourceTree = "<group>"; };
+		8EBAC3DA200CF60400D85B62 /* NSObject+MKBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MKBlockAdditions.m"; sourceTree = "<group>"; };
+		8EBAC3DB200CF60400D85B62 /* UIActionSheet+MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+MKBlockAdditions.h"; sourceTree = "<group>"; };
+		8EBAC3DC200CF60400D85B62 /* UIActionSheet+MKBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+MKBlockAdditions.m"; sourceTree = "<group>"; };
+		8EBAC3DD200CF60400D85B62 /* UIAlertView+MKBlockAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+MKBlockAdditions.h"; sourceTree = "<group>"; };
+		8EBAC3DE200CF60400D85B62 /* UIAlertView+MKBlockAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+MKBlockAdditions.m"; sourceTree = "<group>"; };
 		A61AED7CE4BB7BA7560D06B7 /* Pods-24snaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				8EBAC348200CF00000D85B62 /* AppDelegate.swift */,
-				8EBAC34A200CF00000D85B62 /* ViewController.swift */,
 				8EBAC34F200CF00000D85B62 /* Assets.xcassets */,
 				8EBAC351200CF00000D85B62 /* LaunchScreen.storyboard */,
 				8EBAC354200CF00000D85B62 /* Info.plist */,
@@ -94,7 +123,23 @@
 				8EBAC363200CF1C600D85B62 /* cameraClickFlash.mp3 */,
 				8EBAC364200CF1C600D85B62 /* cameraFilmAdvance.mp3 */,
 				8EBAC365200CF1C600D85B62 /* cameraFlash.mp3 */,
+				8EBAC37E200CF55300D85B62 /* BackgroundHelper.h */,
+				8EBAC378200CF55000D85B62 /* BackgroundHelper.m */,
+				8EBAC379200CF55100D85B62 /* CameraOverlayViewController.h */,
+				8EBAC37B200CF55200D85B62 /* CameraOverlayViewController.m */,
+				8EBAC37A200CF55100D85B62 /* FilmRollViewController.h */,
+				8EBAC37C200CF55200D85B62 /* FilmRollViewController.m */,
+				8EBAC377200CF54F00D85B62 /* ViewController.h */,
+				8EBAC37D200CF55200D85B62 /* ViewController.m */,
+				8EBAC3D7200CF60400D85B62 /* MKAdditions */,
 				8EBAC372200CF2AF00D85B62 /* Storyboards */,
+				8EBAC3C6200CF5AB00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
+				8EBAC3C2200CF5AA00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
+				8EBAC3C7200CF5AC00D85B62 /* Appirater.h */,
+				8EBAC3C5200CF5AB00D85B62 /* Appirater.m */,
+				8EBAC3C4200CF5AB00D85B62 /* MBProgressHUD.h */,
+				8EBAC3C3200CF5AA00D85B62 /* MBProgressHUD.m */,
+				8EBAC376200CF54E00D85B62 /* 24snaps-Bridging-Header.h */,
 			);
 			path = 24snaps;
 			sourceTree = "<group>";
@@ -103,12 +148,27 @@
 			isa = PBXGroup;
 			children = (
 				8EBAC373200CF30F00D85B62 /* Main.storyboard */,
-				8EBAC36C200CF29F00D85B62 /* iPhone4.7.storyboard */,
-				8EBAC36D200CF2A000D85B62 /* iPhone5.5.storyboard */,
-				8EBAC36B200CF29F00D85B62 /* iPhone5.8.storyboard */,
-				8EBAC36A200CF29F00D85B62 /* Splash.storyboard */,
+				8EBAC3CF200CF5E800D85B62 /* iPhone4.7.storyboard */,
+				8EBAC3D1200CF5E800D85B62 /* iPhone5.5.storyboard */,
+				8EBAC3CD200CF5E800D85B62 /* iPhone5.8.storyboard */,
+				8EBAC3CB200CF5E800D85B62 /* Splash.storyboard */,
 			);
-			path = Storyboards;
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		8EBAC3D7200CF60400D85B62 /* MKAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				8EBAC3D8200CF60400D85B62 /* MKBlockAdditions.h */,
+				8EBAC3D9200CF60400D85B62 /* NSObject+MKBlockAdditions.h */,
+				8EBAC3DA200CF60400D85B62 /* NSObject+MKBlockAdditions.m */,
+				8EBAC3DB200CF60400D85B62 /* UIActionSheet+MKBlockAdditions.h */,
+				8EBAC3DC200CF60400D85B62 /* UIActionSheet+MKBlockAdditions.m */,
+				8EBAC3DD200CF60400D85B62 /* UIAlertView+MKBlockAdditions.h */,
+				8EBAC3DE200CF60400D85B62 /* UIAlertView+MKBlockAdditions.m */,
+			);
+			name = MKAdditions;
+			path = "../../24snaps-ios-backup/DisposableCamera/MKAdditions";
 			sourceTree = "<group>";
 		};
 		FCBC483993991AAD80490F7F /* Pods */ = {
@@ -155,6 +215,7 @@
 				TargetAttributes = {
 					8EBAC344200CF00000D85B62 = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -183,16 +244,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EBAC367200CF1C600D85B62 /* cameraClickFlash.mp3 in Resources */,
-				8EBAC36F200CF2A000D85B62 /* iPhone5.8.storyboard in Resources */,
-				8EBAC371200CF2A000D85B62 /* iPhone5.5.storyboard in Resources */,
+				8EBAC3D4200CF5E800D85B62 /* iPhone5.8.storyboard in Resources */,
 				8EBAC366200CF1C600D85B62 /* cameraClick.mp3 in Resources */,
+				8EBAC3D5200CF5E800D85B62 /* iPhone4.7.storyboard in Resources */,
 				8EBAC368200CF1C600D85B62 /* cameraFilmAdvance.mp3 in Resources */,
+				8EBAC3D6200CF5E800D85B62 /* iPhone5.5.storyboard in Resources */,
+				8EBAC3D3200CF5E800D85B62 /* Splash.storyboard in Resources */,
 				8EBAC375200CF31000D85B62 /* Main.storyboard in Resources */,
 				8EBAC353200CF00000D85B62 /* LaunchScreen.storyboard in Resources */,
 				8EBAC369200CF1C600D85B62 /* cameraFlash.mp3 in Resources */,
 				8EBAC350200CF00000D85B62 /* Assets.xcassets in Resources */,
-				8EBAC36E200CF2A000D85B62 /* Splash.storyboard in Resources */,
-				8EBAC370200CF2A000D85B62 /* iPhone4.7.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,8 +330,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EBAC34B200CF00000D85B62 /* ViewController.swift in Sources */,
+				8EBAC380200CF55300D85B62 /* CameraOverlayViewController.m in Sources */,
+				8EBAC3DF200CF60400D85B62 /* NSObject+MKBlockAdditions.m in Sources */,
 				8EBAC349200CF00000D85B62 /* AppDelegate.swift in Sources */,
+				8EBAC37F200CF55300D85B62 /* BackgroundHelper.m in Sources */,
+				8EBAC3E1200CF60400D85B62 /* UIAlertView+MKBlockAdditions.m in Sources */,
+				8EBAC381200CF55300D85B62 /* FilmRollViewController.m in Sources */,
+				8EBAC382200CF55300D85B62 /* ViewController.m in Sources */,
+				8EBAC3C8200CF5AC00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				8EBAC3CA200CF5AC00D85B62 /* Appirater.m in Sources */,
+				8EBAC3E0200CF60400D85B62 /* UIActionSheet+MKBlockAdditions.m in Sources */,
+				8EBAC3C9200CF5AC00D85B62 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +361,38 @@
 				8EBAC374200CF30F00D85B62 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8EBAC3CB200CF5E800D85B62 /* Splash.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8EBAC3CC200CF5E800D85B62 /* Base */,
+			);
+			name = Splash.storyboard;
+			sourceTree = "<group>";
+		};
+		8EBAC3CD200CF5E800D85B62 /* iPhone5.8.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8EBAC3CE200CF5E800D85B62 /* Base */,
+			);
+			name = iPhone5.8.storyboard;
+			sourceTree = "<group>";
+		};
+		8EBAC3CF200CF5E800D85B62 /* iPhone4.7.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8EBAC3D0200CF5E800D85B62 /* Base */,
+			);
+			name = iPhone4.7.storyboard;
+			sourceTree = "<group>";
+		};
+		8EBAC3D1200CF5E800D85B62 /* iPhone5.5.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8EBAC3D2200CF5E800D85B62 /* Base */,
+			);
+			name = iPhone5.5.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -408,6 +510,7 @@
 			baseConfigurationReference = 31D8452BA539DDD97994B91F /* Pods-24snaps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H799H8B8DD;
 				INFOPLIST_FILE = 24snaps/Info.plist;
@@ -415,6 +518,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.bobbyren.DisposableCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "24snaps/24snaps-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -425,6 +530,7 @@
 			baseConfigurationReference = A61AED7CE4BB7BA7560D06B7 /* Pods-24snaps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H799H8B8DD;
 				INFOPLIST_FILE = 24snaps/Info.plist;
@@ -432,6 +538,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tech.bobbyren.DisposableCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "24snaps/24snaps-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
