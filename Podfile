@@ -7,6 +7,8 @@ target '24snaps' do
   pod 'ParseFacebookUtilsV4'
   pod 'Fabric'
   pod 'Crashlytics'
+
+  pod 'Firebase/Core'
 end
 
 #post_install do |installer|

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:DisposableCamera.xcodeproj">
+      location = "self:24snaps.xcodeproj">
    </FileRef>
 </Workspace>
