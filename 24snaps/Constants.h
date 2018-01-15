@@ -11,7 +11,7 @@
 
 #define MAX_ROLL_SIZE 24
 
-#define TESTING 1
+#define TESTING 0
 #define _storyboard ([UIStoryboard storyboardWithName:@"Main" bundle:nil])
 #define _appDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
