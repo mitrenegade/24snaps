@@ -109,7 +109,7 @@
 			children = (
 				8EBAC348200CF00000D85B62 /* AppDelegate.swift */,
 				8EBAC3E4200D250A00D85B62 /* UIViewController+Utils.swift */,
-				8EBAC34F200CF00000D85B62 /* Assets.xcassets */,
+				8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */,
 				8EBAC354200CF00000D85B62 /* Info.plist */,
 				8EBAC362200CF1C600D85B62 /* cameraClick.mp3 */,
 				8EBAC363200CF1C600D85B62 /* cameraClickFlash.mp3 */,
@@ -123,15 +123,12 @@
 				8EBAC37C200CF55200D85B62 /* FilmRollViewController.m */,
 				8EBAC377200CF54F00D85B62 /* ViewController.h */,
 				8EBAC37D200CF55200D85B62 /* ViewController.m */,
+				8EBAC3ED200D3DD100D85B62 /* Support */,
 				8EBAC372200CF2AF00D85B62 /* Storyboards */,
 				8EBAC3C6200CF5AB00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
 				8EBAC3C2200CF5AA00D85B62 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
 				8EBAC3C4200CF5AB00D85B62 /* MBProgressHUD.h */,
 				8EBAC3C3200CF5AA00D85B62 /* MBProgressHUD.m */,
-				8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */,
-				8EBAC3E8200D2C1900D85B62 /* 24snaps-Bridging-Header.h */,
-				8EBAC3E9200D323200D85B62 /* Constants.h */,
-				8EBAC3EA200D3B9A00D85B62 /* GoogleService-Info.plist */,
 			);
 			path = 24snaps;
 			sourceTree = "<group>";
@@ -146,6 +143,17 @@
 				8EBAC3CB200CF5E800D85B62 /* Splash.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		8EBAC3ED200D3DD100D85B62 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8EBAC3E9200D323200D85B62 /* Constants.h */,
+				8EBAC34F200CF00000D85B62 /* Assets.xcassets */,
+				8EBAC3E8200D2C1900D85B62 /* 24snaps-Bridging-Header.h */,
+				8EBAC3EA200D3B9A00D85B62 /* GoogleService-Info.plist */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 		FCBC483993991AAD80490F7F /* Pods */ = {
@@ -246,11 +254,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-24snaps/Pods-24snaps-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,7 +503,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "24snaps/24snaps-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -513,7 +523,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "24snaps/24snaps-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
