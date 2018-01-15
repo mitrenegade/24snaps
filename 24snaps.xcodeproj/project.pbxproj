@@ -26,6 +26,7 @@
 		8EBAC3D6200CF5E800D85B62 /* iPhone5.5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3D1200CF5E800D85B62 /* iPhone5.5.storyboard */; };
 		8EBAC3E5200D250A00D85B62 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3E4200D250A00D85B62 /* UIViewController+Utils.swift */; };
 		8EBAC3E7200D264D00D85B62 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */; };
+		8EBAC3EB200D3B9B00D85B62 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EBAC3EA200D3B9A00D85B62 /* GoogleService-Info.plist */; };
 		FB917AC59BF48573A28DADAB /* Pods_24snaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C23D79859AA849CAFB6FAD9 /* Pods_24snaps.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		8EBAC3E8200D2C1900D85B62 /* 24snaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "24snaps-Bridging-Header.h"; sourceTree = "<group>"; };
 		8EBAC3E9200D323200D85B62 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8EBAC3EA200D3B9A00D85B62 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A61AED7CE4BB7BA7560D06B7 /* Pods-24snaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-24snaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-24snaps/Pods-24snaps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 				8EBAC3E6200D264D00D85B62 /* AnalyticsService.swift */,
 				8EBAC3E8200D2C1900D85B62 /* 24snaps-Bridging-Header.h */,
 				8EBAC3E9200D323200D85B62 /* Constants.h */,
+				8EBAC3EA200D3B9A00D85B62 /* GoogleService-Info.plist */,
 			);
 			path = 24snaps;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				8EBAC343200CF00000D85B62 /* Resources */,
 				86AC9931213271E274AEE233 /* [CP] Embed Pods Frameworks */,
 				F48D229E3A1D61EC1FD7A7C3 /* [CP] Copy Pods Resources */,
+				8EBAC3EC200D3BDD00D85B62 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -225,6 +229,7 @@
 				8EBAC3D6200CF5E800D85B62 /* iPhone5.5.storyboard in Resources */,
 				8EBAC3D3200CF5E800D85B62 /* Splash.storyboard in Resources */,
 				8EBAC375200CF31000D85B62 /* Main.storyboard in Resources */,
+				8EBAC3EB200D3B9B00D85B62 /* GoogleService-Info.plist in Resources */,
 				8EBAC369200CF1C600D85B62 /* cameraFlash.mp3 in Resources */,
 				8EBAC350200CF00000D85B62 /* Assets.xcassets in Resources */,
 			);
@@ -252,6 +257,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-24snaps/Pods-24snaps-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8EBAC3EC200D3BDD00D85B62 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
 		A31EEE398A1E5AAC3A719F8E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
