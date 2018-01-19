@@ -42,6 +42,8 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>24snaps would like to save photos to your photo library.</string>
+	<string>The current roll of film will be developed into your photo album.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>How else is this disposable camera going to work?</string>
 </dict>
 </plist>
